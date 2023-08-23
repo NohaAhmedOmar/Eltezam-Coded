@@ -1,0 +1,53 @@
+﻿@using System.Globalization;
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = "/Views/Shared/FromLayout.cshtml";
+}
+@{
+    HijriCalendar hijri = new HijriCalendar();
+    var year = hijri.GetYear(DateTime.Now);
+
+}
+<input type="text" id="year" value="@year" hidden />
+<form class="form-valide" action="#" method="post">
+    <div class="form-group row">
+
+        <div class="col-lg-9">
+            <select class="form-control" id="employees" name="val-skill">
+            </select>
+        </div><label class="col-lg-3 col-form-label" for="val-username">
+            الموظف <span class="text-danger">*</span>
+        </label>
+    </div>
+
+@*    <div class="form-group row">
+        <div class="col-lg-3">
+            <input type="text" class="form-control" id="NationalID" name="val-username" placeholder="رقم الهوية الوطنية ">
+        </div><label class="col-lg-3 col-form-label" for="val-username">
+            رقم الهوية الوطنية    <span class="text-danger">*</span>
+        </label>
+        <div class="col-lg-3">
+            <input type="text" class="form-control" id="IqamaNumber" name="val-username" placeholder="رقم الإقامة ">
+        </div><label class="col-lg-3 col-form-label" for="val-username">
+            رقم الإقامة    <span class="text-danger">*</span>
+        </label>
+    </div>
+*@    <div class="form-group row">
+        <div class="col-lg-3">
+            <div class="btn btn-info" onclick="drawVacation()">اضافة اجازة</div>
+        </div>
+
+    </div>
+    <div id="Vacation">
+    </div>
+
+    <center>
+        <div class="btn btn-success" onclick="PostEmployeeVacation()">اضافة</div>
+    </center>
+
+
+
+</form>
+@section Scripts{
+    <script src="~/viewsscripts/RegisterEmployeeVacation.js" asp-append-version="true"></script>
+}

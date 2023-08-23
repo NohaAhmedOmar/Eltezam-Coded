@@ -1,0 +1,332 @@
+﻿@using System.Globalization;
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = "/Views/Shared/FromLayout.cshtml";
+}
+@{
+    HijriCalendar hijri = new HijriCalendar();
+    var year = hijri.GetYear(DateTime.Now);
+
+}
+<input type="text" id="year" value="@year" hidden />
+<form class="form-valide" action="#" method="post">
+
+    <div class="form-group row">
+
+        <div class="col-lg-9">
+            <select class="form-control" id="employees" name="val-skill">
+            </select>
+        </div><label class="col-lg-3 col-form-label" for="val-username">
+            الموظف <span class="text-danger">*</span>
+        </label>
+    </div>
+    <div class="form-group row">
+
+
+        <div class="col-lg-3">
+            <select class="form-control" id="JobClassCode" name="val-skill">
+            </select>
+        </div><label class="col-lg-3 col-form-label" for="val-username">
+            رمز سلسلة الفئات الوظيفية   <span class="text-danger">*</span>
+        </label> 
+        <div class="col-lg-3">
+            <input type="number" class="form-control" id="JobCatChain" name="val-username" placeholder="رمز مسمى الفئة الوظيفية  ">
+
+        </div><label class="col-lg-3 col-form-label" for="val-username">
+            رمز مسمى الفئة الوظيفية   
+        </label>
+        <div class="col-lg-9">
+            <textarea class="form-control h-150px" rows="4" cols="30" id="JobClassDescription"></textarea>
+
+        </div><label class="col-lg-3 col-form-label" for="val-username">
+            وصف سلسلة الفئات الوظيفة    
+        </label> 
+        <div class="col-lg-9">
+            <select class="form-control" id="JobNameCode" name="val-skill">
+            </select>
+        </div><label class="col-lg-3 col-form-label" for="val-username">
+            رمز مسمى الوظيفة    <span class="text-danger">*</span>
+        </label>
+     
+        <div class="col-lg-9">
+            <textarea class="form-control h-150px" rows="4" cols="30" id="JobNameDescription"></textarea>
+
+        </div><label class="col-lg-3 col-form-label" for="val-username">
+            وصف مسمى الوظيفة   
+        </label>
+        <div class="col-lg-9">
+            <select class="form-control" id="EmploymentTypeCode" name="val-skill">
+            </select>
+
+        </div><label class="col-lg-3 col-form-label" for="val-username">
+            رمز السلم الوظيفي   <span class="text-danger">*</span>
+        </label>
+        <div class="col-lg-9">
+            <textarea class="form-control h-150px" rows="4" cols="30" id="EmploymentTypeDescription"></textarea>
+
+        </div><label class="col-lg-3 col-form-label" for="val-username">
+            وصف السلم الوظيفي  
+        </label>
+        <div class="col-lg-9">
+            <select class="form-control" id="RankCode" name="val-skill">
+            </select>
+
+        </div><label class="col-lg-3 col-form-label" for="val-username">
+            رمز المرتبة   <span class="text-danger">*</span>
+        </label>
+        <div class="col-lg-9">
+            <textarea class="form-control h-150px" rows="4" cols="30" id="RankDescription"></textarea>
+
+        </div><label class="col-lg-3 col-form-label" for="val-username">
+            وصف المرتبة 
+        </label>
+        <div class="col-lg-9">
+            <input type="number" class="form-control" id="StepID" name="val-username" placeholder="الدرجة ">
+
+        </div><label class="col-lg-3 col-form-label" for="val-username">
+            الدرجة  
+        </label>
+      </div>
+        <div class="form-group row">
+            <div class="col-lg-3">
+                <select class="form-control" id="stepday" name="val-skill">
+                    <option value="">اختر يوم الدرجة </option>
+
+                </select>
+            </div>
+            <div class="col-lg-3">
+                <select class="form-control" id="stepyear" name="val-skill">
+                    <option value="">اختر سنة الدرجة </option>
+
+                    @for (int i = 1300; i <= year; i++)
+                    {
+                        <option value="@i">  @i </option>
+                    }
+                </select>
+            </div>
+            <div class="col-lg-3">
+                <select class="form-control" onchange="renderDate('stepday', 'stepmonth')" id="stepmonth" name="val-skill">
+                    <option value=""> اختر شهر الدرجة</option>
+                    <option value="01">محرم</option>
+                    <option value="02">صفر</option>
+                    <option value="03">ربيع الأول</option>
+                    <option value="04">	ربيع الآخر	</option>
+                    <option value="05">جمادى الأولى</option>
+                    <option value="06">جمادى الآخرة	</option>
+                    <option value="07">رجب</option>
+                    <option value="08">شعبان</option>
+                    <option value="09">رمضان</option>
+                    <option value="10">شوال</option>
+                    <option value="11">ذو القعدة	</option>
+                    <option value="12">ذو الحجة		</option>
+                </select>
+            </div>
+            <label class="col-lg-3 col-form-label" for="val-username">
+                تاريخ الدرجة    
+            </label>
+        </div>
+    <div class="form-group row">
+        <div class="col-lg-9">
+            <input type="number" min="1000" class="form-control" id="BasicSalary" placeholder="  الراتب الأساسي   ">
+
+        </div>
+        <label class="col-lg-3 col-form-label" for="val-email">
+            الراتب الأساسي  
+            </label> 
+            <div class="col-lg-9">
+            <input type="number" class="form-control" id="DecisionNumber" placeholder="  رقم القرار ">
+
+        </div>
+        <label class="col-lg-3 col-form-label" for="val-email">
+            رقم القرار  
+            </label>
+            </div>
+        <div class="form-group row">
+            <div class="col-lg-3">
+                <select class="form-control" id="Decisionday" name="val-skill">
+                <option value="">اختر يوم  القرار </option>
+
+                </select>
+            </div>
+            <div class="col-lg-3">
+                <select class="form-control" id="Decisionyear" name="val-skill">
+                <option value="">اختر سنة  القرار </option>
+
+                    @for (int i = 1300; i <= year; i++)
+                    {
+                        <option value="@i">  @i </option>
+                    }
+                </select>
+            </div>
+            <div class="col-lg-3">
+                <select class="form-control" onchange="renderDate('Decisionday', 'Decisionmonth')" id="Decisionmonth" name="val-skill">
+                <option value=""> اختر شهر  القرار</option>
+                    <option value="01">محرم</option>
+                    <option value="02">صفر</option>
+                    <option value="03">ربيع الأول</option>
+                    <option value="04">	ربيع الآخر	</option>
+                    <option value="05">جمادى الأولى</option>
+                    <option value="06">جمادى الآخرة	</option>
+                    <option value="07">رجب</option>
+                    <option value="08">شعبان</option>
+                    <option value="09">رمضان</option>
+                    <option value="10">شوال</option>
+                    <option value="11">ذو القعدة	</option>
+                    <option value="12">ذو الحجة		</option>
+                </select>
+            </div>
+            <label class="col-lg-3 col-form-label" for="val-username">
+                تاريخ القرار 
+            </label>
+        </div>
+        <div class="form-group row">
+            <div class="col-lg-3">
+                <select class="form-control" id="Gradeday" name="val-skill">
+                <option value="">اختر يوم  المرتبة </option>
+
+                </select>
+            </div>
+            <div class="col-lg-3">
+                <select class="form-control" id="Gradeyear" name="val-skill">
+                <option value="">اختر سنة  المرتبة </option>
+
+                    @for (int i = 1300; i <= year; i++)
+                    {
+                        <option value="@i">  @i </option>
+                    }
+                </select>
+            </div>
+            <div class="col-lg-3">
+                <select class="form-control" onchange="renderDate('Gradeday', 'Grademonth')" id="Grademonth" name="val-skill">
+                <option value=""> اختر شهر  المرتبة</option>
+                    <option value="01">محرم</option>
+                    <option value="02">صفر</option>
+                    <option value="03">ربيع الأول</option>
+                    <option value="04">	ربيع الآخر	</option>
+                    <option value="05">جمادى الأولى</option>
+                    <option value="06">جمادى الآخرة	</option>
+                    <option value="07">رجب</option>
+                    <option value="08">شعبان</option>
+                    <option value="09">رمضان</option>
+                    <option value="10">شوال</option>
+                    <option value="11">ذو القعدة	</option>
+                    <option value="12">ذو الحجة		</option>
+                </select>
+            </div>
+            <label class="col-lg-3 col-form-label" for="val-username">
+                تاريخ المرتبة 
+            </label>
+        </div>
+    <div class="form-group row">
+        <div class="col-lg-9">
+            <select class="form-control" id="TransactionCode" name="val-skill">
+            </select>
+
+        </div><label class="col-lg-3 col-form-label" for="val-username">
+            رمز الإجراء الوظيفي <span class="text-danger">*</span>
+        </label>  
+        <div class="col-lg-9">
+            <textarea class="form-control h-150px" rows="4" cols="30" id="TransactionDescription"></textarea>
+
+
+        </div><label class="col-lg-3 col-form-label" for="val-username">
+            وصف الإجراء الوظيفي 
+        </label>
+        </div>
+        <div class="form-group row">
+            <div class="col-lg-3">
+                <select class="form-control" id="TransactionStartday" name="val-skill">
+                <option value="">اختر يوم  بداية الإجراء </option>
+
+                </select>
+            </div>
+            <div class="col-lg-3">
+                <select class="form-control" id="TransactionStartyear" name="val-skill">
+                <option value="">اختر سنة  بداية الإجراء </option>
+
+                    @for (int i = 1300; i <= year; i++)
+                    {
+                        <option value="@i">  @i </option>
+                    }
+                </select>
+            </div>
+            <div class="col-lg-3">
+                <select class="form-control" onchange="renderDate('TransactionStartday', 'TransactionStartmonth')" id="TransactionStartmonth" name="val-skill">
+                <option value=""> اختر شهر  بداية الإجراء</option>
+                    <option value="01">محرم</option>
+                    <option value="02">صفر</option>
+                    <option value="03">ربيع الأول</option>
+                    <option value="04">	ربيع الآخر	</option>
+                    <option value="05">جمادى الأولى</option>
+                    <option value="06">جمادى الآخرة	</option>
+                    <option value="07">رجب</option>
+                    <option value="08">شعبان</option>
+                    <option value="09">رمضان</option>
+                    <option value="10">شوال</option>
+                    <option value="11">ذو القعدة	</option>
+                    <option value="12">ذو الحجة		</option>
+                </select>
+            </div>
+            <label class="col-lg-3 col-form-label" for="val-username">
+                تاريخ بداية الإجراء <span class="text-danger">*</span>
+            </label>
+        </div>
+        <div class="form-group row">
+            <div class="col-lg-3">
+                <select class="form-control" id="TransactionEndday" name="val-skill">
+                <option value="">اختر يوم  نهاية الإجراء </option>
+
+                </select>
+            </div>
+            <div class="col-lg-3">
+                <select class="form-control" id="TransactionEndyear" name="val-skill">
+                <option value="">اختر سنة  نهاية الإجراء </option>
+
+                    @for (int i = 1300; i <= year; i++)
+                    {
+                        <option value="@i">  @i </option>
+                    }
+                </select>
+            </div>
+            <div class="col-lg-3">
+                <select class="form-control" onchange="renderDate('TransactionEndday', 'TransactionEndmonth')" id="TransactionEndmonth" name="val-skill">
+                <option value=""> اختر شهر  نهاية الإجراء</option>
+                    <option value="01">محرم</option>
+                    <option value="02">صفر</option>
+                    <option value="03">ربيع الأول</option>
+                    <option value="04">	ربيع الآخر	</option>
+                    <option value="05">جمادى الأولى</option>
+                    <option value="06">جمادى الآخرة	</option>
+                    <option value="07">رجب</option>
+                    <option value="08">شعبان</option>
+                    <option value="09">رمضان</option>
+                    <option value="10">شوال</option>
+                    <option value="11">ذو القعدة	</option>
+                    <option value="12">ذو الحجة		</option>
+                </select>
+            </div>
+            <label class="col-lg-3 col-form-label" for="val-username">
+                تاريخ نهاية الإجراء
+            </label>
+        </div>
+
+    @*        <div class="form-group row">
+    <div class="col-lg-3">
+    <div class="btn btn-info" onclick="drawQualification()">اضافة مؤهل</div>
+    </div>
+
+    </div>
+    *@
+
+
+
+    <center>
+        <div class="btn btn-success" onclick="PostEmployeeHistorical()">اضافة</div>
+    </center>
+
+
+
+</form>
+@section Scripts{
+    <script src="~/viewsscripts/RegisterEmployeeHistorical.js" asp-append-version="true"></script>
+}

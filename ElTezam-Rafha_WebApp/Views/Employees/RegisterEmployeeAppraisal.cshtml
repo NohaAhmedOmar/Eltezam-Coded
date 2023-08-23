@@ -1,0 +1,138 @@
+﻿@using System.Globalization;
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = "/Views/Shared/FromLayout.cshtml";
+}
+@{
+    HijriCalendar hijri = new HijriCalendar();
+    var year = hijri.GetYear(DateTime.Now);
+
+}
+<input type="text" id="year" value="@year" hidden />
+<form class="form-valide" action="#" method="post">
+    
+    <div class="form-group row">
+
+        <div class="col-lg-9">
+            <select class="form-control" id="employees" name="val-skill">
+            </select>
+        </div><label class="col-lg-3 col-form-label" for="val-username">
+            الموظف <span class="text-danger">*</span>
+        </label>
+    </div>
+    <div class="form-group row">
+        <div class="col-lg-3">
+            <select class="form-control" id="startday" name="val-skill">
+                <option value="">اختر يوم   بداية التقييم </option>
+
+            </select>
+        </div>
+        <div class="col-lg-3">
+            <select class="form-control" id="startyear" name="val-skill">
+                <option value="">اختر سنة   بداية التقييم </option>
+
+                @for (int i = 1300; i <= year; i++)
+                {
+                    <option value="@i">  @i </option>
+                }
+            </select>
+        </div>
+        <div class="col-lg-3">
+            <select class="form-control" onchange="renderDate('startday', 'startmonth')" id="startmonth" name="val-skill">
+                <option value=""> اختر شهر   بداية التقييم</option>
+                <option value="01">محرم</option>
+                <option value="02">صفر</option>
+                <option value="03">ربيع الأول</option>
+                <option value="04">	ربيع الآخر	</option>
+                <option value="05">جمادى الأولى</option>
+                <option value="06">جمادى الآخرة	</option>
+                <option value="07">رجب</option>
+                <option value="08">شعبان</option>
+                <option value="09">رمضان</option>
+                <option value="10">شوال</option>
+                <option value="11">ذو القعدة	</option>
+                <option value="12">ذو الحجة		</option>
+            </select>
+        </div>
+        <label class="col-lg-3 col-form-label" for="val-username">
+            تاريخ بداية التقييم <span class="text-danger">*</span>
+        </label> <div class="col-lg-3">
+            <select class="form-control" id="endday" name="val-skill">
+                <option value="">اختر يوم   نهاية التقييم </option>
+
+            </select>
+        </div>
+        <div class="col-lg-3">
+            <select class="form-control" id="endyear" name="val-skill">
+                <option value="">اختر سنة    نهاية التقييم </option>
+
+                @for (int i = 1300; i <= year; i++)
+                {
+                    <option value="@i">  @i </option>
+                }
+            </select>
+        </div>
+        <div class="col-lg-3">
+            <select class="form-control" onchange="renderDate('endday', 'endmonth')" id="endmonth" name="val-skill">
+                <option value=""> اختر شهر نهاية التقييم</option>
+                <option value="01">محرم</option>
+                <option value="02">صفر</option>
+                <option value="03">ربيع الأول</option>
+                <option value="04">	ربيع الآخر	</option>
+                <option value="05">جمادى الأولى</option>
+                <option value="06">جمادى الآخرة	</option>
+                <option value="07">رجب</option>
+                <option value="08">شعبان</option>
+                <option value="09">رمضان</option>
+                <option value="10">شوال</option>
+                <option value="11">ذو القعدة	</option>
+                <option value="12">ذو الحجة		</option>
+            </select>
+        </div>
+        <label class="col-lg-3 col-form-label" for="val-username">
+            تاريخ نهاية التقييم <span class="text-danger">*</span>
+        </label>
+    </div>
+    <div class="form-group row">
+       
+        <div class="col-lg-9">
+            <select class="form-control" id="AppraisalTypeCode" name="val-skill">
+            </select>
+        </div><label class="col-lg-3 col-form-label" for="val-username">
+            نوع التقييم   <span class="text-danger">*</span>
+        </label>
+        <div class="col-lg-3">
+            <input type="text" class="form-control" id="Result" name="val-username" placeholder="النتيجة ">
+
+        </div><label class="col-lg-3 col-form-label" for="val-username">
+            النتيجة   <span class="text-danger">*</span>
+        </label>
+      
+        <div class="col-lg-3">
+            <select class="form-control" id="RatingCode" name="val-skill">
+            </select>
+        </div><label class="col-lg-3 col-form-label" for="val-username">
+            التقدير  <span class="text-danger">*</span>
+        </label>
+       
+    </div>
+    @*        <div class="form-group row">
+    <div class="col-lg-3">
+    <div class="btn btn-info" onclick="drawQualification()">اضافة مؤهل</div>
+    </div>
+
+    </div>
+    *@
+
+   
+
+    <center>
+        <div class="btn btn-success" onclick="PostEmployeeAppraisal()">اضافة</div>
+    </center>
+
+
+
+</form>
+@section Scripts{
+    <script src="~/viewsscripts/RegisterEmployeeAppraisal.js" asp-append-version="true"></script>
+}

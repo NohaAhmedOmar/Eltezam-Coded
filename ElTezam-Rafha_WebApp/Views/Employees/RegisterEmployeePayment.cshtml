@@ -1,0 +1,160 @@
+﻿@using System.Globalization;
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = "/Views/Shared/FromLayout.cshtml";
+}
+@{
+    HijriCalendar hijri = new HijriCalendar();
+    var year = hijri.GetYear(DateTime.Now);
+
+}
+<input type="text" id="year" value="@year" hidden />
+<form class="form-valide" action="#" method="post">
+    <div class="form-group row">
+
+        <div class="col-lg-9">
+            <select class="form-control" id="employees" name="val-skill">
+            </select>
+        </div><label class="col-lg-3 col-form-label" for="val-username">
+            الموظف <span class="text-danger">*</span>
+        </label>
+    </div>
+
+        <div class="form-group row">
+
+    <div class="col-lg-9">
+            <select class="form-control" id="EmploymentTypeCode" name="val-skill">
+            </select>
+        </div><label class="col-lg-3 col-form-label" for="val-username">
+            رمز السلم الوظيفي   <span class="text-danger">*</span>
+    </label>  
+    <div class="col-lg-3">
+            <select class="form-control" id="RankCode" name="val-skill">
+            </select>
+        </div><label class="col-lg-3 col-form-label" for="val-username">
+            رمز المرتبة   <span class="text-danger">*</span>
+    </label>  
+    <div class="col-lg-3">
+            <input type="text" class="form-control" id="StepID" name="val-username" placeholder="الدرجة ">
+
+        </div><label class="col-lg-3 col-form-label" for="val-username">
+            الدرجة   <span class="text-danger">*</span>
+    </label> 
+    <div class="col-lg-3">
+            <select class="form-control" id="ConsolidationSetID" name="val-skill">
+            </select>
+        </div><label class="col-lg-3 col-form-label" for="val-username">
+            رمز نوع المسير   <span class="text-danger">*</span>
+    </label>  
+    <div class="col-lg-3">
+            <input type="text" class="form-control" id="ConsolidationSetDescription" name="val-username" placeholder="وصف نوع المسير">
+
+        </div><label class="col-lg-3 col-form-label" for="val-username">
+            وصف نوع المسير   
+    </label>
+    <div class="col-lg-3">
+            <select class="form-control" id="ElementCode" name="val-skill">
+            </select>
+        </div><label class="col-lg-3 col-form-label" for="val-username">
+            رمز عنصر الصرف   <span class="text-danger">*</span>
+    </label>
+    <div class="col-lg-3">
+            <select class="form-control" id="ElementClassification" name="val-skill">
+            </select>
+        </div><label class="col-lg-3 col-form-label" for="val-username">
+            تصنيف العنصر  <span class="text-danger">*</span>
+    </label> 
+    <div class="col-lg-3">
+            <input type="number" class="form-control" id="Amount" name="val-username" placeholder="القيمة">
+
+        </div><label class="col-lg-3 col-form-label" for="val-username">
+            القيمة <span class="text-danger">*</span>
+    </label> 
+    <div class="col-lg-3">
+            <input type="number" class="form-control" id="NetPay" name="val-username" placeholder="صافي المبلغ المدفوع">
+
+        </div><label class="col-lg-3 col-form-label" for="val-username">
+            صافي المبلغ المدفوع <span class="text-danger">*</span>
+    </label> 
+    <div class="col-lg-3">
+            <input type="number" min="1" max="12" class="form-control" id="HijriMonth" name="val-username" placeholder="الشهر بالهجري">
+
+        </div><label class="col-lg-3 col-form-label" for="val-username">
+            الشهر بالهجري <span class="text-danger">*</span>
+    </label>
+    <div class="col-lg-3">
+            <input type="number" min="1" max="12" class="form-control" id="GregorianMonth" name="val-username" placeholder="الشهر بالميلادي">
+
+        </div><label class="col-lg-3 col-form-label" for="val-username">
+            الشهر بالميلادي <span class="text-danger">*</span>
+    </label>
+    <div class="col-lg-3">
+            <input type="number" min="1" max="12" class="form-control" id="HijriYear" name="val-username" placeholder="السنة بالهجري">
+
+        </div><label class="col-lg-3 col-form-label" for="val-username">
+            السنة بالهجري <span class="text-danger">*</span>
+    </label> 
+    <div class="col-lg-3">
+            <input type="number" min="1" max="12" class="form-control" id="GregorianYear" name="val-username" placeholder="السنة بالميلادي">
+
+        </div><label class="col-lg-3 col-form-label" for="val-username">
+            السنة بالميلادي <span class="text-danger">*</span>
+    </label>
+    </div>
+@*        <div class="form-group row">
+        <div class="col-lg-3">
+            <div class="btn btn-info" onclick="drawQualification()">اضافة مؤهل</div>
+        </div>
+
+    </div>
+*@  
+
+       <div class="form-group row">
+    <div class="col-lg-3">
+    <select class="form-control" id="payday" name="val-skill">
+                <option value="">اختر يوم  تنفيذ المسير </option>
+
+    </select>
+    </div>
+    <div class="col-lg-3">
+            <select class="form-control" id="payyear" name="val-skill">
+                <option value="">اختر سنة  تنفيذ المسير </option>
+
+    @for (int i = 1300; i <= year; i++)
+    {
+    <option value="@i">  @i </option>
+    }
+    </select>
+    </div>
+    <div class="col-lg-3">
+            <select class="form-control" onchange="renderDate('payday', 'paymonth')" id="paymonth" name="val-skill">
+                <option value=""> اختر شهر  تنفيذ المسير</option>
+    <option value="01">محرم</option>
+    <option value="02">صفر</option>
+    <option value="03">ربيع الأول</option>
+    <option value="04">	ربيع الآخر	</option>
+    <option value="05">جمادى الأولى</option>
+    <option value="06">جمادى الآخرة	</option>
+    <option value="07">رجب</option>
+    <option value="08">شعبان</option>
+    <option value="09">رمضان</option>
+    <option value="10">شوال</option>
+    <option value="11">ذو القعدة	</option>
+    <option value="12">ذو الحجة		</option>
+    </select>
+    </div>
+    <label class="col-lg-3 col-form-label" for="val-username">
+            تاريخ تنفيذ المسير <span class="text-danger">*</span>
+    </label>
+    </div>
+
+    <center>
+        <div class="btn btn-success" onclick="PostEmployeePayment()">اضافة</div>
+    </center>
+
+
+
+</form>
+@section Scripts{
+    <script src="~/viewsscripts/RegisterEmployeePayment.js" asp-append-version="true"></script>
+}

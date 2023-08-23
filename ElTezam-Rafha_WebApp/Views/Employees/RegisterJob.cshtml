@@ -1,0 +1,265 @@
+﻿@using System.Globalization;
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = "/Views/Shared/FromLayout.cshtml";
+}
+@{
+    HijriCalendar hijri = new HijriCalendar();
+    var year = hijri.GetYear(DateTime.Now);
+
+}
+<input type="text" id="year" value="@year" hidden />
+<form class="form-valide" action="#" method="post">
+
+    <div class="form-group row">
+
+        <div class="col-lg-9">
+            <select class="form-control" id="employees" name="val-skill">
+            </select>
+        </div><label class="col-lg-3 col-form-label" for="val-username">
+            الموظف <span class="text-danger">*</span>
+        </label>
+    </div>
+    <div class="form-group row">
+  
+
+        <div class="col-lg-9">
+            <input type="number" class="form-control" id="JobNumber" name="val-username" placeholder="رقم الوظيفة ">
+
+        </div><label class="col-lg-3 col-form-label" for="val-username">
+            رقم الوظيفة   <span class="text-danger">*</span>
+        </label>
+
+        <div class="col-lg-3">
+            <select class="form-control" id="JobClassCode" name="val-skill">
+            </select>
+        </div><label class="col-lg-3 col-form-label" for="val-username">
+            رمز سلسلة الفئات الوظيفية   <span class="text-danger">*</span>
+        </label>
+        <div class="col-lg-3">
+            <input type="number" class="form-control" id="JobCatChain" name="val-username" placeholder="رمز مسمى الفئة الوظيفية  ">
+
+        </div><label class="col-lg-3 col-form-label" for="val-username">
+            رمز مسمى الفئة الوظيفية    
+        </label>
+        <div class="col-lg-9">
+            <select class="form-control" id="JobNameCode" name="val-skill">
+            </select>
+        </div><label class="col-lg-3 col-form-label" for="val-username">
+            رمز مسمى الوظيفة    <span class="text-danger">*</span>
+        </label>
+
+        <div class="col-lg-9">
+            <textarea class="form-control h-150px" rows="4" cols="30" id="JobNameDescription"></textarea>
+
+        </div><label class="col-lg-3 col-form-label" for="val-username">
+            وصف مسمى الوظيفة   
+        </label>
+        </div>
+        
+        <div class="form-group row">
+            <div class="col-lg-3">
+                <select class="form-control" id="startday" name="val-skill">
+                    <option value="">اختر يوم البداية </option>
+
+                </select>
+            </div>
+            <div class="col-lg-3">
+                <select class="form-control" id="startyear" name="val-skill">
+                    <option value="">اختر سنة البداية </option>
+
+                    @for (int i = 1300; i <= year; i++)
+                    {
+                        <option value="@i">  @i </option>
+                    }
+                </select>
+            </div>
+            <div class="col-lg-3">
+                <select class="form-control" onchange="renderDate('startday', 'startmonth')" id="startmonth" name="val-skill">
+                    <option value=""> اختر شهر البداية</option>
+                    <option value="01">محرم</option>
+                    <option value="02">صفر</option>
+                    <option value="03">ربيع الأول</option>
+                    <option value="04">	ربيع الآخر	</option>
+                    <option value="05">جمادى الأولى</option>
+                    <option value="06">جمادى الآخرة	</option>
+                    <option value="07">رجب</option>
+                    <option value="08">شعبان</option>
+                    <option value="09">رمضان</option>
+                    <option value="10">شوال</option>
+                    <option value="11">ذو القعدة	</option>
+                    <option value="12">ذو الحجة		</option>
+                </select>
+            </div>
+            <label class="col-lg-3 col-form-label" for="val-username">
+                تاريخ البداية   <span class="text-danger">*</span>
+            </label>
+        </div>
+        <div class="form-group row">
+            <div class="col-lg-3">
+            <select class="form-control" id="endday" name="val-skill">
+                <option value="">اختر يوم النهاية </option>
+
+                </select>
+            </div>
+            <div class="col-lg-3">
+            <select class="form-control" id="endyear" name="val-skill">
+                <option value="">اختر سنة النهاية </option>
+
+                    @for (int i = 1300; i <= year; i++)
+                    {
+                        <option value="@i">  @i </option>
+                    }
+                </select>
+            </div>
+            <div class="col-lg-3">
+            <select class="form-control" onchange="renderDate('endday', 'endmonth')" id="endmonth" name="val-skill">
+                <option value=""> اختر شهر النهاية</option>
+                    <option value="01">محرم</option>
+                    <option value="02">صفر</option>
+                    <option value="03">ربيع الأول</option>
+                    <option value="04">	ربيع الآخر	</option>
+                    <option value="05">جمادى الأولى</option>
+                    <option value="06">جمادى الآخرة	</option>
+                    <option value="07">رجب</option>
+                    <option value="08">شعبان</option>
+                    <option value="09">رمضان</option>
+                    <option value="10">شوال</option>
+                    <option value="11">ذو القعدة	</option>
+                    <option value="12">ذو الحجة		</option>
+                </select>
+            </div>
+            <label class="col-lg-3 col-form-label" for="val-username">
+            تاريخ النهاية   
+            </label>
+        </div>
+        <div class="form-group row">
+        <div class="col-lg-9">
+            <input type="number" class="form-control" id="PositionOrganizationID" name="val-username" placeholder="رمز الإدارة التي تتبعها الوظيفة ">
+
+        </div><label class="col-lg-3 col-form-label" for="val-username">
+            رمز الإدارة التي تتبعها الوظيفة <span class="text-danger">*</span>
+        </label>
+        <div class="col-lg-9">
+            <textarea class="form-control h-150px" rows="4" cols="30" id="PositionOrganizationName"></textarea>
+
+        </div><label class="col-lg-3 col-form-label" for="val-username">
+            وصف الإدارة التي تتبعها الوظيفة <span class="text-danger">*</span>
+        </label>
+        <div class="col-lg-9">
+            <select class="form-control" id="PositionStatus" name="val-skill">
+            </select>
+
+        </div><label class="col-lg-3 col-form-label" for="val-username">
+            حالة الوظيفة   <span class="text-danger">*</span>
+        </label>
+        <div class="col-lg-9">
+            <select class="form-control" id="EmploymentTypeCode" name="val-skill">
+            </select>
+
+        </div><label class="col-lg-3 col-form-label" for="val-username">
+            رمز السلم الوظيفي   <span class="text-danger">*</span>
+        </label>
+      
+        <div class="col-lg-9">
+            <select class="form-control" id="RankCode" name="val-skill">
+            </select>
+
+        </div><label class="col-lg-3 col-form-label" for="val-username">
+            رمز المرتبة   <span class="text-danger">*</span>
+        </label>
+        <div class="col-lg-9">
+            <textarea class="form-control h-150px" rows="4" cols="30" id="RankDescription"></textarea>
+
+        </div><label class="col-lg-3 col-form-label" for="val-username">
+            وصف المرتبة <span class="text-danger">*</span>
+        </label>
+        <div class="col-lg-9">
+            <input type="number" class="form-control" id="StepID" name="val-username" placeholder="الدرجة ">
+
+        </div><label class="col-lg-3 col-form-label" for="val-username">
+            الدرجة   <span class="text-danger">*</span>
+        </label>    
+     @*   <div class="col-lg-9">
+            <select class="form-control" id="JobTransactionCode" name="val-skill">
+            </select>
+        </div><label class="col-lg-3 col-form-label" for="val-username">
+            رمز الإجراء الوظيفي   <span class="text-danger">*</span>
+        </label>*@
+    </div>
+    
+    <div class="form-group row">
+        <div class="col-lg-3">
+            <select class="form-control" id="Vacantday" name="val-skill">
+                <option value="">اختر يوم  شغر الوظيفة </option>
+
+            </select>
+        </div>
+        <div class="col-lg-3">
+            <select class="form-control" id="Vacantyear" name="val-skill">
+                <option value="">اختر سنة  شغر الوظيفة </option>
+
+                @for (int i = 1300; i <= year; i++)
+                {
+                    <option value="@i">  @i </option>
+                }
+            </select>
+        </div>
+        <div class="col-lg-3">
+            <select class="form-control" onchange="renderDate('Vacantday', 'Vacantmonth')" id="Vacantmonth" name="val-skill">
+                <option value=""> اختر شهر  شغر الوظيفة</option>
+                <option value="01">محرم</option>
+                <option value="02">صفر</option>
+                <option value="03">ربيع الأول</option>
+                <option value="04">	ربيع الآخر	</option>
+                <option value="05">جمادى الأولى</option>
+                <option value="06">جمادى الآخرة	</option>
+                <option value="07">رجب</option>
+                <option value="08">شعبان</option>
+                <option value="09">رمضان</option>
+                <option value="10">شوال</option>
+                <option value="11">ذو القعدة	</option>
+                <option value="12">ذو الحجة		</option>
+            </select>
+        </div>
+        <label class="col-lg-3 col-form-label" for="val-username">
+            تاريخ شغر الوظيفة <span class="text-danger">*</span>
+        </label>
+    </div>
+    <div class="form-group row">
+        <div class="col-lg-9">
+            <select class="form-control" id="TransactionCode" name="val-skill">
+            </select>
+
+        </div><label class="col-lg-3 col-form-label" for="val-username">
+            رمز الإجراء الوظيفي <span class="text-danger">*</span>
+        </label>
+        <div class="col-lg-9">
+            <textarea class="form-control h-150px" rows="4" cols="30" id="TransactionDescription"></textarea>
+
+
+        </div><label class="col-lg-3 col-form-label" for="val-username">
+            وصف الإجراء الوظيفي  <span class="text-danger">*</span>
+        </label>
+    </div>
+
+    @*        <div class="form-group row">
+    <div class="col-lg-3">
+    <div class="btn btn-info" onclick="drawQualification()">اضافة مؤهل</div>
+    </div>
+
+    </div>
+    *@
+
+
+
+    <center>
+        <div class="btn btn-success" onclick="PostJob()">اضافة</div>
+    </center>
+
+
+
+</form>
+@section Scripts{
+    <script src="~/viewsscripts/RegisterJob.js" asp-append-version="true"></script>
+}
