@@ -143,9 +143,9 @@ textarea.form-control,
         transition: .3s;
     }
 .odd {
-    background-color: var(--rowdarkbg) !important;
+    /*background-color: var(--rowdarkbg) !important;*/
+    background-color: #fafbfc !important;
     color: black;
-    
 }
 
 .btn-add2{
