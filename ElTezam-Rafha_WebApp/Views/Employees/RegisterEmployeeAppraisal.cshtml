@@ -10,24 +10,22 @@
 }
 <input type="text" id="year" value="@year" hidden />
 <form class="form-valide" action="#" method="post">
-    
-    <div class="form-group row">
 
-        <div class="col-lg-9">
+    <div class="form-group row justify-content-center">
+
+        <div class="col-lg-6">
             <select class="form-control" id="employees" name="val-skill">
             </select>
-        </div><label class="col-lg-3 col-form-label" for="val-username">
-            الموظف <span class="text-danger">*</span>
-        </label>
+        </div>
     </div>
     <div class="form-group row">
-        <div class="col-lg-3">
+        <div class="col-lg-4">
             <select class="form-control" id="startday" name="val-skill">
                 <option value="">اختر يوم   بداية التقييم </option>
 
             </select>
         </div>
-        <div class="col-lg-3">
+        <div class="col-lg-4">
             <select class="form-control" id="startyear" name="val-skill">
                 <option value="">اختر سنة   بداية التقييم </option>
 
@@ -37,7 +35,7 @@
                 }
             </select>
         </div>
-        <div class="col-lg-3">
+        <div class="col-lg-4">
             <select class="form-control" onchange="renderDate('startday', 'startmonth')" id="startmonth" name="val-skill">
                 <option value=""> اختر شهر   بداية التقييم</option>
                 <option value="01">محرم</option>
@@ -54,15 +52,13 @@
                 <option value="12">ذو الحجة		</option>
             </select>
         </div>
-        <label class="col-lg-3 col-form-label" for="val-username">
-            تاريخ بداية التقييم <span class="text-danger">*</span>
-        </label> <div class="col-lg-3">
+        <div class="col-lg-4">
             <select class="form-control" id="endday" name="val-skill">
                 <option value="">اختر يوم   نهاية التقييم </option>
 
             </select>
         </div>
-        <div class="col-lg-3">
+        <div class="col-lg-4">
             <select class="form-control" id="endyear" name="val-skill">
                 <option value="">اختر سنة    نهاية التقييم </option>
 
@@ -72,7 +68,7 @@
                 }
             </select>
         </div>
-        <div class="col-lg-3">
+        <div class="col-lg-4">
             <select class="form-control" onchange="renderDate('endday', 'endmonth')" id="endmonth" name="val-skill">
                 <option value=""> اختر شهر نهاية التقييم</option>
                 <option value="01">محرم</option>
@@ -89,32 +85,24 @@
                 <option value="12">ذو الحجة		</option>
             </select>
         </div>
-        <label class="col-lg-3 col-form-label" for="val-username">
-            تاريخ نهاية التقييم <span class="text-danger">*</span>
-        </label>
+
     </div>
     <div class="form-group row">
-       
-        <div class="col-lg-9">
+
+        <div class="col-lg-4">
             <select class="form-control" id="AppraisalTypeCode" name="val-skill">
             </select>
-        </div><label class="col-lg-3 col-form-label" for="val-username">
-            نوع التقييم   <span class="text-danger">*</span>
-        </label>
-        <div class="col-lg-3">
+        </div>
+        <div class="col-lg-4">
             <input type="text" class="form-control" id="Result" name="val-username" placeholder="النتيجة ">
 
-        </div><label class="col-lg-3 col-form-label" for="val-username">
-            النتيجة   <span class="text-danger">*</span>
-        </label>
-      
-        <div class="col-lg-3">
+        </div>
+
+        <div class="col-lg-4">
             <select class="form-control" id="RatingCode" name="val-skill">
             </select>
-        </div><label class="col-lg-3 col-form-label" for="val-username">
-            التقدير  <span class="text-danger">*</span>
-        </label>
-       
+        </div>
+
     </div>
     @*        <div class="form-group row">
     <div class="col-lg-3">
@@ -124,10 +112,10 @@
     </div>
     *@
 
-   
 
-    <center>
-        <div class="btn btn-success" onclick="PostEmployeeAppraisal()">اضافة</div>
+
+    <center class="row justify-content-end">
+        <div class="btn btn-sent btn-add2" onclick="PostEmployeeAppraisal()">اضافة</div>
     </center>
 
 

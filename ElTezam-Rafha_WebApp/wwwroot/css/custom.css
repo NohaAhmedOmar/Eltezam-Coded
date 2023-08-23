@@ -1,0 +1,192 @@
+﻿
+:root {
+    --darkblue: #1b1a46;
+    --lightblue: #303057;
+    --lightgreen: #92D1C7;
+    --lightfont: #71758d;
+    --basic: #539797;
+    --btnbg: #58abc8;
+    --btn-gray: #b3b2b3;
+    --btnhoverbg: #03b2cb;
+    --rowdarkbg: #7BA7A4;
+    --darkgreen: #658e86;
+    --headerbg: #58abc8;
+    --navbg: #f2fbff;
+}
+body {
+    background-color: #fff !important;
+    font-family:myfont;
+   
+}
+@font-face{
+    font-family:myfont;
+    src:url(alfont_com_HONORSansArabicUI-R.ttf);
+}
+.page-titles {
+    margin-bottom: 20px;
+    background-color: #fff;
+}
+
+.nk-sidebar {
+    background-color: var(--navbg);
+}
+.nav-header {
+    background-color: var(--headerbg) !important;
+}
+.metismenu .collapse.in {
+    background-color: var(--navbg);
+}
+.nk-sidebar .metismenu {
+    background-color: var(--navbg) !important;
+}
+        .nk-sidebar .metismenu > li{
+            color:black !important;
+            
+        }
+        .nk-sidebar .metismenu a:hover,
+        .nk-sidebar .metismenu a.active {
+            color:var(--btnbg) !important;
+        }
+        .metismenu > li.active span {
+            color: black !important;
+        }
+.nk-sidebar .metismenu > li ul a {
+    background-color:var(--navbg);
+    color: black !important;
+    margin-bottom:10px !important;
+}
+
+
+.nk-sidebar .metismenu > li a > i{
+    color:black;
+}
+.nk-sidebar .metismenu > li a > span{
+    color:black;
+}
+.nk-sidebar .metismenu > li:hover > a {
+    color: black;
+}
+
+.metismenu > li.active > a {
+    background-color: #f2fbff !important;
+}
+
+.card .card-body {
+    box-shadow: -10px -10px 5px #DBDBDB;
+   font-family:myfont;
+    
+}
+form .col-lg-9 {
+    margin-bottom: 20px;
+   
+}
+textarea.form-control,
+.form-control {
+    margin-bottom: 20px;
+   
+
+}
+
+.col-form-label {
+    background-color: #DBDBDB;
+    color: black;
+    margin-bottom: 20px;
+    text-align: right;
+    
+    font-weight: bold;
+}
+.btn-register {
+    background-color: var(--btnbg);
+    color: #fff;
+    transition: .2s;
+    border-radius: 5px;
+    padding: 0;
+    margin-right: 3px;
+}
+    .btn-register:hover {
+        background-color: var(--btnhoverbg);
+    }
+
+.data-title {
+    font-size: 25px;
+    font-family:myfont;
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-align: right;
+    
+}
+.btn-sent {
+    background-color: var(--btnbg);
+    transition: .3s;
+    color: #fff;
+    border-radius: 5px;
+    padding: 0;
+    margin-right: 3px;
+}
+    .btn-sent:hover {
+        background-color: #3b6297;
+        
+    }
+    .btn-danger{
+    border-radius:5px;
+   padding:0;
+}
+.btn-download {
+    background-color: #5d854c;
+    color: #fff;
+    border-radius: 5px;
+    padding: 0;
+    margin-right: 3px;
+}
+    .btn-download:hover {
+        background-color: var(--btnhoverbg);
+        transition: .3s;
+    }
+.odd {
+    background-color: var(--rowdarkbg) !important;
+    color: black;
+    
+}
+
+.btn-add2{
+    background-color:var(--btnbg);
+    color:#fff;
+    padding:0;
+    border-radius:5px;
+    padding:10px 20px;
+}
+.btn-add1{
+    padding:10px 5px;
+}
+.btn-add-quali:hover{
+    background-color:var(--btnhoverbg);
+    transition:.3s;
+    color:var(--lightblue);
+}
+.btn-post-employee {
+    background-color: #b3b2b3;
+    color: #fff;
+   padding:0;
+   border-radius:5px;
+    float: right;
+}
+.btn-post-employee:hover{
+    background-color:#ddd;
+    transition:.2s;
+    color:var(--lightblue);
+    transition:.3s;
+}
+.btn-add-vaca {
+    background-color: var(--btn-gray);
+    color: #fff;
+   border-radius:5px;
+   padding:0;
+}
+    .btn-add-vaca:hover {
+        background-color: #ddd;
+        color:black;
+        transition:.3s;
+    }
+
+    
+
