@@ -665,17 +665,46 @@ namespace ElTezam_Coded_WebApp.DomainModels
 
                 entity.Property(e => e.UpdatedDate).HasColumnType("datetime");
 
+                entity.HasOne(d => d.Appraisal)
+                    .WithMany(p => p.ServiceResponses)
+                    .HasForeignKey(d => d.AppraisalId)
+                    .HasConstraintName("FK__ServiceRe__Appra__4959E263");
+
                 entity.HasOne(d => d.Employee)
                     .WithMany(p => p.ServiceResponses)
                     .HasForeignKey(d => d.EmployeeId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__ServiceRe__Emplo__28ED12D1");
+                    .HasConstraintName("FK__ServiceRe__Emplo__4865BE2A");
+
+                entity.HasOne(d => d.EmployeeJob)
+                    .WithMany(p => p.ServiceResponses)
+                    .HasForeignKey(d => d.EmployeeJobId)
+                    .HasConstraintName("FK__ServiceRe__Emplo__4B422AD5");
+
+                entity.HasOne(d => d.EmployeePay)
+                    .WithMany(p => p.ServiceResponses)
+                    .HasForeignKey(d => d.EmployeePayId)
+                    .HasConstraintName("FK__ServiceRe__Emplo__4C364F0E");
+
+                entity.HasOne(d => d.Historical)
+                    .WithMany(p => p.ServiceResponses)
+                    .HasForeignKey(d => d.HistoricalId)
+                    .HasConstraintName("FK__ServiceRe__Histo__4A4E069C");
+
+                entity.HasOne(d => d.Qualification)
+                    .WithMany(p => p.ServiceResponses)
+                    .HasForeignKey(d => d.QualificationId)
+                    .HasConstraintName("FK__ServiceRe__Quali__4D2A7347");
 
                 entity.HasOne(d => d.ServiceEntityNavigation)
                     .WithMany(p => p.ServiceResponses)
                     .HasForeignKey(d => d.ServiceEntity)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__ServiceRe__Servi__27F8EE98");
+                    .HasConstraintName("FK__ServiceRe__Servi__477199F1");
+
+                entity.HasOne(d => d.Vacation)
+                    .WithMany(p => p.ServiceResponses)
+                    .HasForeignKey(d => d.VacationId)
+                    .HasConstraintName("FK__ServiceRe__Vacat__4E1E9780");
             });
 
             modelBuilder.Entity<SubCity>(entity =>

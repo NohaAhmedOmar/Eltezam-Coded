@@ -5,6 +5,11 @@ namespace ElTezam_Coded_WebApp.DomainModels
 {
     public partial class EmployeeHistoricalInfo
     {
+        public EmployeeHistoricalInfo()
+        {
+            ServiceResponses = new HashSet<ServiceResponse>();
+        }
+
         public long Id { get; set; }
         public long EmployeeId { get; set; }
         public string NationalId { get; set; } = null!;
@@ -28,5 +33,6 @@ namespace ElTezam_Coded_WebApp.DomainModels
         public virtual Code JobClassCodeNavigation { get; set; } = null!;
         public virtual Code JobNameCodeNavigation { get; set; } = null!;
         public virtual Code RankCodeNavigation { get; set; } = null!;
+        public virtual ICollection<ServiceResponse> ServiceResponses { get; set; }
     }
 }

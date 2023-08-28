@@ -43,7 +43,7 @@ namespace Eltezam_Coded.Services
         Task<ResponseModel> BulkDeleteEmployeeAppraisal(List<int> Ids);
         Task<ResponseModel> BulkDeleteEmployeeHistorical(List<int> Ids);
         Task<ResponseModel> BulkDeleteJob(List<int> Ids);
-        Task<bool> SaveResponseNumber(int ServiceEntity, long EmployeeId, string ResponseNumber);
+        Task<bool> SaveResponseNumber(int ServiceEntity, long Id, string ResponseNumber);
     }
     public class EmployeeService : IEmployeeService
     {
@@ -770,16 +770,40 @@ namespace Eltezam_Coded.Services
             return res == 2 ? new ResponseModel { IsSuccess = true, Data = job, RequestNumber = request.RequestNumber, StatusCode = 201 } : new ResponseModel { IsSuccess = false, Data = jobDTO, StatusCode = 400 };
         }
 
-        public Task<bool> SaveResponseNumber(int ServiceEntity, long EmployeeId, string? ResponseNumber)
+        public Task<bool> SaveResponseNumber(int ServiceEntity, long Id, string? ResponseNumber)
         {
             bool result = false;
             try
             {
                 //var res = employeeDapper.RunDML($"update Employees set ServiceResponseNumber = {ResponseNumber} where NationalId={NationalId}");
-                ServiceResponse obj = context.ServiceResponses.Where(a => a.EmployeeId == EmployeeId && a.ServiceEntity == ServiceEntity).FirstOrDefault();
+                ServiceResponse obj = null;
+                switch (ServiceEntity)
+                {
+                    case 1:
+                        obj = context.ServiceResponses.Where(a => a.EmployeeId == Id && a.ServiceEntity == ServiceEntity).FirstOrDefault();
+                        break;
+                    case 2:
+                        obj = context.ServiceResponses.Where(a => a.AppraisalId == Id && a.ServiceEntity == ServiceEntity).FirstOrDefault();
+                        break;
+                    case 3:
+                        obj = context.ServiceResponses.Where(a => a.HistoricalId == Id && a.ServiceEntity == ServiceEntity).FirstOrDefault();
+                        break;
+                    case 4:
+                        obj = context.ServiceResponses.Where(a => a.EmployeeJobId == Id && a.ServiceEntity == ServiceEntity).FirstOrDefault();
+                        break;
+                    case 5:
+                        obj = context.ServiceResponses.Where(a => a.EmployeePayId == Id && a.ServiceEntity == ServiceEntity).FirstOrDefault();
+                        break;
+                    case 6:
+                        obj = context.ServiceResponses.Where(a => a.QualificationId == Id && a.ServiceEntity == ServiceEntity).FirstOrDefault();
+                        break;
+                    case 7:
+                        obj = context.ServiceResponses.Where(a => a.VacationId == Id && a.ServiceEntity == ServiceEntity).FirstOrDefault();
+                        break;
+                }
                 if (obj != null)
                 {
-                    //obj.UpdatedDate = DateTime.Now;
+                    obj.UpdatedDate = DateTime.Now;
                     obj.ResponseNumber = ResponseNumber;
 
                     context.SaveChanges();
@@ -788,11 +812,34 @@ namespace Eltezam_Coded.Services
                 {
                     obj = new ServiceResponse()
                     {
-                        EmployeeId = EmployeeId,
                         ResponseNumber = ResponseNumber,
                         ServiceEntity = ServiceEntity,
                         CreatedDate = DateTime.Now
                     };
+                    switch (ServiceEntity)
+                    {
+                        case 1:
+                            obj.EmployeeId = Id;
+                            break;
+                        case 2:
+                            obj.AppraisalId = (int?)Id;
+                            break;
+                        case 3:
+                            obj.HistoricalId = Id;
+                            break;
+                        case 4:
+                            obj.EmployeeJobId = (int?)Id;
+                            break;
+                        case 5:
+                            obj.EmployeePayId = (int?)Id;
+                            break;
+                        case 6:
+                            obj.QualificationId = (int?)Id;
+                            break;
+                        case 7:
+                            obj.VacationId = Id;
+                            break;
+                    }
 
                     context.ServiceResponses.Add(obj);
                     context.SaveChanges();

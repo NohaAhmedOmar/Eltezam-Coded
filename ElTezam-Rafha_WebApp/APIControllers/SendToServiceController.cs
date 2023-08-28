@@ -1105,7 +1105,7 @@ namespace ElTezam_Coded_WebApp.APIControllers
             xmlDoc.AppendChild(envelopeElement);
             return xmlDoc.OuterXml;
         }
-        private async Task<bool> saveResponseNumber(int ServiceEntity, long EmployeeId, string? ResponseNumber)
+        private async Task<bool> saveResponseNumber(int ServiceEntity, long Id, string? ResponseNumber)
         {
             bool result = false;
 
@@ -1113,7 +1113,7 @@ namespace ElTezam_Coded_WebApp.APIControllers
             {
                 if (!string.IsNullOrEmpty(ResponseNumber))
                 {
-                    result = await employeeService.SaveResponseNumber(ServiceEntity, EmployeeId, ResponseNumber);
+                    result = await employeeService.SaveResponseNumber(ServiceEntity, Id, ResponseNumber);
                 }
             }
             catch (Exception)

@@ -5,6 +5,11 @@ namespace ElTezam_Coded_WebApp.DomainModels
 {
     public partial class EmployeeAppraisalInfo
     {
+        public EmployeeAppraisalInfo()
+        {
+            ServiceResponses = new HashSet<ServiceResponse>();
+        }
+
         public int AppraisalId { get; set; }
         public string StartDate { get; set; } = null!;
         public string EndDate { get; set; } = null!;
@@ -20,5 +25,6 @@ namespace ElTezam_Coded_WebApp.DomainModels
 
         public virtual Employee Employee { get; set; } = null!;
         public virtual RequestIdentity? RequestIdentity { get; set; }
+        public virtual ICollection<ServiceResponse> ServiceResponses { get; set; }
     }
 }

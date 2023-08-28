@@ -35,11 +35,11 @@ namespace Eltezam_Coded.Enums
         }
         public static class MaritalStatusType
         {
-            public static int Single { get; set; } = 13243;
-            public static int Married { get; set; } = 13244;
-            public static int Divorced { get; set; } = 13245;
-            public static int Widowed { get; set; } = 13246;
-            public static int Undefined { get; set; } = 13247;
+            public static int Single { get; set; } = 30030;
+            public static int Married { get; set; } = 30031;
+            public static int Divorced { get; set; } = 30032;
+            public static int Widowed { get; set; } = 30033;
+            public static int Undefined { get; set; } = 30034;
             public static List<DropDownModel> GetMaritalStatusType() =>
                 new List<DropDownModel> { new DropDownModel { Id = nameof(Single), Value = Single }, new DropDownModel { Id = nameof(Married), Value = Married }, new DropDownModel { Id = nameof(Divorced), Value = Divorced }, new DropDownModel { Id = nameof(Undefined), Value = Undefined }, new DropDownModel { Id = nameof(Widowed), Value = Widowed } };
             public static string SearchMaritalStatus(int value) =>
@@ -47,14 +47,15 @@ namespace Eltezam_Coded.Enums
         }
         public static class HealthStatusType
         {
-            public static int Healthy { get; set; } = 13248;
-            public static int Blind { get; set; } = 13249;
-            public static int Dumb { get; set; } = 13250;
-            public static int Deaf { get; set; } = 13251;
-            public static int Mental_Handicaps { get; set; } = 13252;
-            public static int Mobility_Disability { get; set; } = 13253;
-            public static int Speech_Difficulty { get; set; } = 13254;
-            public static int Other { get; set; } = 13255;
+            public static int Healthy { get; set; } = 30035;
+            public static int Blind { get; set; } = 30036;
+            public static int Dumb { get; set; } = 30037;
+            public static int Deaf { get; set; } = 30038;
+            public static int Mental_Handicaps { get; set; } = 30039;
+            public static int Mobility_Disability { get; set; } = 30040;
+            public static int Missing_Parties { get; set; } = 30041;
+            public static int Speech_Difficulty { get; set; } = 30042;
+            public static int Other { get; set; } = 30043;
             public static List<DropDownModel> GetHealthStatusType() =>
                 new List<DropDownModel> { new DropDownModel { Id=nameof(Healthy),Value= Healthy }, new DropDownModel { Id=nameof(Blind),Value= Blind },
                     new DropDownModel {Id=nameof(Dumb),Value= Dumb },
@@ -71,9 +72,9 @@ namespace Eltezam_Coded.Enums
         }
         public static class ReligionType
         {
-            public static int Muslim { get; set; } = 8364;
-            public static int Christian { get; set; } = 8365;
-            public static int Other { get; set; } = 8366;
+            public static int Muslim { get; set; } = 27034;
+            public static int Christian { get; set; } = 27035;
+            public static int Other { get; set; } = 27036;
 
             public static List<DropDownModel> GetReligionType() =>
                 new List<DropDownModel> { new DropDownModel { Id=nameof(Muslim),Value= Muslim }, new DropDownModel { Id=nameof(Christian),Value= Christian },

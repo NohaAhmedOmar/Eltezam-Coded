@@ -5,6 +5,11 @@ namespace ElTezam_Coded_WebApp.DomainModels
 {
     public partial class EmployeeVacation
     {
+        public EmployeeVacation()
+        {
+            ServiceResponses = new HashSet<ServiceResponse>();
+        }
+
         public long VacationId { get; set; }
         public string StartDate { get; set; } = null!;
         public string EndDate { get; set; } = null!;
@@ -23,5 +28,6 @@ namespace ElTezam_Coded_WebApp.DomainModels
         public virtual Employee Empoyee { get; set; } = null!;
         public virtual RequestIdentity? RequestIdentity { get; set; }
         public virtual Code VacationCodeNavigation { get; set; } = null!;
+        public virtual ICollection<ServiceResponse> ServiceResponses { get; set; }
     }
 }

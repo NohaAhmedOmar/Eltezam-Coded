@@ -5,6 +5,11 @@ namespace ElTezam_Coded_WebApp.DomainModels
 {
     public partial class EmployeeQualification
     {
+        public EmployeeQualification()
+        {
+            ServiceResponses = new HashSet<ServiceResponse>();
+        }
+
         public int QualificationId { get; set; }
         public string QualificationCode { get; set; } = null!;
         public int QualificationCodeId { get; set; }
@@ -30,5 +35,6 @@ namespace ElTezam_Coded_WebApp.DomainModels
         public virtual Code QualificationCodeNavigation { get; set; } = null!;
         public virtual RequestIdentity? RequestIdentity { get; set; }
         public virtual University UniversityCodeNavigation { get; set; } = null!;
+        public virtual ICollection<ServiceResponse> ServiceResponses { get; set; }
     }
 }

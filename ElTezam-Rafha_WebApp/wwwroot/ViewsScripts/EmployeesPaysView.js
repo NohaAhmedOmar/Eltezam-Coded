@@ -17,24 +17,13 @@ function GetEmployees() {
         success: function (results) {
        
             $.each(results.data, function (i, result) {
-
-                //table += '<tr>';
-                //table += '<td>' + result.name + '</td>';
-                //table += '<td>' + result.birthDate + '</td>';
-                //table += '<td>' + result.nationality + '</td>';
-                //table += '<td>' + result.jobNameCode + '</td>';
-                //table += '<td>' + result.rankCode + '</td>';
-                //table += '<td>' + result.transactionCode + '</td>';
-
                 Employees.push({
                     id: result.id, name: result.name, elementClassification: result.elementClassification, netPay: result.netPay,
                     amount: result.amount, rankCode: result.rankCode, paidDate: result.paidDate, rankCodeKey: result.rankCodeKey,
                     elementCode: result.elementCode, employmentTypeCode: result.employmentTypeCode, stepId: result.stepId,
                     consolidationSetId: result.consolidationSetId, hijriMonth: result.hijriMonth, gregorianMonth: result.gregorianMonth,
                     hijriYear: result.hijriYear, gregorianYear: result.gregorianYear
-                })
-
-
+                });
             });
             $('#employeeData').DataTable({
                 'language': {
