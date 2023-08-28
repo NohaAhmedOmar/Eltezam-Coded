@@ -7,8 +7,8 @@
 <form class="form-valide" action="#" method="post">
     <div class="form-group row">
 
-        <div class="col-lg-6">
-            <input type="text" class="form-control" id="NationalID" placeholder="رقم الهوية الوطنية">
+        <div class="col-lg-6 d-flex flex-row">
+            <span style="color:red">*</span><input type="text" class="form-control" id="NationalID" placeholder="رقم الهوية الوطنية" required />
         </div>
 
         <div class="col-lg-6">
@@ -17,25 +17,25 @@
     </div>
     <div class="form-group row justify-content-around">
 
-        <div class="col-lg-6">
-            <input type="text" class="form-control" id="SecondNameAr" placeholder="الأسم الأب">
+        <div class="col-lg-6 d-flex flex-row">
+            <span style="color:red">*</span><input type="text" class="form-control" id="SecondNameAr" placeholder="الأسم الأب" required>
         </div>
-        <div class="col-lg-6">
-            <input type="text" class="form-control" id="FirstNameAr" placeholder="الأسم الأول">
-        </div>   <div class="col-lg-6">
-            <input type="text" class="form-control" id="LastNameAr" placeholder="الإسم العائلة">
+        <div class="col-lg-6 d-flex flex-row">
+            <span style="color:red">*</span><input type="text" class="form-control" id="FirstNameAr" placeholder="الأسم الأول" required>
+        </div>   <div class="col-lg-6 d-flex flex-row">
+            <span style="color:red">*</span><input type="text" class="form-control" id="LastNameAr" placeholder="الإسم العائلة" required>
         </div>  <div class="col-lg-6">
             <input type="text" class="form-control" id="ThirdNameAr" placeholder="الإسم الجد">
         </div>
     </div>
     <div class="form-group row justify-content-around">
 
-        <div class="col-lg-6">
-            <input type="text" class="form-control" id="SecondNameEn" placeholder="الإسم الأب باللغة الانجليزية">
-        </div>   <div class="col-lg-6">
-            <input type="text" class="form-control" id="FirstNameEn" placeholder="الإسم الأول  باللغة الانجليزية">
-        </div>   <div class="col-lg-6">
-            <input type="text" class="form-control" id="LastNameEn" placeholder=" الإسم العائلة   باللغة الانجليزية">
+        <div class="col-lg-6 d-flex flex-row">
+            <span style="color:red">*</span><input type="text" class="form-control" id="SecondNameEn" placeholder="الإسم الأب باللغة الانجليزية" required>
+        </div>   <div class="col-lg-6 d-flex flex-row">
+            <span style="color:red">*</span><input type="text" class="form-control" id="FirstNameEn" placeholder="الإسم الأول  باللغة الانجليزية" required>
+        </div>   <div class="col-lg-6 d-flex flex-row">
+            <span style="color:red">*</span><input type="text" class="form-control" id="LastNameEn" placeholder=" الإسم العائلة   باللغة الانجليزية" required>
         </div>  <div class="col-lg-6">
             <input type="text" class="form-control" id="ThirdNameEn" placeholder="الإسم الجد  باللغة الانجليزية">
         </div>
@@ -48,15 +48,152 @@
             <input type="email" class="form-control" id="Email" placeholder="البريد الإلكتروني">
         </div>
     </div>
-    <div class="form-group row">
-        <div class="col-lg-4">
-            <select class="form-control" id="birthday" name="val-skill">
-                <option value="">اختر يوم الميلاد </option>
 
+    <div class="form-group row">
+
+        <div class="col-lg-6 d-flex flex-row">
+            <span style="color:red">*</span><select class="form-control select2Class" id="gender" name="val-skill" required>
             </select>
         </div>
+
+        <div class="col-lg-6 d-flex flex-row">
+            <span style="color:red">*</span><select class="form-control select2Class" id="nation" name="val-skill" required>
+            </select>
+        </div>
+
+    </div>
+    <div class="form-group row">
+
+        <div class="col-lg-6">
+            <select class="form-control select2Class" id="religion" name="val-skill">
+            </select>
+        </div>
+
+
+        <div class="col-lg-6">
+            <select class="form-control select2Class" id="bloodType" name="val-skill">
+            </select>
+        </div>
+
+    </div>
+    <div class="form-group row">
+
+        <div class="col-lg-6 d-flex flex-row">
+            <span style="color:red">*</span><select class="form-control select2Class" id="maritalStatus" name="val-skill" required>
+            </select>
+        </div>
+
+        <div class="col-lg-6 d-flex flex-row">
+            <span style="color:red">*</span><select class="form-control select2Class" id="healthstatus" name="val-skill" required>
+            </select>
+        </div>
+
+    </div>
+    <div class="form-group row">
+
+        <div class="col-lg-6 d-flex flex-row">
+            <span style="color:red">*</span><select class="form-control select2Class" id="employeeStatusCode" name="val-skill" required>
+            </select>
+        </div>
+
+        <div class="col-lg-6 d-flex flex-row">
+            <span style="color:red">*</span><input type="text" class="form-control" id="JobNumber" placeholder="رقم الوظيفة" required>
+
+        </div>
+
+    </div>
+    <div class="form-group row">
+
+        <div class="col-lg-6 d-flex flex-row">
+            <span style="color:red">*</span><select class="form-control select2Class" id="jobClassCode" name="val-skill" required>
+            </select>
+        </div>
+
+
+        <div class="col-lg-6">
+            <textarea class="form-control h-150px" rows="4" cols="30" id="jobClassDescription" placeholder="وصف سلسلة الفئات الوظيفة"></textarea>
+
+        </div>
+        <div class="col-lg-6">
+            <input type="text" class="form-control" id="jobCatChain" placeholder="رمز مسمى الفئة الوظيفية">
+
+        </div>
+
+        <div class="col-lg-6">
+            <select class="form-control select2Class" id="JobNameCode" name="val-skill">
+            </select>
+
+        </div>
+
+        <div class="col-lg-6">
+            <textarea class="form-control h-150px" rows="4" cols="30" id="jobNameDescription" placeholder="وصف مسمى الوظيفة"></textarea>
+
+        </div>
+        <div class="col-lg-6 d-flex flex-row">
+            <span style="color:red">*</span><select class="form-control select2Class" id="employmentTypeCode" name="val-skill" required>
+            </select>
+        </div>
+
+
+
+    </div>
+    <div class="form-group row justify-content-around">
+        <div class="col-lg-6">
+            <input type="number" class="form-control" id="RemainingAnnualBalance" placeholder="الرصيد المتبقي السنوي">
+
+        </div>
+
+        <div class="col-lg-6">
+            <input type="number" class="form-control" id="RemainingBusinessBalance" placeholder="رصيد الانتداب المتبقي">
+
+        </div>
+
+        <div class="col-lg-6">
+            <select class="form-control select2Class" id="TransactionCode" name="val-skill">
+            </select>
+        </div>
+
+        <div class="col-lg-6 d-flex flex-row">
+            <span style="color:red">*</span><select class="form-control select2Class" id="IsActive" name="val-skill" required>
+                <option>على رأس العمل ؟</option>
+                <option value="true">نعم</option>
+                <option value="false">لا</option>
+            </select>
+        </div>
+
+        <div class="col-lg-6">
+            <select class="form-control select2Class" id="TerminationReasonCode" name="val-skill">
+            </select>
+        </div>
+        <div class="col-lg-6">
+            <input type="text" class="form-control" id="actualOrganizationName" placeholder=" مسمى الإدارة الفعلية للموظف">
+
+        </div>
+
+    </div>
+    <div class="row">
         <div class="col-lg-4">
-            <select class="form-control" id="birthyear" name="val-skill">
+            <textarea class="form-control h-150px" rows="4" cols="30" id="employmentTypeDescription" placeholder="وصف السلم الوظيفي"></textarea>
+
+        </div>
+        <div class="col-lg-4 d-flex flex-row">
+            <span style="color:red">*</span><select class="form-control select2Class" id="rankCode" name="val-skill" required>
+            </select>
+        </div>
+
+        <div class="col-lg-4 d-flex flex-row">
+            <span style="color:red">*</span><input type="text" class="form-control" id="stepID" placeholder="الدرجة" required>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-lg-4 d-flex flex-row">
+            <span style="color:red">*</span><select class="form-control select2Class" id="birthday" name="val-skill" required>
+                <option value="">اختر يوم الميلاد </option>
+            </select>
+        </div>
+        <div class="col-lg-4 d-flex flex-row">
+            <span style="color:red">*</span><select class="form-control select2Class" id="birthyear" name="val-skill" required>
                 <option value="">اختر سنة الميلاد </option>
                 @{
                     HijriCalendar hijri = new HijriCalendar();
@@ -69,8 +206,8 @@
                 }
             </select>
         </div>
-        <div class="col-lg-4">
-            <select class="form-control" onchange="renderDate('birthday', 'birthmonth')" id="birthmonth" name="val-skill">
+        <div class="col-lg-4 d-flex flex-row">
+            <span style="color:red">*</span><select class="form-control select2Class" onchange="renderDate('birthday', 'birthmonth')" id="birthmonth" name="val-skill" required>
                 <option value=""> اختر شهر الميلاد</option>
                 <option value="01">محرم</option>
                 <option value="02">صفر</option>
@@ -89,114 +226,14 @@
 
     </div>
     <div class="form-group row">
-
-        <div class="col-lg-6">
-            <select class="form-control" id="gender" name="val-skill">
-            </select>
-        </div>
-
-        <div class="col-lg-6">
-            <select class="form-control" id="nation" name="val-skill">
-            </select>
-        </div>
-
-    </div>
-    <div class="form-group row">
-
-        <div class="col-lg-6">
-            <select class="form-control" id="religion" name="val-skill">
-            </select>
-        </div>
-
-
-        <div class="col-lg-6">
-            <select class="form-control" id="bloodType" name="val-skill">
-            </select>
-        </div>
-
-    </div>
-    <div class="form-group row">
-
-        <div class="col-lg-6">
-            <select class="form-control" id="maritalStatus" name="val-skill">
-            </select>
-        </div>
-
-        <div class="col-lg-6">
-            <select class="form-control" id="healthstatus" name="val-skill">
-            </select>
-        </div>
-
-    </div>
-    <div class="form-group row">
-
-        <div class="col-lg-6">
-            <select class="form-control" id="employeeStatusCode" name="val-skill">
-            </select>
-        </div>
-
-        <div class="col-lg-6">
-            <input type="text" class="form-control" id="JobNumber" placeholder="رقم الوظيفة">
-
-        </div>
-
-    </div>
-    <div class="form-group row">
-
-        <div class="col-lg-6">
-            <select class="form-control" id="jobClassCode" name="val-skill">
-            </select>
-        </div>
-
-
-        <div class="col-lg-6">
-            <textarea class="form-control h-150px" rows="4" cols="30" id="jobClassDescription" placeholder="وصف سلسلة الفئات الوظيفة"></textarea>
-
-        </div>
-        <div class="col-lg-6">
-            <input type="text" class="form-control" id="jobCatChain" placeholder="رمز مسمى الفئة الوظيفية">
-
-        </div>
-
-        <div class="col-lg-6">
-            <select class="form-control" id="JobNameCode" name="val-skill">
-            </select>
-
-        </div>
-
-        <div class="col-lg-6">
-            <textarea class="form-control h-150px" rows="4" cols="30" id="jobNameDescription" placeholder="وصف مسمى الوظيفة"></textarea>
-
-        </div>
-        <div class="col-lg-6">
-            <select class="form-control" id="employmentTypeCode" name="val-skill">
-            </select>
-        </div>
-
         <div class="col-lg-4">
-            <textarea class="form-control h-150px" rows="4" cols="30" id="employmentTypeDescription" placeholder="وصف السلم الوظيفي"></textarea>
-
-        </div>
-        <div class="col-lg-4">
-            <select class="form-control" id="rankCode" name="val-skill">
-            </select>
-        </div>
-
-        <div class="col-lg-4">
-            <input type="text" class="form-control" id="stepID" placeholder="الدرجة">
-
-        </div>
-
-    </div>
-    <div class="form-group row">
-        <div class="col-lg-4">
-            <select class="form-control" id="stepday" name="val-skill">
+            <select class="form-control select2Class" id="stepday" name="val-skill">
                 <option value="">اختر يوم الدرجة </option>
 
             </select>
         </div>
         <div class="col-lg-4">
-            <select class="form-control" id="stepyear" name="val-skill">
+            <select class="form-control select2Class" id="stepyear" name="val-skill">
                 <option value="">اختر سنة الدرجة </option>
 
                 @for (int i = 1300; i <= year; i++)
@@ -206,7 +243,7 @@
             </select>
         </div>
         <div class="col-lg-4">
-            <select class="form-control" onchange="renderDate('stepday', 'stepmonth')" id="stepmonth" name="val-skill">
+            <select class="form-control select2Class" onchange="renderDate('stepday', 'stepmonth')" id="stepmonth" name="val-skill">
                 <option value=""> اختر شهر الدرجة</option>
                 <option value="01">محرم</option>
                 <option value="02">صفر</option>
@@ -225,14 +262,13 @@
 
     </div>
     <div class="form-group row">
-        <div class="col-lg-4">
-            <select class="form-control" id="gradeday" name="val-skill">
+        <div class="col-lg-4 d-flex flex-row">
+            <span style="color:red">*</span><select class="form-control select2Class" id="gradeday" name="val-skill" required>
                 <option value="">اختر يوم الحلول في المرتبة </option>
-
             </select>
         </div>
-        <div class="col-lg-4">
-            <select class="form-control" id="gradeyear" name="val-skill">
+        <div class="col-lg-4 d-flex flex-row">
+            <span style="color:red">*</span><select class="form-control select2Class" id="gradeyear" name="val-skill" required>
                 <option value="">اختر سنة الحلول في المرتبة </option>
 
                 @for (int i = 1300; i <= year; i++)
@@ -241,8 +277,8 @@
                 }
             </select>
         </div>
-        <div class="col-lg-4">
-            <select class="form-control" onchange="renderDate('gradeday', 'grademonth')" id="grademonth" name="val-skill">
+        <div class="col-lg-4 d-flex flex-row">
+            <span style="color:red">*</span><select class="form-control select2Class" onchange="renderDate('gradeday', 'grademonth')" id="grademonth" name="val-skill" required>
                 <option value=""> اختر شهر الحلول في المرتبة</option>
                 <option value="01">محرم</option>
                 <option value="02">صفر</option>
@@ -262,55 +298,42 @@
     </div>
     <div class="form-group row justify-content-around">
 
-        <div class="col-lg-9">
-            <select class="form-control" id="actualJobNameCode" name="val-skill">
+        <div class="col-lg-4">
+            <select class="form-control select2Class" id="actualJobNameCode" name="val-skill">
             </select>
         </div>
 
 
-        <div class="col-lg-9">
+        <div class="col-lg-4">
             <textarea class="form-control h-150px" rows="4" cols="30" id="actualJobNameDescription" placeholder="وصف مسمى الوظيفة الفعلية"></textarea>
 
         </div>
-        <div class="col-lg-9">
-            <input type="text" class="form-control" id="JobOrganizationID" placeholder="رمز الإدارة التي تتبعها الوظيفة">
-
+        <div class="col-lg-4 d-flex flex-row">
+            <span style="color:red">*</span><input type="text" class="form-control" id="JobOrganizationID" placeholder="رمز الإدارة التي تتبعها الوظيفة" required>
         </div>
 
-        <div class="col-lg-9">
-            <input type="text" class="form-control" id="JobOrganizationName" placeholder="مسمى الإدارة التي تتبعها الوظيفة">
-
+        <div class="col-lg-4 d-flex flex-row">
+            <span style="color:red">*</span><input type="text" class="form-control" id="JobOrganizationName" placeholder="مسمى الإدارة التي تتبعها الوظيفة" required>
         </div>
 
 
-
-
-
-        <div class="col-lg-9">
-            <input type="number" min="1000" class="form-control" id="basicSalary" placeholder="الراتب الأساسي">
-
+        <div class="col-lg-4 d-flex flex-row">
+            <span style="color:red">*</span><input type="number" min="1000" class="form-control" id="basicSalary" placeholder="الراتب الأساسي" required>
         </div>
 
-        <div class="col-lg-9">
+        <div class="col-lg-4">
             <input type="text" class="form-control" id="actualOrganizationID" placeholder="رمز الإدارة الفعلية للموظف">
-
         </div>
-
-        <div class="col-lg-9">
-            <input type="text" class="form-control" id="actualOrganizationName" placeholder=" مسمى الإدارة الفعلية للموظف">
-
-        </div>
-
     </div>
-    <div class="form-group row justify-content-around">
-        <div class="col-lg-3">
-            <select class="form-control" id="Promotionday" name="val-skill">
-                <option value="">اختر يوم الترقية المتوقعة </option>
 
+    <div class="form-group row justify-content-around">
+        <div class="col-lg-4">
+            <select class="form-control select2Class" id="Promotionday" name="val-skill">
+                <option value="">اختر يوم الترقية المتوقعة </option>
             </select>
         </div>
-        <div class="col-lg-3">
-            <select class="form-control" id="Promotionyear" name="val-skill">
+        <div class="col-lg-4">
+            <select class="form-control select2Class" id="Promotionyear" name="val-skill">
                 <option value="">اختر سنة الترقية المتوقعة </option>
 
                 @for (int i = 1300; i <= year; i++)
@@ -319,8 +342,8 @@
                 }
             </select>
         </div>
-        <div class="col-lg-3">
-            <select class="form-control" onchange="renderDate('Promotionday', 'Promotionmonth')" id="Promotionmonth" name="val-skill">
+        <div class="col-lg-4">
+            <select class="form-control select2Class" onchange="renderDate('Promotionday', 'Promotionmonth')" id="Promotionmonth" name="val-skill">
                 <option value=""> اختر شهر الترقية المتوقعة</option>
                 <option value="01">محرم</option>
                 <option value="02">صفر</option>
@@ -339,14 +362,14 @@
 
     </div>
     <div class="form-group row justify-content-around ">
-        <div class="col-lg-3">
-            <select class="form-control" id="Hireday" name="val-skill">
+        <div class="col-lg-4">
+            <select class="form-control select2Class" id="Hireday" name="val-skill">
                 <option value="">اختر يوم التعيين في الحكومة </option>
 
             </select>
         </div>
-        <div class="col-lg-3">
-            <select class="form-control" id="Hireyear" name="val-skill">
+        <div class="col-lg-4">
+            <select class="form-control select2Class" id="Hireyear" name="val-skill">
                 <option value="">اختر سنة الترقية المتوقعة </option>
 
                 @for (int i = 1300; i <= year; i++)
@@ -355,8 +378,8 @@
                 }
             </select>
         </div>
-        <div class="col-lg-3">
-            <select class="form-control" onchange="renderDate('Hireday', 'Hiremonth')" id="Hiremonth" name="val-skill">
+        <div class="col-lg-4">
+            <select class="form-control select2Class" onchange="renderDate('Hireday', 'Hiremonth')" id="Hiremonth" name="val-skill">
                 <option value=""> اختر شهر التعيين في الحكومة</option>
                 <option value="01">محرم</option>
                 <option value="02">صفر</option>
@@ -375,14 +398,14 @@
 
     </div>
     <div class="form-group row justify-content-around ">
-        <div class="col-lg-3">
-            <select class="form-control" id="area" name="val-skill">
+        <div class="col-lg-4">
+            <select class="form-control select2Class" id="area" name="val-skill">
                 <option value="">اختر المنطقة </option>
 
             </select>
         </div>
-        <div class="col-lg-3">
-            <select class="form-control" id="gov" name="val-skill">
+        <div class="col-lg-4">
+            <select class="form-control select2Class" id="gov" name="val-skill">
                 <option value="">
                     اختر المحافظة
                 </option>
@@ -390,23 +413,21 @@
 
             </select>
         </div>
-        <div class="col-lg-3">
-            <select class="form-control" id="loaction" name="val-skill">
+        <div class="col-lg-4 d-flex flex-row">
+            <span style="color:red">*</span><select class="form-control select2Class" id="loaction" name="val-skill" required>
                 <option value=""> اخترالموقع</option>
-
             </select>
         </div>
 
     </div>
     <div class="form-group row justify-content-around">
-        <div class="col-lg-3">
-            <select class="form-control" id="MinistryHireday" name="val-skill">
+        <div class="col-lg-4 d-flex flex-row">
+            <span style="color:red">*</span><select class="form-control select2Class" id="MinistryHireday" name="val-skill" required>
                 <option value="">اختر يوم التعيين في الوزارة </option>
-
             </select>
         </div>
-        <div class="col-lg-3">
-            <select class="form-control" id="MinistryHireyear" name="val-skill">
+        <div class="col-lg-4 d-flex flex-row">
+            <span style="color:red">*</span><select class="form-control select2Class" id="MinistryHireyear" name="val-skill" required>
                 <option value="">اختر سنة الترقية الوزارة </option>
 
                 @for (int i = 1300; i <= year; i++)
@@ -415,8 +436,8 @@
                 }
             </select>
         </div>
-        <div class="col-lg-3">
-            <select class="form-control" onchange="renderDate('MinistryHireday', 'MinistryHiremonth')" id="MinistryHiremonth" name="val-skill">
+        <div class="col-lg-4 d-flex flex-row">
+            <span style="color:red">*</span><select class="form-control select2Class" onchange="renderDate('MinistryHireday', 'MinistryHiremonth')" id="MinistryHiremonth" name="val-skill" required>
                 <option value=""> اختر شهر التعيين في الوزارة</option>
                 <option value="01">محرم</option>
                 <option value="02">صفر</option>
@@ -434,45 +455,16 @@
         </div>
 
     </div>
+
     <div class="form-group row justify-content-around">
-        <div class="col-lg-6">
-            <input type="number" class="form-control" id="RemainingAnnualBalance" placeholder="الرصيد المتبقي السنوي">
-
-        </div>
-
-        <div class="col-lg-6">
-            <input type="number" class="form-control" id="RemainingBusinessBalance" placeholder="رصيد الانتداب المتبقي">
-
-        </div>
-
-        <div class="col-lg-6">
-            <select class="form-control" id="TransactionCode" name="val-skill">
-            </select>
-        </div>
-
-        <div class="col-lg-6">
-            <select class="form-control" id="IsActive" name="val-skill">
-                <option>على رأس العمل ؟</option>
-                <option value="true">نعم</option>
-                <option value="false">لا</option>
-            </select>
-        </div>
-
-        <div class="col-lg-6">
-            <select class="form-control" id="TerminationReasonCode" name="val-skill">
-            </select>
-        </div>
-
-    </div>
-    <div class="form-group row justify-content-around">
-        <div class="col-lg-3">
-            <select class="form-control" id="Terminationday" name="val-skill">
+        <div class="col-lg-4">
+            <select class="form-control select2Class" id="Terminationday" name="val-skill">
                 <option value="">اختر يوم الانتهاء </option>
 
             </select>
         </div>
-        <div class="col-lg-3">
-            <select class="form-control" id="Terminationyear" name="val-skill">
+        <div class="col-lg-4">
+            <select class="form-control select2Class" id="Terminationyear" name="val-skill">
                 <option value="">اختر سنة الانتهاء </option>
 
                 @for (int i = 1300; i <= year; i++)
@@ -481,8 +473,8 @@
                 }
             </select>
         </div>
-        <div class="col-lg-3">
-            <select class="form-control" onchange="renderDate('Terminationday', 'Terminationmonth')" id="Terminationmonth" name="val-skill">
+        <div class="col-lg-4">
+            <select class="form-control select2Class" onchange="renderDate('Terminationday', 'Terminationmonth')" id="Terminationmonth" name="val-skill">
                 <option value=""> اختر شهر الانتهاء</option>
                 <option value="01">محرم</option>
                 <option value="02">صفر</option>
@@ -500,8 +492,9 @@
         </div>
 
     </div>
-    <div class="form-group row justify-content-end">
-        <div class="btn  btn-sent btn-add2" onclick="PostEmployee()">اضافة</div>
+    <div class="form-group row ">
+        <input type="submit" class="btn btn-sent btn-add2" onclick="PostEmployee()" value="اضافة">
+        @*<div class="btn btn-sent btn-add2" onclick="PostEmployee()">اضافة</div>*@
     </div>
 
 </form>

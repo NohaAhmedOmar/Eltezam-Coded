@@ -11,22 +11,21 @@
 <input type="text" id="year" value="@year" hidden />
 <form class="form-valide" action="#" method="post">
 
-    <div class="form-group row justify-content-center">
+    <div class="form-group row justify-content-start">
 
-        <div class="col-lg-6">
-            <select class="form-control" id="employees" name="val-skill">
+        <div class="col-lg-4 d-flex flex-row">
+            <span style="color:red">*</span><select class="form-control select2Class" id="employees" name="val-skill" required>
             </select>
         </div>
     </div>
     <div class="form-group row">
-        <div class="col-lg-4">
-            <select class="form-control" id="startday" name="val-skill">
+        <div class="col-lg-4 d-flex flex-row">
+            <span style="color:red">*</span><select class="form-control select2Class" id="startday" name="val-skill" required>
                 <option value="">اختر يوم   بداية التقييم </option>
-
             </select>
         </div>
-        <div class="col-lg-4">
-            <select class="form-control" id="startyear" name="val-skill">
+        <div class="col-lg-4 d-flex flex-row">
+            <span style="color:red">*</span><select class="form-control select2Class" id="startyear" name="val-skill" required>
                 <option value="">اختر سنة   بداية التقييم </option>
 
                 @for (int i = 1300; i <= year; i++)
@@ -35,9 +34,9 @@
                 }
             </select>
         </div>
-        <div class="col-lg-4">
-            <select class="form-control" onchange="renderDate('startday', 'startmonth')" id="startmonth" name="val-skill">
-                <option value=""> اختر شهر   بداية التقييم</option>
+        <div class="col-lg-4 d-flex flex-row">
+            <span style="color:red">*</span><select class="form-control select2Class" onchange="renderDate('startday', 'startmonth')" id="startmonth" name="val-skill" required>
+                <option value=""> اختر شهر بداية التقييم</option>
                 <option value="01">محرم</option>
                 <option value="02">صفر</option>
                 <option value="03">ربيع الأول</option>
@@ -52,14 +51,13 @@
                 <option value="12">ذو الحجة		</option>
             </select>
         </div>
-        <div class="col-lg-4">
-            <select class="form-control" id="endday" name="val-skill">
+        <div class="col-lg-4 d-flex flex-row">
+            <span style="color:red">*</span><select class="form-control select2Class" id="endday" name="val-skill" required>
                 <option value="">اختر يوم   نهاية التقييم </option>
-
             </select>
         </div>
-        <div class="col-lg-4">
-            <select class="form-control" id="endyear" name="val-skill">
+        <div class="col-lg-4 d-flex flex-row">
+            <span style="color:red">*</span><select class="form-control select2Class" id="endyear" name="val-skill" required>
                 <option value="">اختر سنة    نهاية التقييم </option>
 
                 @for (int i = 1300; i <= year; i++)
@@ -68,8 +66,8 @@
                 }
             </select>
         </div>
-        <div class="col-lg-4">
-            <select class="form-control" onchange="renderDate('endday', 'endmonth')" id="endmonth" name="val-skill">
+        <div class="col-lg-4 d-flex flex-row">
+            <span style="color:red">*</span><select class="form-control select2Class" onchange="renderDate('endday', 'endmonth')" id="endmonth" name="val-skill" required>
                 <option value=""> اختر شهر نهاية التقييم</option>
                 <option value="01">محرم</option>
                 <option value="02">صفر</option>
@@ -89,18 +87,17 @@
     </div>
     <div class="form-group row">
 
-        <div class="col-lg-4">
-            <select class="form-control" id="AppraisalTypeCode" name="val-skill">
+        <div class="col-lg-4 d-flex flex-row">
+            <span style="color:red">*</span><select class="form-control select2Class" id="AppraisalTypeCode" name="val-skill" required>
             </select>
         </div>
-        <div class="col-lg-4">
-            <input type="text" class="form-control" id="Result" name="val-username" placeholder="النتيجة ">
-
-        </div>
-
-        <div class="col-lg-4">
-            <select class="form-control" id="RatingCode" name="val-skill">
+      
+        <div class="col-lg-4 d-flex flex-row">
+            <span style="color:red">*</span><select class="form-control select2Class" id="RatingCode" name="val-skill" required>
             </select>
+        </div>
+        <div class="col-lg-4 d-flex flex-row">
+            <span style="color:red">*</span><input type="text" class="form-control" id="Result" name="val-username" placeholder="النتيجة" required>
         </div>
 
     </div>
@@ -114,8 +111,9 @@
 
 
 
-    <center class="row justify-content-end">
-        <div class="btn btn-sent btn-add2" onclick="PostEmployeeAppraisal()">اضافة</div>
+    <center class="row ">
+        <input type="submit" class="btn btn-sent btn-add2" onclick="PostEmployeeAppraisal()" value="اضافة">
+        @*<div class="btn btn-sent btn-add2" onclick="PostEmployeeAppraisal()">اضافة</div>*@
     </center>
 
 

@@ -1,12 +1,12 @@
 ﻿
 $(document).ready(function () {
-    BuildDropDown('gender', '/api/DropDowns/GetGenderDropDown','اختر الجنس')
-    BuildDropDown('nation', '/api/DropDowns/GetNationDropDown','اختر الجنسية')
-    BuildDropDown('bloodType', '/api/DropDowns/GetBloodTypeDropDown','اختر فصيلة الدم')
-    BuildDropDown('religion', '/api/DropDowns/GetReligionTypeDropDown','اختر  الديانة')
-    BuildDropDown('maritalStatus', '/api/DropDowns/GetMaritalStatusDropDown','اختر  الحالة الاجتماعية')
-    BuildDropDown('healthstatus', '/api/DropDowns/GetHealthStatusDropDown','اختر  الحالة الصحية')
-    BuildDropDown('employeeStatusCode', '/api/DropDowns/GetEmployeeStatusCodeDropDown','اختر  رمز حالة الموظف ')
+    BuildDropDown('gender', '/api/DropDowns/GetGenderDropDown', 'اختر الجنس')
+    BuildDropDown('nation', '/api/DropDowns/GetNationDropDown', 'اختر الجنسية')
+    BuildDropDown('bloodType', '/api/DropDowns/GetBloodTypeDropDown', 'اختر فصيلة الدم')
+    BuildDropDown('religion', '/api/DropDowns/GetReligionTypeDropDown', 'اختر  الديانة')
+    BuildDropDown('maritalStatus', '/api/DropDowns/GetMaritalStatusDropDown', 'اختر  الحالة الاجتماعية')
+    BuildDropDown('healthstatus', '/api/DropDowns/GetHealthStatusDropDown', 'اختر  الحالة الصحية')
+    BuildDropDown('employeeStatusCode', '/api/DropDowns/GetEmployeeStatusCodeDropDown', 'اختر  رمز حالة الموظف ')
     BuildDropDown('jobClassCode', '/api/DropDowns/GetEmployeeStatusCodeDropDown', 'اختر  رمز سلسلة الفئات الوظيفية ')
     BuildDropDown('rankCode', '/api/DropDowns/GetRankCodeDropDown', 'اختر رمز المرتبة')
     BuildDropDown('employmentTypeCode', '/api/DropDowns/GetEmploymentTypeCodeDropDown', 'اختر رمز السلم الوظيفي')
@@ -19,8 +19,136 @@ $(document).ready(function () {
         BuildDropDownBasedOnSelection('area', 'gov', '/api/DropDowns/GetGovernoratesDropDown/', ' اختر المحافظة')
     })
     $('#gov').change(function () {
-        BuildDropDownBasedOnSelection('gov', 'loaction', '/api/DropDowns/GetLocationCodesDropDown/', 'اخترالموقع')    })
+        BuildDropDownBasedOnSelection('gov', 'loaction', '/api/DropDowns/GetLocationCodesDropDown/', 'اخترالموقع')
+    })
 
+    $('.select2Class').select2({
+        dir: "rtl",
+    });
+
+//    $('#birthday').select2({
+//        dir: "rtl",
+//    });
+//    $('#birthyear').select2({
+//        dir: "rtl",
+//    });
+//    $('#birthmonth').select2({
+//        dir: "rtl",
+//    });
+//    $('#gender').select2({
+//        dir: "rtl",
+//    });
+//    $('#nation').select2({
+//        dir: "rtl",
+//    });
+//    $('#religion').select2({
+//        dir: "rtl",
+//    });
+//    $('#bloodType').select2({
+//        dir: "rtl",
+//    });
+//    $('#maritalStatus').select2({
+//        dir: "rtl",
+//    });
+//    $('#healthstatus').select2({
+//        dir: "rtl",
+//    });
+//    $('#employeeStatusCode').select2({
+//        dir: "rtl",
+//    });
+//    $('#jobClassCode').select2({
+//        dir: "rtl",
+//    });
+//    $('#JobNameCode').select2({
+//        dir: "rtl",
+//    });
+//    $('#employmentTypeCode').select2({
+//        dir: "rtl",
+//    });
+//    $('#rankCode').select2({
+//        dir: "rtl",
+//    });
+//    $('#stepday').select2({
+//        dir: "rtl",
+//    });
+//    $('#stepyear').select2({
+//        dir: "rtl",
+//    });
+//    $('#stepmonth').select2({
+//        dir: "rtl",
+//    });
+//    $('#gradeday').select2({
+//        dir: "rtl",
+//    });
+//    $('#gradeyear').select2({
+//        dir: "rtl",
+//    });
+//    $('#grademonth').select2({
+//        dir: "rtl",
+//    });
+//    $('#actualJobNameCode').select2({
+//        dir: "rtl",
+//    });
+//    $('#Promotionday').select2({
+//        dir: "rtl",
+//    });
+//    $('#Promotionyear').select2({
+//        dir: "rtl",
+//    });
+//    $('#Promotionmonth').select2({
+//        dir: "rtl",
+//    });
+//    $('#Hireday').select2({
+//        dir: "rtl",
+//    });
+//    $('#Hireyear').select2({
+//        dir: "rtl",
+//    });
+//    $('#Hiremonth').select2({
+//        dir: "rtl",
+//    });
+//    $('#area').select2({
+//        dir: "rtl",
+//    });
+//    $('#gov').select2({
+//        dir: "rtl",
+//    });
+//    $('#loaction').select2({
+//        dir: "rtl",
+//    });
+//    $('#MinistryHireday').select2({
+//        dir: "rtl",
+//    });
+//    $('#MinistryHireyear').select2({
+//        dir: "rtl",
+//    });
+//    $('#MinistryHiremonth').select2({
+//        dir: "rtl",
+//    });
+//    $('#TransactionCode').select2({
+//        dir: "rtl",
+//    });
+//    $('#IsActive').select2({
+//        dir: "rtl",
+//    });
+//    $('#MinistryHireyear').select2({
+//        dir: "rtl",
+//    });
+//    $('#MinistryHiremonth').select2({
+//        dir: "rtl",
+//    });
+//    $('#TerminationReasonCode').select2({
+//        dir: "rtl",
+//    });
+//    $('#Terminationday').select2({
+//        dir: "rtl",
+//    });
+//    $('#Terminationyear').select2({
+//        dir: "rtl",
+//    });
+//    $('#Terminationmonth').select2({
+//        dir: "rtl",
+//    });
 })
 function renderDate(dayId, monthId) {
     var month = $("#" + monthId + "").val();
@@ -87,9 +215,9 @@ function BuildDropDownBasedOnSelection(dropdownId, subDropDownId, url, message) 
     })
 }
 function PostEmployee() {
-    var IsValid = ValidateForm();
-    if (IsValid) {
-
+    //var isValid = ValidateForm();
+    var isValid = $('form')[0].checkValidity();
+    if (isValid) {
         var valid = true;
         var employeeDTO = new Object();
         $('#NationalID').val() != '' ? employeeDTO.nationalID = $('#NationalID').val() : employeeDTO.iqamaNumber = $('#IqamaNumber').val();
@@ -101,11 +229,11 @@ function PostEmployee() {
         employeeDTO.secondNameEn = $('#SecondNameEn').val()
         $('#ThirdNameEn').val() != '' ? employeeDTO.thirdNameEn = $('#ThirdNameEn').val() : valid = false;
         employeeDTO.lastNameEn = $('#LastNameEn').val()
-        employeeDTO.birthDate = '' + $('#birthyear').val() + '-' + $('#birthmonth').val() + '-' + $('#birthday').val() 
+        employeeDTO.birthDate = '' + $('#birthyear').val() + '-' + $('#birthmonth').val() + '-' + $('#birthday').val()
         employeeDTO.gender = $('#gender').val()
         employeeDTO.nationalityCode = $('#nation').val()
         employeeDTO.religion = $('#religion').val()
-         $('#bloodType').val() != 0 ? employeeDTO.bloodType = $('#bloodType').val() : valid = false;
+        $('#bloodType').val() != 0 ? employeeDTO.bloodType = $('#bloodType').val() : valid = false;
         $('#Phone').val() != '' ? employeeDTO.mobile = $('#Phone').val() : valid = false;
         $('#Email').val() != '' ? employeeDTO.emailAddress = $('#Email').val() : valid = false;
         $('#maritalStatus').val() != '0' ? employeeDTO.maritalStatus = $('#maritalStatus').val() : valid = false;
@@ -121,32 +249,31 @@ function PostEmployee() {
         $('#employmentTypeDescription').val() != '' ? employeeDTO.employmentTypeDescription = $('#employmentTypeDescription').val() : valid = false;
         employeeDTO.rankCode = $('#rankCode').val()
         employeeDTO.stepId = $('#stepID').val()
-        employeeDTO.stepDate = '' + $('#birthyear').val() + '-' + $('#birthmonth').val() + '-' + $('#birthday').val() 
-        $('#gradeyear').val() != '' && $('#grademonth').val() != '' && $('#gradeday').val() != '' ? employeeDTO.firstGradeDate = '' + $('#gradeyear').val() + '-' + $('#grademonth').val() + '-' + $('#gradeday').val()  : valid = false;
+        employeeDTO.stepDate = '' + $('#birthyear').val() + '-' + $('#birthmonth').val() + '-' + $('#birthday').val()
+        $('#gradeyear').val() != '' && $('#grademonth').val() != '' && $('#gradeday').val() != '' ? employeeDTO.firstGradeDate = '' + $('#gradeyear').val() + '-' + $('#grademonth').val() + '-' + $('#gradeday').val() : valid = false;
         $('#actualJobNameCode').val() != '0' ? employeeDTO.actualJobNameCode = $('#actualJobNameCode').val() : valid = false;
         $('#actualJobNameDescription').val() != '' ? employeeDTO.actualJobNameDescription = $('#actualJobNameDescription').val() : valid = false;
-         $('#JobOrganizationID').val() != '' ?employeeDTO.jobOrganizationId = $('#JobOrganizationID').val() : valid = false;
+        $('#JobOrganizationID').val() != '' ? employeeDTO.jobOrganizationId = $('#JobOrganizationID').val() : valid = false;
         employeeDTO.jobOrganizationName = $('#JobOrganizationName').val()
         employeeDTO.basicSalary = $('#basicSalary').val()
         $('#actualOrganizationID').val() != '' ? employeeDTO.actualOrganizationId = $('#actualOrganizationID').val() : valid = false;
         $('#actualOrganizationName').val() != '' ? employeeDTO.actualOrganizationName = $('#actualOrganizationName').val() : valid = false;
-        $('#Promotionyear').val() != '' && $('#Promotionmonth').val() != '' && $('#Promotionday').val() != '' ? employeeDTO.nextPromotionDate = '' + $('#Promotionyear').val() + '-' + $('#Promotionmonth').val() + '-' + $('#Promotionday').val()  : valid = false;
-        $('#Hireyear').val() != '' && $('#Hiremonth').val() != '' && $('#Hireday').val() != '' ? employeeDTO.governmentHireDate = $('#Hireyear').val() + '-' + $('#Hiremonth').val() + '-' + $('#Hireday').val()  : valid = false;
+        $('#Promotionyear').val() != '' && $('#Promotionmonth').val() != '' && $('#Promotionday').val() != '' ? employeeDTO.nextPromotionDate = '' + $('#Promotionyear').val() + '-' + $('#Promotionmonth').val() + '-' + $('#Promotionday').val() : valid = false;
+        $('#Hireyear').val() != '' && $('#Hiremonth').val() != '' && $('#Hireday').val() != '' ? employeeDTO.governmentHireDate = $('#Hireyear').val() + '-' + $('#Hiremonth').val() + '-' + $('#Hireday').val() : valid = false;
         employeeDTO.locationCode = $('#loaction').val()
-        employeeDTO.ministryHireDate = '' + $('#MinistryHireyear').val() + '-' + $('#MinistryHiremonth').val() + '-' + $('#MinistryHireday').val() 
+        employeeDTO.ministryHireDate = '' + $('#MinistryHireyear').val() + '-' + $('#MinistryHiremonth').val() + '-' + $('#MinistryHireday').val()
         $('#RemainingAnnualBalance').val() != '' ? employeeDTO.remainingAnnualBalance = $('#RemainingAnnualBalance').val() : valid = false;
         $('#RemainingBusinessBalance').val() != '' ? employeeDTO.remainingBusinessBalance = $('#RemainingBusinessBalance').val() : valid = false;
-        $('#TransactionCode').val() != '0' ? employeeDTO.transactionCode = $('#TransactionCode').val() :valid = false;
+        $('#TransactionCode').val() != '0' ? employeeDTO.transactionCode = $('#TransactionCode').val() : valid = false;
         $('#IsActive').val() == "true" ? employeeDTO.isActive = true : employeeDTO.isActive = false
         employeeDTO.terminationReasonCode = $('#TerminationReasonCode').val()
-        employeeDTO.terminationDate = '' + $('#Terminationyear').val() + '-' + $('#Terminationmonth').val() + '-' + $('#Terminationday').val() 
+        employeeDTO.terminationDate = '' + $('#Terminationyear').val() + '-' + $('#Terminationmonth').val() + '-' + $('#Terminationday').val()
         $.ajax({
             type: "Post",
             url: "/api/Employees/PostEmployee",
             data: JSON.stringify(employeeDTO),
             contentType: "application/json",
             success: function (result) {
-
                 Swal.fire({
                     position: 'center',
                     icon: 'success',
@@ -154,9 +281,6 @@ function PostEmployee() {
                     showConfirmButton: false,
                     timer: 20000
                 })
-
-
-
             },
             error: function (ex) {
                 Swal.fire({
@@ -167,10 +291,8 @@ function PostEmployee() {
                     timer: 2000
                 })
             }
-
         });
     }
-
 }
 function ValidateForm() {
     if ($('#NationalID').val() == '' && $('#IqamaNumber').val() == '') {
@@ -186,14 +308,11 @@ function ValidateForm() {
         if (Id.length > 10 || Id.length < 10) {
             ValidationAlert('لابد من ادخال  الهوية الوطنية صحيحة')
             return false;
-
         }
         else {
-               if ($('#FirstNameAr').val() == '') {
+            if ($('#FirstNameAr').val() == '') {
                 ValidationAlert('لابد من ادخال  إسم الأول ')
                 return false;
-
-
             }
             else if ($('#SecondNameAr').val() == '') {
                 ValidationAlert('لابد من ادخال إسم الأب ')
@@ -281,7 +400,7 @@ function ValidateForm() {
                 ValidationAlert('لابد من ادخال تاريخ الحلول في المرتبة    ')
                 return false;
             }
-               else if ($('#JobNameCode').val() == '0') {
+            else if ($('#JobNameCode').val() == '0') {
                 ValidationAlert('لابد من ادخال رمز مسمى الوظيفة     ')
                 return false;
             }
@@ -319,11 +438,10 @@ function ValidateForm() {
             }
         }
     }
-  
+
     return true;
-
-
 }
+
 function ValidationAlert(Message) {
     Swal.fire({
         title: Message,

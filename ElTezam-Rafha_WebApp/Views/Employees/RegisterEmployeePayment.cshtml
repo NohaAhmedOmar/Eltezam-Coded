@@ -13,62 +13,54 @@
 
     <div class="form-group row">
 
-        <div class="col-lg-6">
-            <select class="form-control" id="employees" name="val-skill">
+        <div class="col-lg-6 d-flex flex-row">
+            <span style="color:red">*</span><select class="form-control select2Class" id="employees" name="val-skill" required>
             </select>
         </div>
 
-        <div class="col-lg-6">
-            <select class="form-control" id="EmploymentTypeCode" name="val-skill">
+        <div class="col-lg-6 d-flex flex-row">
+            <span style="color:red">*</span><select class="form-control select2Class" id="EmploymentTypeCode" name="val-skill" required>
             </select>
         </div>
-        <div class="col-lg-6">
-            <select class="form-control" id="RankCode" name="val-skill">
+        <div class="col-lg-6 d-flex flex-row">
+            <span style="color:red">*</span><select class="form-control select2Class" id="RankCode" name="val-skill" required>
             </select>
         </div>
         <div class="col-lg-6">
             <input type="text" class="form-control" id="StepID" name="val-username" placeholder="الدرجة ">
-
         </div>
-        <div class="col-lg-6">
-            <select class="form-control" id="ConsolidationSetID" name="val-skill">
+        <div class="col-lg-6 d-flex flex-row">
+            <span style="color:red">*</span><select class="form-control select2Class" id="ConsolidationSetID" name="val-skill" required>
             </select>
         </div>
-        <div class="col-lg-6">
-            <input type="text" class="form-control" id="ConsolidationSetDescription" name="val-username" placeholder="وصف نوع المسير">
-
+        <div class="col-lg-6 d-flex flex-row">
+            <span style="color:red">*</span><input type="text" class="form-control" id="ConsolidationSetDescription" name="val-username" placeholder="وصف نوع المسير" required>
         </div>
-        <div class="col-lg-6">
-            <select class="form-control" id="ElementCode" name="val-skill">
+        <div class="col-lg-6 d-flex flex-row">
+            <span style="color:red">*</span><select class="form-control select2Class" id="ElementCode" name="val-skill" required>
             </select>
         </div>
-        <div class="col-lg-6">
-            <select class="form-control" id="ElementClassification" name="val-skill">
+        <div class="col-lg-6 d-flex flex-row">
+            <span style="color:red">*</span><select class="form-control select2Class" id="ElementClassification" name="val-skill" required>
             </select>
         </div>
-        <div class="col-lg-6">
-            <input type="number" class="form-control" id="Amount" name="val-username" placeholder="القيمة">
-
+        <div class="col-lg-6 d-flex flex-row">
+            <span style="color:red">*</span><input type="number" class="form-control" id="Amount" name="val-username" placeholder="القيمة" required>
         </div>
-        <div class="col-lg-6">
-            <input type="number" class="form-control" id="NetPay" name="val-username" placeholder="صافي المبلغ المدفوع">
-
+        <div class="col-lg-6 d-flex flex-row">
+            <span style="color:red">*</span><input type="number" class="form-control" id="NetPay" name="val-username" placeholder="صافي المبلغ المدفوع" required>
         </div>
-        <div class="col-lg-3">
-            <input type="number" min="1" max="12" class="form-control" id="HijriMonth" name="val-username" placeholder="الشهر بالهجري">
-
+        <div class="col-lg-3 d-flex flex-row">
+            <span style="color:red">*</span><input type="number" min="1" max="12" class="form-control" id="HijriMonth" name="val-username" placeholder="الشهر بالهجري" required>
         </div>
-        <div class="col-lg-3">
-            <input type="number" min="1" max="12" class="form-control" id="GregorianMonth" name="val-username" placeholder="الشهر بالميلادي">
-
+        <div class="col-lg-3 d-flex flex-row">
+            <span style="color:red">*</span><input type="number" min="1" max="12" class="form-control" id="GregorianMonth" name="val-username" placeholder="الشهر بالميلادي" required>
         </div>
-        <div class="col-lg-3">
-            <input type="number" min="1" max="12" class="form-control" id="HijriYear" name="val-username" placeholder="السنة بالهجري">
-
+        <div class="col-lg-3 d-flex flex-row">
+            <span style="color:red">*</span><input type="number" min="1" max="12" class="form-control" id="HijriYear" name="val-username" placeholder="السنة بالهجري" required>
         </div>
-        <div class="col-lg-3">
-            <input type="number" min="1" max="12" class="form-control" id="GregorianYear" name="val-username" placeholder="السنة بالميلادي">
-
+        <div class="col-lg-3 d-flex flex-row">
+            <span style="color:red">*</span><input type="number" min="1" max="12" class="form-control" id="GregorianYear" name="val-username" placeholder="السنة بالميلادي" required>
         </div>
     </div>
     @*        <div class="form-group row">
@@ -80,14 +72,13 @@
     *@
 
     <div class="form-group row">
-        <div class="col-lg-4">
-            <select class="form-control" id="payday" name="val-skill">
+        <div class="col-lg-4 d-flex flex-row">
+            <span style="color:red">*</span><select class="form-control select2Class" id="payday" name="val-skill" required>
                 <option value="">اختر يوم  تنفيذ المسير </option>
-
             </select>
         </div>
-        <div class="col-lg-4">
-            <select class="form-control" id="payyear" name="val-skill">
+        <div class="col-lg-4 d-flex flex-row">
+            <span style="color:red">*</span><select class="form-control select2Class" id="payyear" name="val-skill" required>
                 <option value="">اختر سنة  تنفيذ المسير </option>
 
                 @for (int i = 1300; i <= year; i++)
@@ -96,8 +87,8 @@
                 }
             </select>
         </div>
-        <div class="col-lg-4">
-            <select class="form-control" onchange="renderDate('payday', 'paymonth')" id="paymonth" name="val-skill">
+        <div class="col-lg-4 d-flex flex-row">
+            <span style="color:red">*</span><select class="form-control select2Class" onchange="renderDate('payday', 'paymonth')" id="paymonth" name="val-skill" required>
                 <option value=""> اختر شهر  تنفيذ المسير</option>
                 <option value="01">محرم</option>
                 <option value="02">صفر</option>
@@ -113,16 +104,14 @@
                 <option value="12">ذو الحجة		</option>
             </select>
         </div>
-
     </div>
 
-    <center class="row justify-content-end">
-        <div class="btn btn-sent btn-add2" onclick="PostEmployeePayment()">اضافة</div>
+    <center class="row ">
+        <input type="submit" class="btn btn-sent btn-add2" onclick="PostEmployeePayment()" value="اضافة">
+        @*<div class="btn btn-sent btn-add2" onclick="PostEmployeePayment()">اضافة</div>*@
     </center>
-
-
-
 </form>
+
 @section Scripts{
     <script src="~/viewsscripts/RegisterEmployeePayment.js" asp-append-version="true"></script>
 }

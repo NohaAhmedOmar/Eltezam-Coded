@@ -4,10 +4,7 @@ var ids = new Array();
 var i = 0;
 
 $(document).ready(function () {
-
-    GetEmployees()
-
-
+    GetEmployees();
 })
 function GetEmployees() {
 
@@ -31,11 +28,12 @@ function GetEmployees() {
                     rankCode: result.rankCode, startDate: result.startDate, employeeId: result.employeeId, employmentTypeCode: result.employmentTypeCode,
                     positionOrganizationID: result.positionOrganizationID, positionOrganizationName: result.positionOrganizationName,
                     jobClassCodeKey: result.jobClassCodeKey, jobNameCodeKey: result.jobNameCodeKey, locationCode: result.locationCode, lastUpdateDate: result.lastUpdateDate, positionStatus: result.positionStatus
-                })
-
-
+                });
             });
             $('#employeeData').DataTable({
+                'language': {
+                    url: '//cdn.datatables.net/plug-ins/1.13.6/i18n/ar.json',
+                },
                 'destroy': true,
                 'data': Employees,
                 'columns': [
@@ -48,12 +46,9 @@ function GetEmployees() {
                     {
                         'data': 'id',
                         render: function (data) {
-                            return '<input type="checkbox" id="check' + data + '" />'
-
+                            return '<input type="checkbox" id="check' + data + '" />';
                         }
                     }
-
-
                 ]
             });
 
@@ -274,6 +269,9 @@ function except(collection1, collection2) {
 }
 function BuildDataTable(data) {
     $('#employeeData').DataTable({
+        'language': {
+            url: '//cdn.datatables.net/plug-ins/1.13.6/i18n/ar.json',
+        },
         'destroy': true,
         'data': data,
         'columns': [

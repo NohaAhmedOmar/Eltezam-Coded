@@ -10,10 +10,10 @@
 }
 <input type="text" id="year" value="@year" hidden />
 <form class="form-valide" action="#" method="post">
-    <div class="form-group row">
+    <div class="form-group row justify-content-between">
 
-        <div class="col-lg-9">
-            <select class="form-control" id="employees" name="val-skill">
+        <div class="col-lg-4 d-flex flex-row">
+            <span style="color:red">*</span><select class="form-control select2Class" id="employees" name="val-skill" required>
             </select>
         </div>
 
@@ -38,7 +38,7 @@
     <div id="Vacation">
     </div>
 
-    <center class="row justify-content-end">
+    <center class="row ">
         <div class="btn btn-sent btn-add2" onclick="PostEmployeeVacation()">اضافة</div>
     </center>
 

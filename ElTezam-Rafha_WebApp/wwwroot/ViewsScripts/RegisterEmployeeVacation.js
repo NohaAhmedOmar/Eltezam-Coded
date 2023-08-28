@@ -4,8 +4,11 @@ var startmonth = 'startmonth';
 var endmonth = 'endmonth';
 var endday = 'endday';
 var Vacations = new Array();
+
 $(document).ready(function () {
-    $('#employees').select2()
+    $('.select2Class').select2({
+        dir: "rtl",
+    });
     BuildDropDown('employees', '/api/Employees/GetEmployees', 'اختر الموظف')
     SendAjaxToGetArray(Vacations, '/api/DropDowns/GetVacationTypeDropDown')
 
@@ -156,7 +159,7 @@ function drawVacation() {
     blocknumber++;
     var perviousblock = blocknumber - 1
     var Div = '<div id="Vacation' + blocknumber + '"></div>'
-    var input = '<div class="form-group row"><div class="col-lg-4"><select class="form-control" id="startday' + blocknumber + '" name="val-skill"><option value="">اختر يوم بداية الاجازة</option></select></div><div class="col-lg-4"><select class="form-control" id="startyear' + blocknumber + '" name="val-skill"><option value="">اختر سنة بداية الاجازة</option></select></div><div class="col-lg-4"><select class="form-control" onchange="renderDate(' + blocknumber + ',' + blocknumber + ',false)" id="startmonth' + blocknumber + '" name="val-skill"><option value="">اختر شهر بداية الاجازة</option><option value="01">محرم</option><option value="02">صفر</option><option value="03">ربيع الأول</option><option value="04">ربيع الآخر</option><option value="05">جمادى الأولى</option><option value="06">جمادى الآخرة</option><option value="07">رجب</option><option value="08">شعبان</option><option value="09">رمضان</option><option value="10">شوال</option><option value="11">ذو القعدة</option><option value="12">ذو الحجة</option></select></div><div class="col-lg-4"><select class="form-control" id="endday' + blocknumber + '" name="val-skill"><option value="">اختر يوم نهاية الاجازة</option></select></div><div class="col-lg-4"><select class="form-control" id="endyear' + blocknumber + '" name="val-skill"><option value="">اختر سنة نهاية الاجازة</option></select></div><div class="col-lg-4"><select class="form-control" onchange="renderDate(' + blocknumber + ', ' + blocknumber + ',true)" id="endmonth' + blocknumber + '" name="val-skill"><option value="">اختر شهر نهاية الاجازة</option><option value="01">محرم</option><option value="02">صفر</option><option value="03">ربيع الأول</option><option value="04">ربيع الآخر</option><option value="05">جمادى الأولى</option><option value="06">جمادى الآخرة</option><option value="07">رجب</option><option value="08">شعبان</option><option value="09">رمضان</option><option value="10">شوال</option><option value="11">ذو القعدة</option><option value="12">ذو الحجة</option></select></div><div class="col-lg-9"><select class="form-control" id="VacationCode' + blocknumber + '" name="val-skill"></select></div><label class="col-lg-3 col-form-label" for="val-username">رمز الاجازة<span class="text-danger">*</span></label><div class="col-lg-9"><input type="number" class="form-control" id="DecisionNumber' + blocknumber + '" name="val-username" placeholder="رقم القرار "></div><label class="col-lg-3 col-form-label" for="val-username">رقم القرار</label></div>'
+    var input = '<div class="form-group row"><div class="col-lg-4 d-flex flex-row"><span style="color:red">*</span><select class="form-control select2Class" id="startday' + blocknumber + '" name="val-skill" required><option value="">اختر يوم بداية الاجازة</option></select></div><div class="col-lg-4 d-flex flex-row"><span style="color:red">*</span><select class="form-control select2Class" id="startyear' + blocknumber + '" name="val-skill" required><option value="">اختر سنة بداية الاجازة</option></select></div><div class="col-lg-4 d-flex flex-row"><span style="color:red">*</span><select class="form-control select2Class" onchange="renderDate(' + blocknumber + ',' + blocknumber + ',false)" id="startmonth' + blocknumber + '" name="val-skill" required><option value="">اختر شهر بداية الاجازة</option><option value="01">محرم</option><option value="02">صفر</option><option value="03">ربيع الأول</option><option value="04">ربيع الآخر</option><option value="05">جمادى الأولى</option><option value="06">جمادى الآخرة</option><option value="07">رجب</option><option value="08">شعبان</option><option value="09">رمضان</option><option value="10">شوال</option><option value="11">ذو القعدة</option><option value="12">ذو الحجة</option></select></div><div class="col-lg-4 d-flex flex-row"><span style="color:red">*</span><select class="form-control select2Class" id="endday' + blocknumber + '" name="val-skill" required><option value="">اختر يوم نهاية الاجازة</option></select></div><div class="col-lg-4 d-flex flex-row"><span style="color:red">*</span><select class="form-control select2Class" id="endyear' + blocknumber + '" name="val-skill" required><option value="">اختر سنة نهاية الاجازة</option></select></div><div class="col-lg-4 d-flex flex-row"><span style="color:red">*</span><select class="form-control select2Class" onchange="renderDate(' + blocknumber + ', ' + blocknumber + ',true)" id="endmonth' + blocknumber + '" name="val-skill" required><option value="">اختر شهر نهاية الاجازة</option><option value="01">محرم</option><option value="02">صفر</option><option value="03">ربيع الأول</option><option value="04">ربيع الآخر</option><option value="05">جمادى الأولى</option><option value="06">جمادى الآخرة</option><option value="07">رجب</option><option value="08">شعبان</option><option value="09">رمضان</option><option value="10">شوال</option><option value="11">ذو القعدة</option><option value="12">ذو الحجة</option></select></div><div class="col-lg-6 d-flex flex-row"><span style="color:red">*</span><select class="form-control select2Class" id="VacationCode' + blocknumber + '" name="val-skill" required></select></div><div class="col-lg-6"><input type="number" class="form-control" id="DecisionNumber' + blocknumber + '" name="val-username" placeholder="رقم القرار"></div></div>'
     if (blocknumber > 1) {
         $('#Vacation' + perviousblock + '').html(Div + '<hr>' + input);
         for (var i = 1300; i <= $('#year').val(); i++) {
@@ -183,6 +186,9 @@ function drawVacation() {
 
     }
 
+    $('.select2Class').select2({
+        dir: "rtl",
+    });
 }
 function ValidateForm() {
     if ($('#employees').val() == '0') {

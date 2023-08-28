@@ -9,7 +9,9 @@ var Major = new Array();
 var Qualifications = new Array();
 var QualificationStatus = new Array();
 $(document).ready(function () {
-    $('#employees').select2()
+    $('.select2Class').select2({
+        dir: "rtl",
+    });
     BuildDropDown('employees', '/api/Employees/GetEmployees', 'اختر الموظف')
    // SendAjaxToGetArray(Emlpoyees, '/api/Employees/GetEmployees')
   //  console.log(Emlpoyees)
@@ -113,7 +115,8 @@ function BuildDropDownBasedOnSelection(dropdownId, subDropDownId, url, message) 
     })
 }
 function PostEmployeeAppraisal() {
-    var isValid = ValidateForm();
+    //var isValid = ValidateForm();
+    var isValid = $('form')[0].checkValidity();
     if (isValid) {
         var employeevalue = $('#employees').val();
         var employeeAppraisalInfoDTO = new Object()

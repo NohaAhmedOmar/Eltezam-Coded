@@ -11,49 +11,51 @@
 <input type="text" id="year" value="@year" hidden />
 <form class="form-valide" action="#" method="post">
 
+   
     <div class="form-group row justify-content-around">
-
-        <div class="col-lg-6">
-            <select class="form-control" id="employees" name="val-skill">
+        <div class="col-lg-4">
+            <select class="form-control select2Class" id="employees" name="val-skill">
             </select>
         </div>
-    </div>
-    <div class="form-group row justify-content-around">
 
+      <div class="col-lg-4">
+            <select class="form-control select2Class" id="JobClassCode" name="val-skill">
+            </select>
+        </div>
 
-        <div class="col-lg-6">
+       
+        <div class="col-lg-4">
             <input type="number" class="form-control" id="JobNumber" name="val-username" placeholder="رقم الوظيفة ">
-
+        </div>
         </div>
 
-        <div class="col-lg-6">
-            <select class="form-control" id="JobClassCode" name="val-skill">
+        <div class="row">
+        <div class="col-lg-4">
+            <select class="form-control select2Class" id="JobNameCode" name="val-skill">
             </select>
         </div>
-        <div class="col-lg-6">
+
+        <div class="col-lg-4">
             <input type="number" class="form-control" id="JobCatChain" name="val-username" placeholder="رمز مسمى الفئة الوظيفية  ">
 
         </div>
-        <div class="col-lg-6">
-            <select class="form-control" id="JobNameCode" name="val-skill">
-            </select>
-        </div>
-
-        <div class="col-lg-9">
-            <textarea class="form-control h-150px" rows="4" cols="30" id="JobNameDescription" placeholder="وصف مسمى الوظيفة"></textarea>
+        <div class="col-lg-4">
+            <textarea class="form-control h-150px" style="height:50px" rows="4" cols="30" id="JobNameDescription" placeholder="وصف مسمى الوظيفة"></textarea>
 
         </div>
+       
     </div>
+   
 
     <div class="form-group row">
         <div class="col-lg-4">
-            <select class="form-control" id="startday" name="val-skill">
+            <select class="form-control select2Class" id="startday" name="val-skill">
                 <option value="">اختر يوم البداية </option>
 
             </select>
         </div>
         <div class="col-lg-4">
-            <select class="form-control" id="startyear" name="val-skill">
+            <select class="form-control select2Class" id="startyear" name="val-skill">
                 <option value="">اختر سنة البداية </option>
 
                 @for (int i = 1300; i <= year; i++)
@@ -63,7 +65,7 @@
             </select>
         </div>
         <div class="col-lg-4">
-            <select class="form-control" onchange="renderDate('startday', 'startmonth')" id="startmonth" name="val-skill">
+            <select class="form-control select2Class" onchange="renderDate('startday', 'startmonth')" id="startmonth" name="val-skill">
                 <option value=""> اختر شهر البداية</option>
                 <option value="01">محرم</option>
                 <option value="02">صفر</option>
@@ -83,13 +85,13 @@
     </div>
     <div class="form-group row">
         <div class="col-lg-4">
-            <select class="form-control" id="endday" name="val-skill">
+            <select class="form-control select2Class" id="endday" name="val-skill">
                 <option value="">اختر يوم النهاية </option>
 
             </select>
         </div>
         <div class="col-lg-4">
-            <select class="form-control" id="endyear" name="val-skill">
+            <select class="form-control select2Class" id="endyear" name="val-skill">
                 <option value="">اختر سنة النهاية </option>
 
                 @for (int i = 1300; i <= year; i++)
@@ -99,7 +101,7 @@
             </select>
         </div>
         <div class="col-lg-4">
-            <select class="form-control" onchange="renderDate('endday', 'endmonth')" id="endmonth" name="val-skill">
+            <select class="form-control select2Class" onchange="renderDate('endday', 'endmonth')" id="endmonth" name="val-skill">
                 <option value=""> اختر شهر النهاية</option>
                 <option value="01">محرم</option>
                 <option value="02">صفر</option>
@@ -118,27 +120,20 @@
 
     </div>
     <div class="form-group row">
+       
         <div class="col-lg-6">
-            <input type="number" class="form-control" id="PositionOrganizationID" name="val-username" placeholder="رمز الإدارة التي تتبعها الوظيفة ">
-
-        </div>
-        <div class="col-lg-6">
-            <textarea class="form-control h-150px" rows="4" cols="30" id="PositionOrganizationName" placeholder="وصف الإدارة التي تتبعها الوظيفة"></textarea>
-
-        </div>
-        <div class="col-lg-6">
-            <select class="form-control" id="PositionStatus" name="val-skill">
+            <select class="form-control select2Class" id="PositionStatus" name="val-skill">
             </select>
 
         </div>
         <div class="col-lg-6">
-            <select class="form-control" id="EmploymentTypeCode" name="val-skill">
+            <select class="form-control select2Class" id="EmploymentTypeCode" name="val-skill">
             </select>
 
         </div>
 
         <div class="col-lg-4">
-            <select class="form-control" id="RankCode" name="val-skill">
+            <select class="form-control select2Class" id="RankCode" name="val-skill">
             </select>
 
         </div>
@@ -150,23 +145,44 @@
             <input type="number" class="form-control" id="StepID" name="val-username" placeholder="الدرجة ">
 
         </div>
+        <div class="col-lg-6">
+            <input type="number" class="form-control" id="PositionOrganizationID" name="val-username" placeholder="رمز الإدارة التي تتبعها الوظيفة ">
+
+        </div>
+        <div class="col-lg-6">
+            <textarea class="form-control h-150px" rows="4" cols="30" id="PositionOrganizationName" placeholder="وصف الإدارة التي تتبعها الوظيفة"></textarea>
+
+        </div>
         @*   <div class="col-lg-9">
-        <select class="form-control" id="JobTransactionCode" name="val-skill">
+        <select class="form-control select2Class" id="JobTransactionCode" name="val-skill">
         </select>
         </div><label class="col-lg-3 col-form-label" for="val-username">
         رمز الإجراء الوظيفي   <span class="text-danger">*</span>
         </label>*@
     </div>
 
+   
+    <div class="form-group row">
+        <div class="col-lg-6">
+            <select class="form-control select2Class" id="TransactionCode" name="val-skill">
+            </select>
+
+        </div>
+        <div class="col-lg-6">
+            <textarea class="form-control h-150px" rows="4" cols="30" id="TransactionDescription" placeholder="وصف الإجراء الوظيفي"></textarea>
+
+
+        </div>
+    </div>
     <div class="form-group row">
         <div class="col-lg-4">
-            <select class="form-control" id="Vacantday" name="val-skill">
+            <select class="form-control select2Class" id="Vacantday" name="val-skill">
                 <option value="">اختر يوم  شغر الوظيفة </option>
 
             </select>
         </div>
         <div class="col-lg-4">
-            <select class="form-control" id="Vacantyear" name="val-skill">
+            <select class="form-control select2Class" id="Vacantyear" name="val-skill">
                 <option value="">اختر سنة  شغر الوظيفة </option>
 
                 @for (int i = 1300; i <= year; i++)
@@ -176,7 +192,7 @@
             </select>
         </div>
         <div class="col-lg-4">
-            <select class="form-control" onchange="renderDate('Vacantday', 'Vacantmonth')" id="Vacantmonth" name="val-skill">
+            <select class="form-control select2Class" onchange="renderDate('Vacantday', 'Vacantmonth')" id="Vacantmonth" name="val-skill">
                 <option value=""> اختر شهر  شغر الوظيفة</option>
                 <option value="01">محرم</option>
                 <option value="02">صفر</option>
@@ -194,18 +210,6 @@
         </div>
 
     </div>
-    <div class="form-group row">
-        <div class="col-lg-6">
-            <select class="form-control" id="TransactionCode" name="val-skill">
-            </select>
-
-        </div>
-        <div class="col-lg-6">
-            <textarea class="form-control h-150px" rows="4" cols="30" id="TransactionDescription" placeholder="وصف الإجراء الوظيفي"></textarea>
-
-
-        </div>
-    </div>
 
     @*        <div class="form-group row">
     <div class="col-lg-3">
@@ -217,7 +221,7 @@
 
 
 
-    <center class="row justify-content-end">
+    <center class="row justify-content-start">
         <div class="btn btn-sent btn-add2" onclick="PostJob()">اضافة</div>
     </center>
 

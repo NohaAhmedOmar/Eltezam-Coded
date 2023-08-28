@@ -8,16 +8,45 @@ var Major = new Array();
 var Qualifications = new Array();
 var QualificationStatus = new Array();
 $(document).ready(function () {
-    $('#employees').select2()
+    $('.select2Class').select2({
+        dir: "rtl",
+    });
+
+
+    //$('#employees').select2({
+    //    dir: "rtl",
+    //});
+    //$('#EmploymentTypeCode').select2({
+    //    dir: "rtl",
+    //});
+    //$('#RankCode').select2({
+    //    dir: "rtl",
+    //});
+    //$('#ConsolidationSetID').select2({
+    //    dir: "rtl",
+    //});
+    //$('#ElementCode').select2({
+    //    dir: "rtl",
+    //});
+    //$('#ElementClassification').select2({
+    //    dir: "rtl",
+    //});
+    //$('#payday').select2({
+    //    dir: "rtl",
+    //});
+    //$('#payyear').select2({
+    //    dir: "rtl",
+    //});
+    //$('#paymonth').select2({
+    //    dir: "rtl",
+    //});
+
     BuildDropDown('employees', '/api/Employees/GetEmployees', 'اختر الموظف')
     BuildDropDown('EmploymentTypeCode', '/api/DropDowns/GetEmployeeStatusCodeDropDown', 'اختر رمز السلم الوظيفي')
     BuildDropDown('RankCode', '/api/DropDowns/GetRankCodeDropDown', 'اختر رمز المرتبة')
     BuildDropDown('ConsolidationSetID', '/api/DropDowns/GetConsolidationSetDropDown', 'اختر رمز نوع المسير')
     BuildDropDown('ElementCode', '/api/DropDowns/GetElementCodeDropDown', 'اختر رمز عنصر الصرف')
     BuildDropDown('ElementClassification', '/api/DropDowns/GetElementClassificationTypeDropDown', 'اختر تصنيف العنصر')
-   
-
-
 })
 function renderDate(dayId, monthId) {
     var month = $("#" + monthId + "").val();
@@ -102,7 +131,8 @@ function BuildDropDownBasedOnSelection(dropdownId, subDropDownId, url, message) 
     })
 }
 function PostEmployeePayment() {
-    var isValid = ValidateForm();
+    //var isValid = ValidateForm();
+    var isValid = $('form')[0].checkValidity();
     if (isValid) {
         var employeevalue = $('#employees').val();
         var employeePaymentDTO = new Object()

@@ -43,7 +43,7 @@ namespace Eltezam_Coded.Services
         Task<ResponseModel> BulkDeleteEmployeeAppraisal(List<int> Ids);
         Task<ResponseModel> BulkDeleteEmployeeHistorical(List<int> Ids);
         Task<ResponseModel> BulkDeleteJob(List<int> Ids);
-        Task<bool> SaveResponseNumberForEmployee(string NationalId, string ResponseNumber);
+        Task<bool> SaveResponseNumber(int ServiceEntity, long EmployeeId, string ResponseNumber);
     }
     public class EmployeeService : IEmployeeService
     {
@@ -770,16 +770,31 @@ namespace Eltezam_Coded.Services
             return res == 2 ? new ResponseModel { IsSuccess = true, Data = job, RequestNumber = request.RequestNumber, StatusCode = 201 } : new ResponseModel { IsSuccess = false, Data = jobDTO, StatusCode = 400 };
         }
 
-        public Task<bool> SaveResponseNumberForEmployee(string? NationalId, string? ResponseNumber)
+        public Task<bool> SaveResponseNumber(int ServiceEntity, long EmployeeId, string? ResponseNumber)
         {
             bool result = false;
             try
             {
                 //var res = employeeDapper.RunDML($"update Employees set ServiceResponseNumber = {ResponseNumber} where NationalId={NationalId}");
-                Employee emp = context.Employees.Where(a => a.NationalId.Equals(NationalId)).FirstOrDefault();
-                if (emp != null)
+                ServiceResponse obj = context.ServiceResponses.Where(a => a.EmployeeId == EmployeeId && a.ServiceEntity == ServiceEntity).FirstOrDefault();
+                if (obj != null)
                 {
-                    emp.ServiceResponseNumber = ResponseNumber;
+                    //obj.UpdatedDate = DateTime.Now;
+                    obj.ResponseNumber = ResponseNumber;
+
+                    context.SaveChanges();
+                }
+                else
+                {
+                    obj = new ServiceResponse()
+                    {
+                        EmployeeId = EmployeeId,
+                        ResponseNumber = ResponseNumber,
+                        ServiceEntity = ServiceEntity,
+                        CreatedDate = DateTime.Now
+                    };
+
+                    context.ServiceResponses.Add(obj);
                     context.SaveChanges();
                 }
                 result = true;

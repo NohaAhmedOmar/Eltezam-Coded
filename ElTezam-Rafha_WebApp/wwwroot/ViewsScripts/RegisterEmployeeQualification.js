@@ -1,5 +1,5 @@
 ﻿var blocknumber = 0;
-var gradday ='gradday'
+var gradday = 'gradday'
 var gradmonth = 'gradmonth'
 var Nations = new Array();
 var Grades = new Array();
@@ -8,7 +8,9 @@ var Major = new Array();
 var Qualifications = new Array();
 var QualificationStatus = new Array();
 $(document).ready(function () {
-    $('#employees').select2()
+    $('.select2Class').select2({
+        dir: "rtl",
+    });
     BuildDropDown('employees', '/api/Employees/GetEmployees', 'اختر الموظف')
     SendAjaxToGetArray(Nations, '/api/DropDowns/GetNationDropDown')
     SendAjaxToGetArray(Grades, '/api/DropDowns/GetGradesDropDown')
@@ -16,9 +18,6 @@ $(document).ready(function () {
     SendAjaxToGetArray(Major, '/api/DropDowns/GetQualificationCodeDropDown')
     SendAjaxToGetArray(Qualifications, '/api/DropDowns/GetQualificationCodeDropDown')
     SendAjaxToGetArray(QualificationStatus, '/api/DropDowns/GetQualificationStatusDropDown')
-
-
-    
 })
 function renderDate(dayId, monthId) {
     var month = $("#" + gradmonth + monthId + "").val();
@@ -30,11 +29,11 @@ function renderDate(dayId, monthId) {
         }
     }
     else if (month == 2) {
-        $("#" + gradday+dayId + "").empty();
+        $("#" + gradday + dayId + "").empty();
 
         for (var i = 1; i <= 29; i++) {
 
-            $("#"+gradday+ dayId + "").append("<option value='" + i + "'>" + i + "</option>");
+            $("#" + gradday + dayId + "").append("<option value='" + i + "'>" + i + "</option>");
         }
     }
     else {
@@ -46,13 +45,14 @@ function renderDate(dayId, monthId) {
     }
 
 }
-function SendAjaxToGetArray(collection,url) {
+function SendAjaxToGetArray(collection, url) {
+    debugger
     $.ajax({
         type: "Get",
         url: url,
         success: function (results) {
 
-            collection.push({Id:0,Value:'اختر'})
+            collection.push({ Id: 0, Value: 'اختر' })
             $.each(results, function (i, result) {
 
                 var obj = new Object();
@@ -105,11 +105,10 @@ function BuildDropDownBasedOnSelection(dropdownId, subDropDownId, url, message) 
 function drawQualification() {
     blocknumber++;
     var perviousblock = blocknumber - 1
-    var Date = '<div class="col-lg-3"><select class="form-control" id="gradday' + blocknumber + '" name="val-skill"><option value="0">اختر يوم التخرج</option></select></div><div class="col-lg-3"><select class="form-control" id="gradyear' + blocknumber + '" name="val-skill"><option value="0">اختر سنة التخرج</option></select></div><div class="col-lg-3"><select class="form-control" onchange="renderDate(' + blocknumber+ ','+ blocknumber+ ')" id="gradmonth' + blocknumber + '" name="val-skill"><option value="0">اختر شهر التخرج</option><option value="01">محرم</option><option value="02">صفر</option><option value="03">ربيع الأول</option><option value="04">ربيع الآخر</option><option value="05">جمادى الأولى</option><option value="06">جمادى الآخرة</option><option value="07">رجب</option><option value="08">شعبان</option><option value="09">رمضان</option><option value="10">شوال</option><option value="11">ذو القعدة</option><option value="12">ذو الحجة</option></select></div><label class="col-lg-3 col-form-label" for="val-username">تاريخ التخرج</label>'
+    var Date = '<div class="col-lg-3"><select class="form-control select2Class" id="gradday' + blocknumber + '" name="val-skill"><option value="0">اختر يوم التخرج</option></select></div><div class="col-lg-3"><select class="form-control select2Class" id="gradyear' + blocknumber + '" name="val-skill"><option value="0">اختر سنة التخرج</option></select></div><div class="col-lg-3"><select class="form-control select2Class" onchange="renderDate(' + blocknumber + ',' + blocknumber + ')" id="gradmonth' + blocknumber + '" name="val-skill"><option value="0">اختر شهر التخرج</option><option value="01">محرم</option><option value="02">صفر</option><option value="03">ربيع الأول</option><option value="04">ربيع الآخر</option><option value="05">جمادى الأولى</option><option value="06">جمادى الآخرة</option><option value="07">رجب</option><option value="08">شعبان</option><option value="09">رمضان</option><option value="10">شوال</option><option value="11">ذو القعدة</option><option value="12">ذو الحجة</option></select></div>'
     var Div = '<div id="Qualification' + blocknumber + '"></div>'
-    var input = '<div class="form-group row"><div class="col-lg-3"><select class="form-control" id="QualificationCode' + blocknumber + '" name="val-skill"></select></div><label class="col-lg-3 col-form-label" for="val-username">رمز المؤهل<span class="text-danger">*</span></label><div class="col-lg-3"><select class="form-control" id="MajorCode' + blocknumber + '" name="val-skill"></select></div><label class="col-lg-3 col-form-label" for="val-username">رمز التخصص<span class="text-danger">*</span></label><div class="col-lg-3"><select class="form-control" id="UniversityCode' + blocknumber + '" name="val-skill"></select></div><label class="col-lg-3 col-form-label" for="val-username">رمز الجامعة <span class="text-danger">*</span></label><div class="col-lg-3"><select class="form-control" id="CountryCode' + blocknumber + '" name="val-skill"></select></div><label class="col-lg-3 col-form-label" for="val-username">رمز الدولة الحاصل منها على المؤهل</label><div class="col-lg-3"><select class="form-control" id="Grade' + blocknumber + '" name="val-skill"></select></div><label class="col-lg-3 col-form-label" for="val-username">التقدير</label><div class="col-lg-3"><input type="text" class="form-control" id="Score' + blocknumber + '" placeholder=" المعدل  "></div><label class="col-lg-3 col-form-label" for="val-username">المعدل</label><div class="col-lg-3"><input type="text" class="form-control" id="ScoreOutOf' + blocknumber + '" placeholder="المعدل من  "></div><label class="col-lg-3 col-form-label" for="val-username">المعدل من</label><div class="col-lg-3"><input type="text" class="form-control" id="City' + blocknumber + '" placeholder=" اسم المدينة "></div><label class="col-lg-3 col-form-label" for="val-username">اسم المدينة</label><div class="col-lg-9"><select class="form-control" id="QualificationStatus' + blocknumber + '" name="val-skill"></select></div><label class="col-lg-3 col-form-label" for="val-username">وضع المؤهل<span class="text-danger">*</span></label>' + Date + '</div>';
+    var input = '<div class="form-group row"><div class="col-lg-4 d-flex flex-row"><span style="color:red">*</span><select class="form-control select2Class" id="QualificationCode' + blocknumber + '" name="val-skill" required></select></div><div class="col-lg-4 d-flex flex-row"><span style="color:red">*</span><select class="form-control select2Class" id="MajorCode' + blocknumber + '" name="val-skill" required></select></div><div class="col-lg-4 d-flex flex-row"><span style="color:red">*</span><select class="form-control select2Class" id="UniversityCode' + blocknumber + '" name="val-skill" required></select></div><div class="col-lg-4"><select class="form-control select2Class" id="CountryCode' + blocknumber + '" name="val-skill"></select></div><div class="col-lg-4"><select class="form-control select2Class" id="Grade' + blocknumber + '" name="val-skill"></select></div><div class="col-lg-4"><input type="text" class="form-control" id="Score' + blocknumber + '" placeholder=" المعدل"></div><div class="col-lg-6"><input type="text" class="form-control" id="ScoreOutOf' + blocknumber + '" placeholder="المعدل من  "></div><div class="col-lg-6"><input type="text" class="form-control" id="City' + blocknumber + '" placeholder=" اسم المدينة "></div><div class="col-lg-3 d-flex flex-row"><span style="color:red">*</span><select class="form-control select2Class" id="QualificationStatus' + blocknumber + '" name="val-skill" required></select></div>' + Date + '</div>';
     if (blocknumber > 1) {
-        
         $('#Qualification' + perviousblock + '').html(Div + '<hr>' + input);
         for (var i = 1300; i <= $('#year').val(); i++) {
             $('#gradyear' + perviousblock + '').append('<option value="' + i + '">' + i + '</option>')
@@ -165,17 +164,21 @@ function drawQualification() {
             $('#QualificationStatus' + blocknumber + '').append('<option value="' + QualificationStatus[i].Id + '">' + QualificationStatus[i].Value + '</option>')
         }
     }
-        
+
+    debugger
+    $('.select2Class').select2({
+        dir: "rtl",
+    });
 }
 function PostEmployeeQualification() {
-    var isValid = ValidateForm();
+    //var isValid = ValidateForm();
+    var isValid = $('form')[0].checkValidity();
     if (isValid) {
-
-        var employeevalue= $('#employees').val()
+        var employeevalue = $('#employees').val()
         var employeeQualificationDTOs = new Array();
         for (var i = 1; i <= blocknumber; i++) {
             var employeeQualificationDTO = new Object();
-           
+
             employeeQualificationDTO.employeeId = employeevalue.split(':')[0];
             employeeQualificationDTO.nationalID = employeevalue.split(':')[1];
             employeeQualificationDTO.qualificationCode = $('#QualificationCode' + i + '').val();
@@ -185,12 +188,12 @@ function PostEmployeeQualification() {
             $('#City' + i + '').val() != '' ? employeeQualificationDTO.cityName = $('#City' + i + '').val() : isValid;
             $('#Grade' + i + '').val() != '0' ? employeeQualificationDTO.grade = $('#Grade' + i + '').val() : isValid;
             $('#Score' + i + '').val() != '' ? employeeQualificationDTO.score = $('#Score' + i + '').val() : isValid;
-             $('#ScoreOutOf' + i + '').val() != '' ? employeeQualificationDTO.scoreOutOf = $('#ScoreOutOf' + i + '').val() : isValid;
+            $('#ScoreOutOf' + i + '').val() != '' ? employeeQualificationDTO.scoreOutOf = $('#ScoreOutOf' + i + '').val() : isValid;
             employeeQualificationDTO.qualificationStatus = $('#QualificationStatus' + i + '').val();
             debugger
-            if ($('#gradyear' + i + '').val() != '0' && $('#gradmonth' + i + '').val() != '0' && $('#gradday' + i +'').val() != '0') 
+            if ($('#gradyear' + i + '').val() != '0' && $('#gradmonth' + i + '').val() != '0' && $('#gradday' + i + '').val() != '0')
                 employeeQualificationDTO.graduationDate = '' + $('#gradyear' + i + '').val() + '-' + $('#gradmonth' + i + '').val() + '-' + $('#gradday' + i + '').val() + 'T00:00:00';
-          
+
             employeeQualificationDTOs.push(employeeQualificationDTO);
         }
 
@@ -231,22 +234,22 @@ function ValidateForm() {
         return false;
     }
     for (var i = 1; i <= blocknumber; i++) {
-      if ($('#MajorCode'+i+'').val() == '0') {
-          ValidationAlert('لابد من ادخال رمز التخصص  ')
+        if ($('#MajorCode' + i + '').val() == '0') {
+            ValidationAlert('لابد من ادخال رمز التخصص  ')
             return false;
-      }
-      else if ($('#QualificationCode'+i+'').val() == '0') {
-          ValidationAlert('لابد من ادخال رمز المؤهل  ')
-        return false;
+        }
+        else if ($('#QualificationCode' + i + '').val() == '0') {
+            ValidationAlert('لابد من ادخال رمز المؤهل  ')
+            return false;
+        }
+        else if ($('#UniversityCode' + i + '').val() == '0') {
+            ValidationAlert('لابد من ادخال رمز الجامعة   ')
+            return false;
+        }
+
     }
-      else if ($('#UniversityCode'+i+'').val() == '0') {
-          ValidationAlert('لابد من ادخال رمز الجامعة   ')
-        return false;
-      }
-   
-    }
- 
-   
+
+
     return true;
 }
 function ValidationAlert(Message) {

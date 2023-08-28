@@ -79,7 +79,7 @@ namespace ElTezam_Coded_WebApp.APIControllers
 
                     var result = await sendSoapRequestService.SendRequest("http://10.10.10.42/GSBExpress/Employment/MCSEltezamData/2.0/EltezamDataService.svc", body, "http://tempuri.org/IEltezamDataService/SubmitEmployeeInfo");
 
-                    bool isSaved = await saveResponseNumber(data.NationalId, result.SOAPRequestNumber);
+                    bool isSaved = await saveResponseNumber(1, data.EmployeeId, result.SOAPRequestNumber);
                 }
 
                 return Ok(results);
@@ -287,6 +287,7 @@ namespace ElTezam_Coded_WebApp.APIControllers
 </soapenv:Body>
 </soapenv:Envelope>";
                     var result = await sendSoapRequestService.SendRequest("http://10.10.10.42/GSBExpress/Employment/MCSEltezamData/2.0/EltezamDataService.svc", body, "http://tempuri.org/IEltezamDataService/SubmitEmployeeAppraisalInfo");
+                    bool isSaved = await saveResponseNumber(2, data.EmployeeId, result.SOAPRequestNumber);
                 }
 
                 return Ok(results);
@@ -409,6 +410,7 @@ namespace ElTezam_Coded_WebApp.APIControllers
 </soapenv:Body>
 </soapenv:Envelope>";
                     var result = await sendSoapRequestService.SendRequest("http://10.10.10.42/GSBExpress/Employment/MCSEltezamData/2.0/EltezamDataService.svc", body, "http://tempuri.org/IEltezamDataService/SubmitEmployeeHistoricalInfo");
+                    bool isSaved = await saveResponseNumber(3, data.EmployeeId, result.SOAPRequestNumber);
                 }
 
                 return Ok(results);
@@ -568,6 +570,7 @@ namespace ElTezam_Coded_WebApp.APIControllers
 </soapenv:Envelope>";
                     }
                     var result = await sendSoapRequestService.SendRequest("http://10.10.10.42/GSBExpress/Employment/MCSEltezamData/2.0/EltezamDataService.svc", body, "http://tempuri.org/IEltezamDataService/SubmitJobInfo");
+                    bool isSaved = await saveResponseNumber(4, (long)data.EmployeeId, result.SOAPRequestNumber);
                 }
 
                 return Ok(results);
@@ -736,6 +739,7 @@ namespace ElTezam_Coded_WebApp.APIControllers
 </soapenv:Envelope>";
 
                     var result = await sendSoapRequestService.SendRequest("http://10.10.10.42/GSBExpress/Employment/MCSEltezamData/2.0/EltezamDataService.svc", body, "http://tempuri.org/IEltezamDataService/SubmitEmployeePayslipInfo");
+                    bool isSaved = await saveResponseNumber(5, data.EmployeeId, result.SOAPRequestNumber);
                 }
 
                 return Ok(results);
@@ -893,6 +897,7 @@ namespace ElTezam_Coded_WebApp.APIControllers
 </soapenv:Envelope>";
 
                     var result = await sendSoapRequestService.SendRequest("http://10.10.10.42/GSBExpress/Employment/MCSEltezamData/2.0/EltezamDataService.svc", body, "http://tempuri.org/IEltezamDataService/SubmitEmployeeQualificationInfo");
+                    bool isSaved = await saveResponseNumber(6, data.EmployeeId, result.SOAPRequestNumber);
                 }
 
                 return Ok(results);
@@ -1015,6 +1020,7 @@ namespace ElTezam_Coded_WebApp.APIControllers
 </soapenv:Envelope>";
 
                     var result = await sendSoapRequestService.SendRequest("http://10.10.10.42/GSBExpress/Employment/MCSEltezamData/2.0/EltezamDataService.svc", body, "http://tempuri.org/IEltezamDataService/SubmitEmployeeVacationInfo");
+                    bool isSaved = await saveResponseNumber(7, data.EmpoyeeId, result.SOAPRequestNumber);
                 }
 
                 return Ok(results);
@@ -1099,7 +1105,7 @@ namespace ElTezam_Coded_WebApp.APIControllers
             xmlDoc.AppendChild(envelopeElement);
             return xmlDoc.OuterXml;
         }
-        private async Task<bool> saveResponseNumber(string? NationalId, string? ResponseNumber)
+        private async Task<bool> saveResponseNumber(int ServiceEntity, long EmployeeId, string? ResponseNumber)
         {
             bool result = false;
 
@@ -1107,7 +1113,7 @@ namespace ElTezam_Coded_WebApp.APIControllers
             {
                 if (!string.IsNullOrEmpty(ResponseNumber))
                 {
-                    result = await employeeService.SaveResponseNumberForEmployee(NationalId, ResponseNumber);
+                    result = await employeeService.SaveResponseNumber(ServiceEntity, EmployeeId, ResponseNumber);
                 }
             }
             catch (Exception)

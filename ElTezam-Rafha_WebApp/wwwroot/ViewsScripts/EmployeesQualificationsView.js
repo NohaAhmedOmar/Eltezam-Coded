@@ -7,7 +7,7 @@ var i = 0, j = 0;
 let functionCalledFlag = true;
 
 $(document).ready(function () {
-    GetEmployees()
+    GetEmployees();
 })
 function GetEmployees() {
     $.ajax({
@@ -23,6 +23,9 @@ function GetEmployees() {
                 })
             });
             $('#employeeData').DataTable({
+                'language': {
+                    url: '//cdn.datatables.net/plug-ins/1.13.6/i18n/ar.json',
+                },
                 'destroy': true,
                 'data': Employees,
                 'columns': [
@@ -34,8 +37,7 @@ function GetEmployees() {
                     {
                         'data': 'id',
                         render: function (data) {
-                            return '<input type="checkbox" id="check' + data + '" />'
-
+                            return '<input type="checkbox" id="check' + data + '" />';
                         }
                     }
                 ]
@@ -246,6 +248,9 @@ function except(collection1, collection2) {
 }
 function BuildDataTable(data) {
     $('#employeeData').DataTable({
+        'language': {
+            url: '//cdn.datatables.net/plug-ins/1.13.6/i18n/ar.json',
+        },
         'destroy': true,
         'data': data,
         'columns': [

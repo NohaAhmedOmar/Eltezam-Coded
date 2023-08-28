@@ -34,6 +34,8 @@ namespace ElTezam_Coded_WebApp.DomainModels
         public virtual DbSet<LocationCode> LocationCodes { get; set; } = null!;
         public virtual DbSet<Nationality> Nationalities { get; set; } = null!;
         public virtual DbSet<RequestIdentity> RequestIdentities { get; set; } = null!;
+        public virtual DbSet<ServiceEntity> ServiceEntities { get; set; } = null!;
+        public virtual DbSet<ServiceResponse> ServiceResponses { get; set; } = null!;
         public virtual DbSet<SubCity> SubCities { get; set; } = null!;
         public virtual DbSet<University> Universities { get; set; } = null!;
 
@@ -644,6 +646,36 @@ namespace ElTezam_Coded_WebApp.DomainModels
                 entity.Property(e => e.Table)
                     .HasMaxLength(500)
                     .HasDefaultValueSql("(N'')");
+            });
+
+            modelBuilder.Entity<ServiceEntity>(entity =>
+            {
+                entity.ToTable("ServiceEntity");
+
+                entity.Property(e => e.Name).HasMaxLength(200);
+            });
+
+            modelBuilder.Entity<ServiceResponse>(entity =>
+            {
+                entity.ToTable("ServiceResponse");
+
+                entity.Property(e => e.CreatedDate).HasColumnType("datetime");
+
+                entity.Property(e => e.ResponseNumber).HasMaxLength(255);
+
+                entity.Property(e => e.UpdatedDate).HasColumnType("datetime");
+
+                entity.HasOne(d => d.Employee)
+                    .WithMany(p => p.ServiceResponses)
+                    .HasForeignKey(d => d.EmployeeId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__ServiceRe__Emplo__28ED12D1");
+
+                entity.HasOne(d => d.ServiceEntityNavigation)
+                    .WithMany(p => p.ServiceResponses)
+                    .HasForeignKey(d => d.ServiceEntity)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__ServiceRe__Servi__27F8EE98");
             });
 
             modelBuilder.Entity<SubCity>(entity =>

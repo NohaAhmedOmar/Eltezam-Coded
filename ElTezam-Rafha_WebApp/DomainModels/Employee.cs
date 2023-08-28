@@ -14,6 +14,7 @@ namespace ElTezam_Coded_WebApp.DomainModels
             EmployeeQualifications = new HashSet<EmployeeQualification>();
             EmployeeVacations = new HashSet<EmployeeVacation>();
             Jobs = new HashSet<Job>();
+            ServiceResponses = new HashSet<ServiceResponse>();
         }
 
         public long EmployeeId { get; set; }
@@ -89,5 +90,6 @@ namespace ElTezam_Coded_WebApp.DomainModels
         public virtual ICollection<EmployeeQualification> EmployeeQualifications { get; set; }
         public virtual ICollection<EmployeeVacation> EmployeeVacations { get; set; }
         public virtual ICollection<Job> Jobs { get; set; }
+        public virtual ICollection<ServiceResponse> ServiceResponses { get; set; }
     }
 }

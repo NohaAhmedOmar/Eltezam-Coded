@@ -1,6 +1,8 @@
 ﻿
 $(document).ready(function () {
-    $('#employees').select2()
+    $('.select2Class').select2({
+        dir: "rtl",
+    });
     BuildDropDown('employees', '/api/Employees/GetEmployees', 'اختر الموظف')
     BuildDropDown('EmployeeStatusCode', '/api/DropDowns/GetEmployeeStatusCodeDropDown', 'اختر  رمز حالة الموظف ')
     BuildDropDown('JobClassCode', '/api/DropDowns/GetEmployeeStatusCodeDropDown', 'اختر  رمز سلسلة الفئات الوظيفية ')
