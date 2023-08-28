@@ -287,7 +287,7 @@ namespace ElTezam_Coded_WebApp.APIControllers
 </soapenv:Body>
 </soapenv:Envelope>";
                     var result = await sendSoapRequestService.SendRequest("http://10.10.10.42/GSBExpress/Employment/MCSEltezamData/2.0/EltezamDataService.svc", body, "http://tempuri.org/IEltezamDataService/SubmitEmployeeAppraisalInfo");
-                    bool isSaved = await saveResponseNumber(2, data.EmployeeId, result.SOAPRequestNumber);
+                    bool isSaved = await saveResponseNumber(2, data.AppraisalId, result.SOAPRequestNumber);
                 }
 
                 return Ok(results);
@@ -410,7 +410,7 @@ namespace ElTezam_Coded_WebApp.APIControllers
 </soapenv:Body>
 </soapenv:Envelope>";
                     var result = await sendSoapRequestService.SendRequest("http://10.10.10.42/GSBExpress/Employment/MCSEltezamData/2.0/EltezamDataService.svc", body, "http://tempuri.org/IEltezamDataService/SubmitEmployeeHistoricalInfo");
-                    bool isSaved = await saveResponseNumber(3, data.EmployeeId, result.SOAPRequestNumber);
+                    bool isSaved = await saveResponseNumber(3, data.Id, result.SOAPRequestNumber);
                 }
 
                 return Ok(results);
@@ -570,7 +570,7 @@ namespace ElTezam_Coded_WebApp.APIControllers
 </soapenv:Envelope>";
                     }
                     var result = await sendSoapRequestService.SendRequest("http://10.10.10.42/GSBExpress/Employment/MCSEltezamData/2.0/EltezamDataService.svc", body, "http://tempuri.org/IEltezamDataService/SubmitJobInfo");
-                    bool isSaved = await saveResponseNumber(4, (long)data.EmployeeId, result.SOAPRequestNumber);
+                    bool isSaved = await saveResponseNumber(4, (long)data.JobPositionCode, result.SOAPRequestNumber);
                 }
 
                 return Ok(results);
@@ -739,7 +739,7 @@ namespace ElTezam_Coded_WebApp.APIControllers
 </soapenv:Envelope>";
 
                     var result = await sendSoapRequestService.SendRequest("http://10.10.10.42/GSBExpress/Employment/MCSEltezamData/2.0/EltezamDataService.svc", body, "http://tempuri.org/IEltezamDataService/SubmitEmployeePayslipInfo");
-                    bool isSaved = await saveResponseNumber(5, data.EmployeeId, result.SOAPRequestNumber);
+                    bool isSaved = await saveResponseNumber(5, data.EmployeePayId, result.SOAPRequestNumber);
                 }
 
                 return Ok(results);
@@ -897,7 +897,7 @@ namespace ElTezam_Coded_WebApp.APIControllers
 </soapenv:Envelope>";
 
                     var result = await sendSoapRequestService.SendRequest("http://10.10.10.42/GSBExpress/Employment/MCSEltezamData/2.0/EltezamDataService.svc", body, "http://tempuri.org/IEltezamDataService/SubmitEmployeeQualificationInfo");
-                    bool isSaved = await saveResponseNumber(6, data.EmployeeId, result.SOAPRequestNumber);
+                    bool isSaved = await saveResponseNumber(6, data.QualificationId, result.SOAPRequestNumber);
                 }
 
                 return Ok(results);
@@ -1020,7 +1020,7 @@ namespace ElTezam_Coded_WebApp.APIControllers
 </soapenv:Envelope>";
 
                     var result = await sendSoapRequestService.SendRequest("http://10.10.10.42/GSBExpress/Employment/MCSEltezamData/2.0/EltezamDataService.svc", body, "http://tempuri.org/IEltezamDataService/SubmitEmployeeVacationInfo");
-                    bool isSaved = await saveResponseNumber(7, data.EmpoyeeId, result.SOAPRequestNumber);
+                    bool isSaved = await saveResponseNumber(7, data.VacationId, result.SOAPRequestNumber);
                 }
 
                 return Ok(results);

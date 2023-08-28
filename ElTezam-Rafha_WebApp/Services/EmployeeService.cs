@@ -15,7 +15,7 @@ namespace Eltezam_Coded.Services
         Task<object> GetEmployees();
         Task<List<Employee>> GetEmployeesForSoap(List<long> Ids);
         Task<List<EmployeeAppraisalInfo>> GetAppraisalForSoap(List<long> Ids);
-        Task<List<EmployeeJob>> GetHistoricalInfoForSoap(List<long> Ids);
+        Task<List<EmployeeHistoricalInfo>> GetHistoricalInfoForSoap(List<long> Ids);
         Task<List<Job>> GetJobInfoForSoap(List<long> Ids);
         Task<List<EmployeePayment>> GetPayslipInfoForSoap(List<long> Ids);
         Task<List<EmployeeQualification>> GetQualificationInfoForSoap(List<long> Ids);
@@ -530,12 +530,12 @@ namespace Eltezam_Coded.Services
             }
         }
 
-        public async Task<List<EmployeeJob>> GetHistoricalInfoForSoap(List<long> Ids)
+        public async Task<List<EmployeeHistoricalInfo>> GetHistoricalInfoForSoap(List<long> Ids)
         {
-            var data = new List<EmployeeJob>();
+            var data = new List<EmployeeHistoricalInfo>();
             foreach (var Id in Ids)
             {
-                data.Add(await context.EmployeeJobs.Where(x => x.EmployeeJobId == Id).SingleOrDefaultAsync());
+                data.Add(await context.EmployeeHistoricalInfos.Where(x => x.Id == Id).SingleOrDefaultAsync());
             }
             return data;
         }
