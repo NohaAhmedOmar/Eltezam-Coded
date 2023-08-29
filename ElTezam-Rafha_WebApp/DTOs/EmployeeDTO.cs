@@ -30,20 +30,25 @@ namespace Eltezam_Coded.DTOs
         public string BirthDate { get; set; }
         
         public int Gender { get; set; }
-        
+        public string? GenderCode { get; set; }
+
         public string NationalityCode { get; set; } = null!;
             
-        public int Religion { get; set; }
+        public int? Religion { get; set; }
+        public string? ReligionCode { get; set; }
         
         public int? BloodType { get; set; }
+        public string? BloodTypeCode { get; set; }
         
         public string? Mobile { get; set; }
         
         public string? EmailAddress { get; set; }
         
         public int MaritalStatus { get; set; }
+        public string? MaritalStatusCode { get; set; }
         
         public int Healthstatus { get; set; }
+        public string? HealthstatusCode { get; set; }
         
         public string EmployeeStatusCode { get; set; } = null!;
         

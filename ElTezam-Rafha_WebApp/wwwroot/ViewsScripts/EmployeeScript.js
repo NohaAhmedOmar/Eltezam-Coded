@@ -25,130 +25,6 @@ $(document).ready(function () {
     $('.select2Class').select2({
         dir: "rtl",
     });
-
-//    $('#birthday').select2({
-//        dir: "rtl",
-//    });
-//    $('#birthyear').select2({
-//        dir: "rtl",
-//    });
-//    $('#birthmonth').select2({
-//        dir: "rtl",
-//    });
-//    $('#gender').select2({
-//        dir: "rtl",
-//    });
-//    $('#nation').select2({
-//        dir: "rtl",
-//    });
-//    $('#religion').select2({
-//        dir: "rtl",
-//    });
-//    $('#bloodType').select2({
-//        dir: "rtl",
-//    });
-//    $('#maritalStatus').select2({
-//        dir: "rtl",
-//    });
-//    $('#healthstatus').select2({
-//        dir: "rtl",
-//    });
-//    $('#employeeStatusCode').select2({
-//        dir: "rtl",
-//    });
-//    $('#jobClassCode').select2({
-//        dir: "rtl",
-//    });
-//    $('#JobNameCode').select2({
-//        dir: "rtl",
-//    });
-//    $('#employmentTypeCode').select2({
-//        dir: "rtl",
-//    });
-//    $('#rankCode').select2({
-//        dir: "rtl",
-//    });
-//    $('#stepday').select2({
-//        dir: "rtl",
-//    });
-//    $('#stepyear').select2({
-//        dir: "rtl",
-//    });
-//    $('#stepmonth').select2({
-//        dir: "rtl",
-//    });
-//    $('#gradeday').select2({
-//        dir: "rtl",
-//    });
-//    $('#gradeyear').select2({
-//        dir: "rtl",
-//    });
-//    $('#grademonth').select2({
-//        dir: "rtl",
-//    });
-//    $('#actualJobNameCode').select2({
-//        dir: "rtl",
-//    });
-//    $('#Promotionday').select2({
-//        dir: "rtl",
-//    });
-//    $('#Promotionyear').select2({
-//        dir: "rtl",
-//    });
-//    $('#Promotionmonth').select2({
-//        dir: "rtl",
-//    });
-//    $('#Hireday').select2({
-//        dir: "rtl",
-//    });
-//    $('#Hireyear').select2({
-//        dir: "rtl",
-//    });
-//    $('#Hiremonth').select2({
-//        dir: "rtl",
-//    });
-//    $('#area').select2({
-//        dir: "rtl",
-//    });
-//    $('#gov').select2({
-//        dir: "rtl",
-//    });
-//    $('#loaction').select2({
-//        dir: "rtl",
-//    });
-//    $('#MinistryHireday').select2({
-//        dir: "rtl",
-//    });
-//    $('#MinistryHireyear').select2({
-//        dir: "rtl",
-//    });
-//    $('#MinistryHiremonth').select2({
-//        dir: "rtl",
-//    });
-//    $('#TransactionCode').select2({
-//        dir: "rtl",
-//    });
-//    $('#IsActive').select2({
-//        dir: "rtl",
-//    });
-//    $('#MinistryHireyear').select2({
-//        dir: "rtl",
-//    });
-//    $('#MinistryHiremonth').select2({
-//        dir: "rtl",
-//    });
-//    $('#TerminationReasonCode').select2({
-//        dir: "rtl",
-//    });
-//    $('#Terminationday').select2({
-//        dir: "rtl",
-//    });
-//    $('#Terminationyear').select2({
-//        dir: "rtl",
-//    });
-//    $('#Terminationmonth').select2({
-//        dir: "rtl",
-//    });
 })
 function renderDate(dayId, monthId) {
     var month = $("#" + monthId + "").val();
@@ -215,59 +91,60 @@ function BuildDropDownBasedOnSelection(dropdownId, subDropDownId, url, message) 
     })
 }
 function PostEmployee() {
+    debugger
     //var isValid = ValidateForm();
     var isValid = $('form')[0].checkValidity();
     if (isValid) {
         var valid = true;
         var employeeDTO = new Object();
         $('#NationalID').val() != '' ? employeeDTO.nationalID = $('#NationalID').val() : employeeDTO.iqamaNumber = $('#IqamaNumber').val();
-        employeeDTO.firstNameAr = $('#FirstNameAr').val()
-        employeeDTO.secondNameAr = $('#SecondNameAr').val()
-        $('#ThirdNameAr').val() != '' ? employeeDTO.thirdNameAr = $('#ThirdNameAr').val() : valid = false;
-        employeeDTO.lastNameAr = $('#LastNameAr').val()
-        employeeDTO.firstNameEn = $('#FirstNameEn').val()
-        employeeDTO.secondNameEn = $('#SecondNameEn').val()
-        $('#ThirdNameEn').val() != '' ? employeeDTO.thirdNameEn = $('#ThirdNameEn').val() : valid = false;
-        employeeDTO.lastNameEn = $('#LastNameEn').val()
-        employeeDTO.birthDate = '' + $('#birthyear').val() + '-' + $('#birthmonth').val() + '-' + $('#birthday').val()
-        employeeDTO.gender = $('#gender').val()
-        employeeDTO.nationalityCode = $('#nation').val()
-        employeeDTO.religion = $('#religion').val()
-        $('#bloodType').val() != 0 ? employeeDTO.bloodType = $('#bloodType').val() : valid = false;
-        $('#Phone').val() != '' ? employeeDTO.mobile = $('#Phone').val() : valid = false;
-        $('#Email').val() != '' ? employeeDTO.emailAddress = $('#Email').val() : valid = false;
-        $('#maritalStatus').val() != '0' ? employeeDTO.maritalStatus = $('#maritalStatus').val() : valid = false;
-        employeeDTO.healthstatus = $('#healthstatus').val()
-        employeeDTO.employeeStatusCode = $('#employeeStatusCode').val()
-        employeeDTO.jobNumber = $('#JobNumber').val()
-        employeeDTO.jobClassCode = $('#jobClassCode').val()
-        $('#jobClassDescription').val() != '' ? employeeDTO.jobClassDescription = $('#jobClassDescription').val() : valid = false;
-        $('#jobCatChain').val() != '' ? employeeDTO.jobCatChain = $('#jobCatChain').val() : valid = false;
-        employeeDTO.jobNameCode = $('#JobNameCode').val()
-        $('#jobNameDescription').val() != '' ? employeeDTO.jobNameDescription = $('#jobNameDescription').val() : valid = false;
-        employeeDTO.employmentTypeCode = $('#employmentTypeCode').val()
-        $('#employmentTypeDescription').val() != '' ? employeeDTO.employmentTypeDescription = $('#employmentTypeDescription').val() : valid = false;
-        employeeDTO.rankCode = $('#rankCode').val()
-        employeeDTO.stepId = $('#stepID').val()
-        employeeDTO.stepDate = '' + $('#birthyear').val() + '-' + $('#birthmonth').val() + '-' + $('#birthday').val()
-        $('#gradeyear').val() != '' && $('#grademonth').val() != '' && $('#gradeday').val() != '' ? employeeDTO.firstGradeDate = '' + $('#gradeyear').val() + '-' + $('#grademonth').val() + '-' + $('#gradeday').val() : valid = false;
-        $('#actualJobNameCode').val() != '0' ? employeeDTO.actualJobNameCode = $('#actualJobNameCode').val() : valid = false;
-        $('#actualJobNameDescription').val() != '' ? employeeDTO.actualJobNameDescription = $('#actualJobNameDescription').val() : valid = false;
-        $('#JobOrganizationID').val() != '' ? employeeDTO.jobOrganizationId = $('#JobOrganizationID').val() : valid = false;
-        employeeDTO.jobOrganizationName = $('#JobOrganizationName').val()
-        employeeDTO.basicSalary = $('#basicSalary').val()
-        $('#actualOrganizationID').val() != '' ? employeeDTO.actualOrganizationId = $('#actualOrganizationID').val() : valid = false;
-        $('#actualOrganizationName').val() != '' ? employeeDTO.actualOrganizationName = $('#actualOrganizationName').val() : valid = false;
-        $('#Promotionyear').val() != '' && $('#Promotionmonth').val() != '' && $('#Promotionday').val() != '' ? employeeDTO.nextPromotionDate = '' + $('#Promotionyear').val() + '-' + $('#Promotionmonth').val() + '-' + $('#Promotionday').val() : valid = false;
-        $('#Hireyear').val() != '' && $('#Hiremonth').val() != '' && $('#Hireday').val() != '' ? employeeDTO.governmentHireDate = $('#Hireyear').val() + '-' + $('#Hiremonth').val() + '-' + $('#Hireday').val() : valid = false;
-        employeeDTO.locationCode = $('#loaction').val()
-        employeeDTO.ministryHireDate = '' + $('#MinistryHireyear').val() + '-' + $('#MinistryHiremonth').val() + '-' + $('#MinistryHireday').val()
-        $('#RemainingAnnualBalance').val() != '' ? employeeDTO.remainingAnnualBalance = $('#RemainingAnnualBalance').val() : valid = false;
-        $('#RemainingBusinessBalance').val() != '' ? employeeDTO.remainingBusinessBalance = $('#RemainingBusinessBalance').val() : valid = false;
-        $('#TransactionCode').val() != '0' ? employeeDTO.transactionCode = $('#TransactionCode').val() : valid = false;
+        employeeDTO.firstNameAr = $('#FirstNameAr').val();
+        employeeDTO.secondNameAr = $('#SecondNameAr').val();
+        employeeDTO.thirdNameAr = $('#ThirdNameAr').val();
+        employeeDTO.lastNameAr = $('#LastNameAr').val();
+        employeeDTO.firstNameEn = $('#FirstNameEn').val();
+        employeeDTO.secondNameEn = $('#SecondNameEn').val();
+        employeeDTO.thirdNameEn = $('#ThirdNameEn').val();
+        employeeDTO.lastNameEn = $('#LastNameEn').val();
+        employeeDTO.birthDate = '' + $('#birthyear').val() + '-' + $('#birthmonth').val() + '-' + $('#birthday').val();
+        employeeDTO.gender = $('#gender').val();
+        employeeDTO.nationalityCode = $('#nation').val();
+        employeeDTO.religion = $('#religion').val() == "0" ? null : $('#religion').val();
+        employeeDTO.bloodType = $('#bloodType').val() == "0" ? null : $('#bloodType').val();
+        employeeDTO.mobile = $('#Phone').val();
+        employeeDTO.emailAddress = $('#Email').val();
+        employeeDTO.maritalStatus = $('#maritalStatus').val();
+        employeeDTO.healthstatus = $('#healthstatus').val();
+        employeeDTO.employeeStatusCode = $('#employeeStatusCode').val();
+        employeeDTO.jobNumber = $('#JobNumber').val();
+        employeeDTO.jobClassCode = $('#jobClassCode').val();
+        employeeDTO.jobClassDescription = $('#jobClassDescription').val();
+        employeeDTO.jobCatChain = $('#jobCatChain').val();
+        employeeDTO.jobNameCode = $('#JobNameCode').val();
+        employeeDTO.jobNameDescription = $('#jobNameDescription').val();
+        employeeDTO.employmentTypeCode = $('#employmentTypeCode').val();
+        employeeDTO.employmentTypeDescription = $('#employmentTypeDescription').val();
+        employeeDTO.rankCode = $('#rankCode').val();
+        employeeDTO.stepId = $('#stepID').val();
+        employeeDTO.stepDate = '' + $('#birthyear').val() + '-' + $('#birthmonth').val() + '-' + $('#birthday').val();
+        employeeDTO.firstGradeDate = '' + $('#gradeyear').val() + '-' + $('#grademonth').val() + '-' + $('#gradeday').val();
+        employeeDTO.actualJobNameCode = $('#actualJobNameCode').val();
+        employeeDTO.actualJobNameDescription = $('#actualJobNameDescription').val();
+        employeeDTO.jobOrganizationId = $('#JobOrganizationID').val();
+        employeeDTO.jobOrganizationName = $('#JobOrganizationName').val();
+        employeeDTO.basicSalary = $('#basicSalary').val();
+        employeeDTO.actualOrganizationId = $('#actualOrganizationID').val();
+        employeeDTO.actualOrganizationName = $('#actualOrganizationName').val();
+        employeeDTO.nextPromotionDate = '' + $('#Promotionyear').val() + '-' + $('#Promotionmonth').val() + '-' + $('#Promotionday').val();
+        employeeDTO.governmentHireDate = $('#Hireyear').val() + '-' + $('#Hiremonth').val() + '-' + $('#Hireday').val();
+        employeeDTO.locationCode = $('#loaction').val();
+        employeeDTO.ministryHireDate = '' + $('#MinistryHireyear').val() + '-' + $('#MinistryHiremonth').val() + '-' + $('#MinistryHireday').val();
+        employeeDTO.remainingAnnualBalance = $('#RemainingAnnualBalance').val();
+        employeeDTO.remainingBusinessBalance = $('#RemainingBusinessBalance').val();
+        employeeDTO.transactionCode = $('#TransactionCode').val();
         $('#IsActive').val() == "true" ? employeeDTO.isActive = true : employeeDTO.isActive = false
-        employeeDTO.terminationReasonCode = $('#TerminationReasonCode').val()
-        employeeDTO.terminationDate = '' + $('#Terminationyear').val() + '-' + $('#Terminationmonth').val() + '-' + $('#Terminationday').val()
+        employeeDTO.terminationReasonCode = $('#TerminationReasonCode').val();
+        employeeDTO.terminationDate = '' + $('#Terminationyear').val() + '-' + $('#Terminationmonth').val() + '-' + $('#Terminationday').val();
         $.ajax({
             type: "Post",
             url: "/api/Employees/PostEmployee",
@@ -277,7 +154,7 @@ function PostEmployee() {
                 Swal.fire({
                     position: 'center',
                     icon: 'success',
-                    title: 'تمت الاضافة بنجاح ورقم الطلب ' + result.requestNumber + '',
+                    title: 'تمت الاضافة بنجاح ورقم الطلب' + result.requestNumber + '',
                     showConfirmButton: false,
                     timer: 20000
                 })
@@ -294,6 +171,7 @@ function PostEmployee() {
         });
     }
 }
+
 function ValidateForm() {
     if ($('#NationalID').val() == '' && $('#IqamaNumber').val() == '') {
         ValidationAlert('لابد من ادخال رقم الاقامة او الهوية الوطنية')

@@ -60,97 +60,143 @@ namespace Eltezam_Coded.Services
 
         public async Task<ResponseModel> BulkDeleteEmployee(List<long> Ids)
         {
-            foreach (var Id in Ids)
+            try
             {
-                await context.Database.ExecuteSqlRawAsync($"Delete EmployeeVacations where EmpoyeeId={Id} ");
-                await context.Database.ExecuteSqlRawAsync($"Delete EmployeeJobs where EmployeeId={Id} ");
-                await context.Database.ExecuteSqlRawAsync($"Delete EmployeeAppraisalInfo where EmployeeId={Id} ");
-                await context.Database.ExecuteSqlRawAsync($"Delete EmployeePayments where EmployeeId={Id} ");
-                await context.Database.ExecuteSqlRawAsync($"Delete EmployeeQualifications where EmployeeId={Id} ");
-                await context.Database.ExecuteSqlRawAsync($"Delete Jobs where EmployeeId={Id} ");
-                await context.Database.ExecuteSqlRawAsync($"Delete Employees where EmployeeId={Id} ");
+                foreach (var Id in Ids)
+                {
+                    await context.Database.ExecuteSqlRawAsync($"Delete EmployeeVacations where EmpoyeeId={Id} ");
+                    await context.Database.ExecuteSqlRawAsync($"Delete EmployeeJobs where EmployeeId={Id} ");
+                    await context.Database.ExecuteSqlRawAsync($"Delete EmployeeAppraisalInfo where EmployeeId={Id} ");
+                    await context.Database.ExecuteSqlRawAsync($"Delete EmployeePayments where EmployeeId={Id} ");
+                    await context.Database.ExecuteSqlRawAsync($"Delete EmployeeQualifications where EmployeeId={Id} ");
+                    await context.Database.ExecuteSqlRawAsync($"Delete Jobs where EmployeeId={Id} ");
+                    await context.Database.ExecuteSqlRawAsync($"Delete Employees where EmployeeId={Id} ");
+                }
 
-
+                return new ResponseModel { IsSuccess = true, StatusCode = 204, Data = Ids };
             }
-            return new ResponseModel { IsSuccess = true, StatusCode = 204, Data = Ids };
+            catch (Exception ex)
+            {
+                return new ResponseModel { IsSuccess = false, Data = ex.Message, StatusCode = 500 };
+            }
         }
 
         public async Task<ResponseModel> BulkDeleteEmployeeAppraisal(List<int> Ids)
         {
-            foreach (var Id in Ids)
+            try
             {
-                await context.Database.ExecuteSqlRawAsync($"Delete EmployeeAppraisalInfo where AppraisalID={Id} ");
+                foreach (var Id in Ids)
+                {
+                    await context.Database.ExecuteSqlRawAsync($"Delete EmployeeAppraisalInfo where AppraisalID={Id} ");
+                }
 
-
+                return new ResponseModel { IsSuccess = true, StatusCode = 204, Data = Ids };
             }
-            return new ResponseModel { IsSuccess = true, StatusCode = 204, Data = Ids };
+            catch (Exception ex)
+            {
+                return new ResponseModel { IsSuccess = false, Data = ex.Message, StatusCode = 500 };
+            }
         }
 
         public async Task<ResponseModel> BulkDeleteEmployeeHistorical(List<int> Ids)
         {
-            foreach (var Id in Ids)
+            try
             {
-                await context.Database.ExecuteSqlRawAsync($"Delete EmployeeJobs where EmployeeJobId={Id} ");
+                foreach (var Id in Ids)
+                {
+                    await context.Database.ExecuteSqlRawAsync($"Delete EmployeeJobs where EmployeeJobId={Id} ");
 
 
+                }
+                return new ResponseModel { IsSuccess = true, StatusCode = 204, Data = Ids };
             }
-            return new ResponseModel { IsSuccess = true, StatusCode = 204, Data = Ids };
+            catch (Exception ex)
+            {
+                return new ResponseModel { IsSuccess = false, Data = ex.Message, StatusCode = 500 };
+            }
         }
 
         public async Task<ResponseModel> BulkDeleteEmployeePays(List<int> Ids)
         {
-            foreach (var Id in Ids)
+            try
             {
-                await context.Database.ExecuteSqlRawAsync($"Delete EmployeePayments where EmployeePayId={Id} ");
-
-
+                foreach (var Id in Ids)
+                {
+                    await context.Database.ExecuteSqlRawAsync($"Delete EmployeePayments where EmployeePayId={Id} ");
+                }
+                return new ResponseModel { IsSuccess = true, StatusCode = 204, Data = Ids };
             }
-            return new ResponseModel { IsSuccess = true, StatusCode = 204, Data = Ids };
+            catch (Exception ex)
+            {
+                return new ResponseModel { IsSuccess = false, Data = ex.Message, StatusCode = 500 };
+            }
         }
 
         public async Task<ResponseModel> BulkDeleteEmployeeQualification(List<int> Ids)
         {
-            foreach (var Id in Ids)
+            try
             {
-                await context.Database.ExecuteSqlRawAsync($"Delete EmployeeQualifications where QualificationID={Id} ");
-
-
+                foreach (var Id in Ids)
+                {
+                    await context.Database.ExecuteSqlRawAsync($"Delete EmployeeQualifications where QualificationID={Id} ");
+                }
+                return new ResponseModel { IsSuccess = true, StatusCode = 204, Data = Ids };
             }
-            return new ResponseModel { IsSuccess = true, StatusCode = 204, Data = Ids };
+            catch (Exception ex)
+            {
+                return new ResponseModel { IsSuccess = false, Data = ex.Message, StatusCode = 500 };
+            }
         }
 
         public async Task<ResponseModel> BulkDeleteEmployeeVacation(List<int> Ids)
         {
-            foreach (var Id in Ids)
+            try
             {
-                await context.Database.ExecuteSqlRawAsync($"Delete EmployeeVacations where VacationId={Id} ");
-
-
+                foreach (var Id in Ids)
+                {
+                    await context.Database.ExecuteSqlRawAsync($"Delete EmployeeVacations where VacationId={Id} ");
+                }
+                return new ResponseModel { IsSuccess = true, StatusCode = 204, Data = Ids };
             }
-            return new ResponseModel { IsSuccess = true, StatusCode = 204, Data = Ids };
+            catch (Exception ex)
+            {
+                return new ResponseModel { IsSuccess = false, Data = ex.Message, StatusCode = 500 };
+            }
         }
 
         public async Task<ResponseModel> BulkDeleteJob(List<int> Ids)
         {
-            foreach (var Id in Ids)
+            try
             {
-                await context.Database.ExecuteSqlRawAsync($"Delete Jobs where JobPositionCode={Id} ");
+                foreach (var Id in Ids)
+                {
+                    await context.Database.ExecuteSqlRawAsync($"Delete Jobs where JobPositionCode={Id} ");
+                }
 
-
+                return new ResponseModel { IsSuccess = true, StatusCode = 204, Data = Ids };
             }
-            return new ResponseModel { IsSuccess = true, StatusCode = 204, Data = Ids };
+            catch (Exception ex)
+            {
+                return new ResponseModel { IsSuccess = false, Data = ex.Message, StatusCode = 500 };
+            }
         }
 
         public async Task<List<EmployeeAppraisalInfo>> GetAppraisalForSoap(List<long> Ids)
         {
             List<EmployeeAppraisalInfo> EmployeeAppraisalInfo = new();
-            foreach (var Id in Ids)
+            try
             {
-                EmployeeAppraisalInfo.Add(await context.EmployeeAppraisalInfos.Where(x => x.AppraisalId == Id).SingleOrDefaultAsync());
+                foreach (var Id in Ids)
+                {
+                    EmployeeAppraisalInfo.Add(await context.EmployeeAppraisalInfos.Where(x => x.AppraisalId == Id).SingleOrDefaultAsync());
 
+                }
             }
-            return EmployeeAppraisalInfo;
+            catch (Exception ex)
+            {
+            }
 
+            return EmployeeAppraisalInfo;
         }
 
 
@@ -533,20 +579,36 @@ namespace Eltezam_Coded.Services
         public async Task<List<EmployeeHistoricalInfo>> GetHistoricalInfoForSoap(List<long> Ids)
         {
             var data = new List<EmployeeHistoricalInfo>();
-            foreach (var Id in Ids)
+
+            try
             {
-                data.Add(await context.EmployeeHistoricalInfos.Where(x => x.Id == Id).SingleOrDefaultAsync());
+                foreach (var Id in Ids)
+                {
+                    data.Add(await context.EmployeeHistoricalInfos.Where(x => x.Id == Id).SingleOrDefaultAsync());
+                }
             }
+            catch (Exception ex)
+            {
+            }
+
             return data;
         }
 
         public async Task<List<Job>> GetJobInfoForSoap(List<long> Ids)
         {
             var data = new List<Job>();
-            foreach (var Id in Ids)
+
+            try
             {
-                data.Add(await context.Jobs.Where(x => x.JobPositionCode == Id).SingleOrDefaultAsync());
+                foreach (var Id in Ids)
+                {
+                    data.Add(await context.Jobs.Where(x => x.JobPositionCode == Id).SingleOrDefaultAsync());
+                }
             }
+            catch (Exception ex)
+            {
+            }
+
             return data;
         }
 
@@ -616,15 +678,23 @@ namespace Eltezam_Coded.Services
         public async Task<List<EmployeePayment>> GetPayslipInfoForSoap(List<long> Ids)
         {
             var data = new List<EmployeePayment>();
-            foreach (var Id in Ids)
+            try
             {
-                data.Add(await context.EmployeePayments.Where(x => x.EmployeePayId == Id).SingleOrDefaultAsync());
+                foreach (var Id in Ids)
+                {
+                    data.Add(await context.EmployeePayments.Where(x => x.EmployeePayId == Id).SingleOrDefaultAsync());
+                }
             }
+            catch (Exception ex)
+            {
+            }
+
             return data;
         }
 
         public async Task<List<EmployeeQualification>> GetQualificationInfoForSoap(List<long> Ids)
         {
+
             var data = new List<EmployeeQualification>();
 
             try
@@ -634,7 +704,10 @@ namespace Eltezam_Coded.Services
                     data.Add(await context.EmployeeQualifications.Where(x => x.QualificationId == Id).SingleOrDefaultAsync());
                 }
             }
-            catch (Exception) { }
+            catch (Exception ex)
+            {
+            }
+
             return data;
         }
 
@@ -642,132 +715,200 @@ namespace Eltezam_Coded.Services
 
         public async Task<ResponseModel> SubmitEmployeeAppraisalInfo(EmployeeAppraisalInfoDTO employeeAppraisalInfoDTO)
         {
-            var request = new RequestIdentity();
-            request.Table = nameof(context.EmployeeAppraisalInfos);
-            await context.RequestIdentities.AddAsync(request);
-            var res = await context.SaveChangesAsync();
-            var employeeAppraisalInfo = mapper.Map<EmployeeAppraisalInfo>(employeeAppraisalInfoDTO);
-            employeeAppraisalInfo.RequestIdentityId = request.RequestNumber;
-            await context.EmployeeAppraisalInfos.AddAsync(employeeAppraisalInfo);
-            res += await context.SaveChangesAsync();
-            return res == 2 ? new ResponseModel { IsSuccess = true, RequestNumber = request.RequestNumber, Data = employeeAppraisalInfo, StatusCode = 201 } : new ResponseModel { IsSuccess = false, Data = employeeAppraisalInfoDTO, StatusCode = 400 };
+            try
+            {
+                var request = new RequestIdentity();
+                request.Table = nameof(context.EmployeeAppraisalInfos);
+                await context.RequestIdentities.AddAsync(request);
+                var res = await context.SaveChangesAsync();
+                var employeeAppraisalInfo = mapper.Map<EmployeeAppraisalInfo>(employeeAppraisalInfoDTO);
+                employeeAppraisalInfo.RequestIdentityId = request.RequestNumber;
+                await context.EmployeeAppraisalInfos.AddAsync(employeeAppraisalInfo);
+                res += await context.SaveChangesAsync();
+                return res == 2 ? new ResponseModel { IsSuccess = true, RequestNumber = request.RequestNumber, Data = employeeAppraisalInfo, StatusCode = 201 } : new ResponseModel { IsSuccess = false, Data = employeeAppraisalInfoDTO, StatusCode = 400 };
+            }
+            catch (Exception ex)
+            {
+                return new ResponseModel { IsSuccess = false, Data = ex.Message, StatusCode = 500 };
+            }
         }
 
         public async Task<ResponseModel> SubmitEmployeeHistoricalInfo(EmployeeJobDTO employeeJobDTO)
         {
-            var request = new RequestIdentity();
-            request.Table = nameof(context.EmployeeJobs);
-            await context.RequestIdentities.AddAsync(request);
-            var res = await context.SaveChangesAsync();
-            var employeeJob = mapper.Map<EmployeeJob>(employeeJobDTO);
-            employeeJob.RequestIdentityId = request.RequestNumber;
+            try
+            {
+                var request = new RequestIdentity();
+                request.Table = nameof(context.EmployeeJobs);
+                await context.RequestIdentities.AddAsync(request);
+                var res = await context.SaveChangesAsync();
+                var employeeJob = mapper.Map<EmployeeJob>(employeeJobDTO);
+                employeeJob.RequestIdentityId = request.RequestNumber;
 
-            await context.EmployeeJobs.AddAsync(employeeJob);
-            res += await context.SaveChangesAsync();
-            return res == 2 ? new ResponseModel { IsSuccess = true, RequestNumber = request.RequestNumber, Data = employeeJob, StatusCode = 201 } : new ResponseModel { IsSuccess = false, Data = employeeJobDTO, StatusCode = 400 };
+                await context.EmployeeJobs.AddAsync(employeeJob);
+                res += await context.SaveChangesAsync();
+                return res == 2 ? new ResponseModel { IsSuccess = true, RequestNumber = request.RequestNumber, Data = employeeJob, StatusCode = 201 } : new ResponseModel { IsSuccess = false, Data = employeeJobDTO, StatusCode = 400 };
+            }
+            catch (Exception ex)
+            {
+                return new ResponseModel { IsSuccess = false, Data = ex.Message, StatusCode = 500 };
+            }
         }
 
         public async Task<ResponseModel> SubmitEmployeeInfo(EmployeeDTO employeeDTO)
         {
-            var request = new RequestIdentity();
-            request.Table = nameof(context.Employees);
-            await context.RequestIdentities.AddAsync(request);
-            var res = await context.SaveChangesAsync();
-            var employee = mapper.Map<Employee>(employeeDTO);
-            employee.RequestIdentityId = request.RequestNumber;
-            await context.Employees.AddAsync(employee);
-            res += await context.SaveChangesAsync();
-            return res == 2 ? new ResponseModel { IsSuccess = true, Data = employee, RequestNumber = request.RequestNumber, StatusCode = 201 } : new ResponseModel { IsSuccess = false, Data = employeeDTO, StatusCode = 400 };
+            try
+            {
+                var GenderCode123 = context.Codes.Where(a => a.Id == employeeDTO.Gender && a.CategoryId == 8).FirstOrDefault()?.Code1;
+                employeeDTO.GenderCode = context.Codes.Where(a => a.Id == employeeDTO.Gender && a.CategoryId == 8).FirstOrDefault()?.Code1;
+                employeeDTO.ReligionCode = context.Codes.Where(a => a.Id == employeeDTO.Religion && a.CategoryId == 11).FirstOrDefault()?.Code1;
+                employeeDTO.BloodTypeCode = context.Codes.Where(a => a.Id == employeeDTO.BloodType && a.CategoryId == 10).FirstOrDefault()?.Code1;
+                employeeDTO.MaritalStatusCode = context.Codes.Where(a => a.Id == employeeDTO.MaritalStatus && a.CategoryId == 17).FirstOrDefault()?.Code1;
+                employeeDTO.HealthstatusCode = context.Codes.Where(a => a.Id == employeeDTO.Healthstatus && a.CategoryId == 18).FirstOrDefault()?.Code1;
+
+                var request = new RequestIdentity();
+                request.Table = nameof(context.Employees);
+                await context.RequestIdentities.AddAsync(request);
+                var res = await context.SaveChangesAsync();
+                var employee = mapper.Map<Employee>(employeeDTO);
+                employee.RequestIdentityId = request.RequestNumber;
+                await context.Employees.AddAsync(employee);
+                res += await context.SaveChangesAsync();
+                return res == 2 ? new ResponseModel { IsSuccess = true, Data = employee, RequestNumber = request.RequestNumber, StatusCode = 201 } : new ResponseModel { IsSuccess = false, Data = employeeDTO, StatusCode = 400 };
+            }
+            catch (Exception ex)
+            {
+                return new ResponseModel { IsSuccess = false, Data = ex.Message, StatusCode = 500 };
+            }
         }
 
         public async Task<ResponseModel> SubmitEmployeePaysInfo(EmployeePaymentDTO employeePaymentDTO)
         {
-            var request = new RequestIdentity();
-            request.Table = nameof(context.EmployeePayments);
+            try
+            {
+                var request = new RequestIdentity();
+                request.Table = nameof(context.EmployeePayments);
 
-            await context.RequestIdentities.AddAsync(request);
-            var res = await context.SaveChangesAsync();
-            var employeePayment = mapper.Map<EmployeePayment>(employeePaymentDTO);
-            employeePayment.RequestIdentityId = request.RequestNumber;
-            await context.EmployeePayments.AddAsync(employeePayment);
-            res += await context.SaveChangesAsync();
-            return res == 2 ? new ResponseModel { IsSuccess = true, RequestNumber = request.RequestNumber, Data = employeePayment, StatusCode = 201 } : new ResponseModel { IsSuccess = false, Data = employeePaymentDTO, StatusCode = 400 };
+                await context.RequestIdentities.AddAsync(request);
+                var res = await context.SaveChangesAsync();
+                var employeePayment = mapper.Map<EmployeePayment>(employeePaymentDTO);
+                employeePayment.RequestIdentityId = request.RequestNumber;
+                await context.EmployeePayments.AddAsync(employeePayment);
+                res += await context.SaveChangesAsync();
+                return res == 2 ? new ResponseModel { IsSuccess = true, RequestNumber = request.RequestNumber, Data = employeePayment, StatusCode = 201 } : new ResponseModel { IsSuccess = false, Data = employeePaymentDTO, StatusCode = 400 };
+            }
+            catch (Exception ex)
+            {
+                return new ResponseModel { IsSuccess = false, Data = ex.Message, StatusCode = 500 };
+            }
         }
 
         public async Task<ResponseModel> SubmitEmployeeQualificationInfo(EmployeeQualificationDTO employeeQualificationDTO)
         {
-            var request = new RequestIdentity();
-            request.Table = nameof(context.EmployeeQualifications);
-            await context.RequestIdentities.AddAsync(request);
-            var res = await context.SaveChangesAsync();
-            var employeeQualification = mapper.Map<EmployeeQualification>(employeeQualificationDTO);
-            employeeQualification.RequestIdentityId = request.RequestNumber;
-            await context.EmployeeQualifications.AddAsync(employeeQualification);
-            res += await context.SaveChangesAsync();
-            return res == 1 ? new ResponseModel { IsSuccess = true, RequestNumber = request.RequestNumber, Data = employeeQualification, StatusCode = 201 } : new ResponseModel { IsSuccess = false, Data = employeeQualificationDTO, StatusCode = 400 };
-
+            try
+            {
+                var request = new RequestIdentity();
+                request.Table = nameof(context.EmployeeQualifications);
+                await context.RequestIdentities.AddAsync(request);
+                var res = await context.SaveChangesAsync();
+                var employeeQualification = mapper.Map<EmployeeQualification>(employeeQualificationDTO);
+                employeeQualification.RequestIdentityId = request.RequestNumber;
+                await context.EmployeeQualifications.AddAsync(employeeQualification);
+                res += await context.SaveChangesAsync();
+                return res == 1 ? new ResponseModel { IsSuccess = true, RequestNumber = request.RequestNumber, Data = employeeQualification, StatusCode = 201 } : new ResponseModel { IsSuccess = false, Data = employeeQualificationDTO, StatusCode = 400 };
+            }
+            catch (Exception ex)
+            {
+                return new ResponseModel { IsSuccess = false, Data = ex.Message, StatusCode = 500 };
+            }
         }
 
         public async Task<ResponseModel> SubmitEmployeeQualificationInfo(List<EmployeeQualificationDTO> employeeQualificationDTOs)
         {
-            var request = new RequestIdentity();
-            request.Table = nameof(context.EmployeeQualifications);
-            await context.RequestIdentities.AddAsync(request);
-            var res = await context.SaveChangesAsync();
-            var employeeQualifications = mapper.Map<List<EmployeeQualification>>(employeeQualificationDTOs);
-            foreach (var item in employeeQualifications)
+            try
             {
-                item.RequestIdentityId = request.RequestNumber;
+                var request = new RequestIdentity();
+                request.Table = nameof(context.EmployeeQualifications);
+                await context.RequestIdentities.AddAsync(request);
+                var res = await context.SaveChangesAsync();
+                var employeeQualifications = mapper.Map<List<EmployeeQualification>>(employeeQualificationDTOs);
+                foreach (var item in employeeQualifications)
+                {
+                    item.RequestIdentityId = request.RequestNumber;
 
+                }
+                await context.EmployeeQualifications.AddRangeAsync(employeeQualifications);
+                res += await context.SaveChangesAsync();
+                return res == employeeQualificationDTOs.Count + 1 ? new ResponseModel { IsSuccess = true, Data = employeeQualifications, RequestNumber = request.RequestNumber, StatusCode = 201 } : new ResponseModel { IsSuccess = false, Data = employeeQualificationDTOs, StatusCode = 400 };
             }
-            await context.EmployeeQualifications.AddRangeAsync(employeeQualifications);
-            res += await context.SaveChangesAsync();
-            return res == employeeQualificationDTOs.Count + 1 ? new ResponseModel { IsSuccess = true, Data = employeeQualifications, RequestNumber = request.RequestNumber, StatusCode = 201 } : new ResponseModel { IsSuccess = false, Data = employeeQualificationDTOs, StatusCode = 400 };
+            catch (Exception ex)
+            {
+                return new ResponseModel { IsSuccess = false, Data = ex.Message, StatusCode = 500 };
+            }
         }
 
         public async Task<ResponseModel> SubmitEmployeeVacationInfo(EmployeeVacationDTO employeeVacationDTO)
         {
-            var request = new RequestIdentity();
-            request.Table = nameof(context.EmployeeVacations);
-            await context.RequestIdentities.AddAsync(request);
-            var res = await context.SaveChangesAsync();
-            var employeeVacation = mapper.Map<EmployeeVacation>(employeeVacationDTO);
-            employeeVacation.RequestIdentityId = request.RequestNumber;
+            try
+            {
+                var request = new RequestIdentity();
+                request.Table = nameof(context.EmployeeVacations);
+                await context.RequestIdentities.AddAsync(request);
+                var res = await context.SaveChangesAsync();
+                var employeeVacation = mapper.Map<EmployeeVacation>(employeeVacationDTO);
+                employeeVacation.RequestIdentityId = request.RequestNumber;
 
-            await context.EmployeeVacations.AddAsync(employeeVacation);
-            res += await context.SaveChangesAsync();
-            return res == 2 ? new ResponseModel { IsSuccess = true, Data = employeeVacation, RequestNumber = request.RequestNumber, StatusCode = 201 } : new ResponseModel { IsSuccess = false, Data = employeeVacationDTO, StatusCode = 400 };
+                await context.EmployeeVacations.AddAsync(employeeVacation);
+                res += await context.SaveChangesAsync();
+                return res == 2 ? new ResponseModel { IsSuccess = true, Data = employeeVacation, RequestNumber = request.RequestNumber, StatusCode = 201 } : new ResponseModel { IsSuccess = false, Data = employeeVacationDTO, StatusCode = 400 };
+            }
+            catch (Exception ex)
+            {
+                return new ResponseModel { IsSuccess = false, Data = ex.Message, StatusCode = 500 };
+            }
         }
 
         public async Task<ResponseModel> SubmitEmployeeVacationInfo(List<EmployeeVacationDTO> employeeVacationDTOs)
         {
-            var request = new RequestIdentity();
-            request.Table = nameof(context.EmployeeVacations);
-            await context.RequestIdentities.AddAsync(request);
-            var res = await context.SaveChangesAsync();
-            var employeeVacations = mapper.Map<List<EmployeeVacation>>(employeeVacationDTOs);
-            foreach (var employeeVacation in employeeVacations)
+            try
             {
-                //employeeVacation.Period = (int)employeeVacation.EndDate.Subtract(employeeVacation.StartDate).TotalDays;
-                employeeVacation.RequestIdentityId = request.RequestNumber;
-                await context.EmployeeVacations.AddAsync(employeeVacation);
-                res += await context.SaveChangesAsync();
+                var request = new RequestIdentity();
+                request.Table = nameof(context.EmployeeVacations);
+                await context.RequestIdentities.AddAsync(request);
+                var res = await context.SaveChangesAsync();
+                var employeeVacations = mapper.Map<List<EmployeeVacation>>(employeeVacationDTOs);
+                foreach (var employeeVacation in employeeVacations)
+                {
+                    //employeeVacation.Period = (int)employeeVacation.EndDate.Subtract(employeeVacation.StartDate).TotalDays;
+                    employeeVacation.RequestIdentityId = request.RequestNumber;
+                    await context.EmployeeVacations.AddAsync(employeeVacation);
+                    res += await context.SaveChangesAsync();
+                }
+                return res == employeeVacationDTOs.Count + 1 ? new ResponseModel { IsSuccess = true, Data = employeeVacations, RequestNumber = request.RequestNumber, StatusCode = 201 } : new ResponseModel { IsSuccess = false, Data = employeeVacationDTOs, StatusCode = 400 };
             }
-
-            return res == employeeVacationDTOs.Count + 1 ? new ResponseModel { IsSuccess = true, Data = employeeVacations, RequestNumber = request.RequestNumber, StatusCode = 201 } : new ResponseModel { IsSuccess = false, Data = employeeVacationDTOs, StatusCode = 400 };
+            catch (Exception ex)
+            {
+                return new ResponseModel { IsSuccess = false, Data = ex.Message, StatusCode = 500 };
+            }
         }
 
         public async Task<ResponseModel> SubmitJobInfo(JobDTO jobDTO)
         {
-            var request = new RequestIdentity();
-            request.Table = nameof(context.Jobs);
-            await context.RequestIdentities.AddAsync(request);
-            var res = await context.SaveChangesAsync();
-            var job = mapper.Map<Job>(jobDTO);
-            job.RequestIdentityId = request.RequestNumber;
-            await context.Jobs.AddAsync(job);
-            res += await context.SaveChangesAsync();
-            return res == 2 ? new ResponseModel { IsSuccess = true, Data = job, RequestNumber = request.RequestNumber, StatusCode = 201 } : new ResponseModel { IsSuccess = false, Data = jobDTO, StatusCode = 400 };
+            try
+            {
+                var request = new RequestIdentity();
+                request.Table = nameof(context.Jobs);
+                await context.RequestIdentities.AddAsync(request);
+                var res = await context.SaveChangesAsync();
+                var job = mapper.Map<Job>(jobDTO);
+                job.RequestIdentityId = request.RequestNumber;
+                await context.Jobs.AddAsync(job);
+                res += await context.SaveChangesAsync();
+                return res == 2 ? new ResponseModel { IsSuccess = true, Data = job, RequestNumber = request.RequestNumber, StatusCode = 201 } : new ResponseModel { IsSuccess = false, Data = jobDTO, StatusCode = 400 };
+            }
+            catch (Exception ex)
+            {
+                return new ResponseModel { IsSuccess = false, Data = ex.Message, StatusCode = 500 };
+            }
         }
 
         public Task<bool> SaveResponseNumber(int ServiceEntity, long Id, string? ResponseNumber)

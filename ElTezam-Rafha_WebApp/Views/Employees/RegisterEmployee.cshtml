@@ -8,22 +8,22 @@
     <div class="form-group row">
 
         <div class="col-lg-6 d-flex flex-row">
-            <span style="color:red">*</span><input type="text" class="form-control" id="NationalID" placeholder="رقم الهوية الوطنية" required />
+            <span style="color:red">*</span><input type="text" class="form-control" id="NationalID" placeholder="رقم الهوية الوطنية" pattern="[0-9]*" required value="1234567890"/>
         </div>
 
         <div class="col-lg-6">
-            <input type="text" class="form-control" id="IqamaNumber" placeholder="رقم الأقامة">
+            <input type="text" class="form-control" id="IqamaNumber" placeholder="رقم الأقامة" pattern="[0-9]*" >
         </div>
     </div>
     <div class="form-group row justify-content-around">
 
         <div class="col-lg-6 d-flex flex-row">
-            <span style="color:red">*</span><input type="text" class="form-control" id="SecondNameAr" placeholder="الأسم الأب" required>
+            <span style="color:red">*</span><input type="text" class="form-control" id="SecondNameAr" placeholder="الأسم الأب" required value="يوزر">
         </div>
         <div class="col-lg-6 d-flex flex-row">
-            <span style="color:red">*</span><input type="text" class="form-control" id="FirstNameAr" placeholder="الأسم الأول" required>
+            <span style="color:red">*</span><input type="text" class="form-control" id="FirstNameAr" placeholder="الأسم الأول" required value="تيست">
         </div>   <div class="col-lg-6 d-flex flex-row">
-            <span style="color:red">*</span><input type="text" class="form-control" id="LastNameAr" placeholder="الإسم العائلة" required>
+            <span style="color:red">*</span><input type="text" class="form-control" id="LastNameAr" placeholder="الإسم العائلة" required value="عائله">
         </div>  <div class="col-lg-6">
             <input type="text" class="form-control" id="ThirdNameAr" placeholder="الإسم الجد">
         </div>
@@ -31,13 +31,13 @@
     <div class="form-group row justify-content-around">
 
         <div class="col-lg-6 d-flex flex-row">
-            <span style="color:red">*</span><input type="text" class="form-control" id="SecondNameEn" placeholder="الإسم الأب باللغة الانجليزية" required>
+            <span style="color:red">*</span><input type="text" class="form-control" id="SecondNameEn" placeholder="الإسم الأب باللغة الانجليزية" required value="test">
         </div>   <div class="col-lg-6 d-flex flex-row">
-            <span style="color:red">*</span><input type="text" class="form-control" id="FirstNameEn" placeholder="الإسم الأول  باللغة الانجليزية" required>
+            <span style="color:red">*</span><input type="text" class="form-control" id="FirstNameEn" placeholder="الإسم الأول  باللغة الانجليزية" required value="user">
         </div>   <div class="col-lg-6 d-flex flex-row">
-            <span style="color:red">*</span><input type="text" class="form-control" id="LastNameEn" placeholder=" الإسم العائلة   باللغة الانجليزية" required>
+            <span style="color:red">*</span><input type="text" class="form-control" id="LastNameEn" placeholder=" الإسم العائلة   باللغة الانجليزية" required value="fam">
         </div>  <div class="col-lg-6">
-            <input type="text" class="form-control" id="ThirdNameEn" placeholder="الإسم الجد  باللغة الانجليزية">
+            <input type="text" class="form-control" id="ThirdNameEn" placeholder="الإسم الجد باللغة الانجليزية">
         </div>
     </div>
     <div class="form-group row">
@@ -97,7 +97,7 @@
         </div>
 
         <div class="col-lg-6 d-flex flex-row">
-            <span style="color:red">*</span><input type="text" class="form-control" id="JobNumber" placeholder="رقم الوظيفة" required>
+            <span style="color:red">*</span><input type="text" class="form-control" id="JobNumber" placeholder="رقم الوظيفة" required value="1">
 
         </div>
 
@@ -156,7 +156,7 @@
         <div class="col-lg-6 d-flex flex-row">
             <span style="color:red">*</span><select class="form-control select2Class" id="IsActive" name="val-skill" required>
                 <option>على رأس العمل ؟</option>
-                <option value="true">نعم</option>
+                <option value="true" selected>نعم</option>
                 <option value="false">لا</option>
             </select>
         </div>
@@ -182,7 +182,7 @@
         </div>
 
         <div class="col-lg-4 d-flex flex-row">
-            <span style="color:red">*</span><input type="text" class="form-control" id="stepID" placeholder="الدرجة" required>
+            <span style="color:red">*</span><input type="text" class="form-control" id="stepID" placeholder="الدرجة" required value="3">
         </div>
     </div>
 
@@ -209,7 +209,7 @@
         <div class="col-lg-4 d-flex flex-row">
             <span style="color:red">*</span><select class="form-control select2Class" onchange="renderDate('birthday', 'birthmonth')" id="birthmonth" name="val-skill" required>
                 <option value=""> اختر شهر الميلاد</option>
-                <option value="01">محرم</option>
+                <option value="01" selected>محرم</option>
                 <option value="02">صفر</option>
                 <option value="03">ربيع الأول</option>
                 <option value="04">	ربيع الآخر	</option>
@@ -280,7 +280,7 @@
         <div class="col-lg-4 d-flex flex-row">
             <span style="color:red">*</span><select class="form-control select2Class" onchange="renderDate('gradeday', 'grademonth')" id="grademonth" name="val-skill" required>
                 <option value=""> اختر شهر الحلول في المرتبة</option>
-                <option value="01">محرم</option>
+                <option value="01" selected>محرم</option>
                 <option value="02">صفر</option>
                 <option value="03">ربيع الأول</option>
                 <option value="04">	ربيع الآخر	</option>
@@ -309,16 +309,16 @@
 
         </div>
         <div class="col-lg-4 d-flex flex-row">
-            <span style="color:red">*</span><input type="text" class="form-control" id="JobOrganizationID" placeholder="رمز الإدارة التي تتبعها الوظيفة" required>
+            <span style="color:red">*</span><input type="text" class="form-control" id="JobOrganizationID" placeholder="رمز الإدارة التي تتبعها الوظيفة" required value="903/266">
         </div>
 
         <div class="col-lg-4 d-flex flex-row">
-            <span style="color:red">*</span><input type="text" class="form-control" id="JobOrganizationName" placeholder="مسمى الإدارة التي تتبعها الوظيفة" required>
+            <span style="color:red">*</span><input type="text" class="form-control" id="JobOrganizationName" placeholder="مسمى الإدارة التي تتبعها الوظيفة" required value="بلدية طريف">
         </div>
 
 
         <div class="col-lg-4 d-flex flex-row">
-            <span style="color:red">*</span><input type="number" min="1000" class="form-control" id="basicSalary" placeholder="الراتب الأساسي" required>
+            <span style="color:red">*</span><input type="number" min="1000" class="form-control" id="basicSalary" placeholder="الراتب الأساسي" required value="5000">
         </div>
 
         <div class="col-lg-4">
@@ -439,7 +439,7 @@
         <div class="col-lg-4 d-flex flex-row">
             <span style="color:red">*</span><select class="form-control select2Class" onchange="renderDate('MinistryHireday', 'MinistryHiremonth')" id="MinistryHiremonth" name="val-skill" required>
                 <option value=""> اختر شهر التعيين في الوزارة</option>
-                <option value="01">محرم</option>
+                <option value="01" selected>محرم</option>
                 <option value="02">صفر</option>
                 <option value="03">ربيع الأول</option>
                 <option value="04">	ربيع الآخر	</option>
@@ -493,7 +493,7 @@
 
     </div>
     <div class="form-group row ">
-        <input type="submit" class="btn btn-sent btn-add2" onclick="PostEmployee()" value="اضافة">
+        <input class="btn btn-sent btn-add2" onclick="PostEmployee()" value="اضافة">
         @*<div class="btn btn-sent btn-add2" onclick="PostEmployee()">اضافة</div>*@
     </div>
 

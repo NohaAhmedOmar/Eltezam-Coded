@@ -12,9 +12,9 @@
 <form class="form-valide" action="#" method="post">
 
    
-    <div class="form-group row justify-content-around">
+    <div class="form-group row ">
         <div class="col-lg-4 d-flex flex-row">
-            <span style="color:red">*</span><select class="form-control select2Class" id="employees" name="val-skill" required>
+            <span style="color:red">*</span><select class="form-control select2Class form-select " id="employees" name="val-skill" required>
             </select>
         </div>
 
@@ -113,13 +113,48 @@
         </div>
 
     </div>
+
+    <div class="form-group row">
+        <div class="col-lg-4">
+            <select class="form-control select2Class" id="Vacantday" name="val-skill">
+                <option value="">اختر يوم  شغر الوظيفة </option>
+            </select>
+        </div>
+        <div class="col-lg-4">
+            <select class="form-control select2Class" id="Vacantyear" name="val-skill">
+                <option value="">اختر سنة  شغر الوظيفة </option>
+
+                @for (int i = 1300; i <= year; i++)
+                {
+                    <option value="@i">  @i </option>
+                }
+            </select>
+        </div>
+        <div class="col-lg-4">
+            <select class="form-control select2Class" onchange="renderDate('Vacantday', 'Vacantmonth')" id="Vacantmonth" name="val-skill">
+                <option value=""> اختر شهر  شغر الوظيفة</option>
+                <option value="01">محرم</option>
+                <option value="02">صفر</option>
+                <option value="03">ربيع الأول</option>
+                <option value="04">	ربيع الآخر	</option>
+                <option value="05">جمادى الأولى</option>
+                <option value="06">جمادى الآخرة	</option>
+                <option value="07">رجب</option>
+                <option value="08">شعبان</option>
+                <option value="09">رمضان</option>
+                <option value="10">شوال</option>
+                <option value="11">ذو القعدة	</option>
+                <option value="12">ذو الحجة		</option>
+            </select>
+        </div>
+    </div>
     <div class="form-group row">
        
-        <div class="col-lg-6 d-flex flex-row">
+        <div class="col-lg-4 d-flex flex-row">
             <span style="color:red">*</span><select class="form-control select2Class" id="PositionStatus" name="val-skill" required>
             </select>
         </div>
-        <div class="col-lg-6 d-flex flex-row">
+        <div class="col-lg-4 d-flex flex-row">
             <span style="color:red">*</span><select class="form-control select2Class" id="EmploymentTypeCode" name="val-skill" required>
             </select>
 
@@ -159,40 +194,7 @@
             <textarea class="form-control h-150px" rows="4" cols="30" id="TransactionDescription" placeholder="وصف الإجراء الوظيفي"></textarea>
         </div>
     </div>
-    <div class="form-group row">
-        <div class="col-lg-4">
-            <select class="form-control select2Class" id="Vacantday" name="val-skill">
-                <option value="">اختر يوم  شغر الوظيفة </option>
-            </select>
-        </div>
-        <div class="col-lg-4">
-            <select class="form-control select2Class" id="Vacantyear" name="val-skill">
-                <option value="">اختر سنة  شغر الوظيفة </option>
-
-                @for (int i = 1300; i <= year; i++)
-                {
-                    <option value="@i">  @i </option>
-                }
-            </select>
-        </div>
-        <div class="col-lg-4">
-            <select class="form-control select2Class" onchange="renderDate('Vacantday', 'Vacantmonth')" id="Vacantmonth" name="val-skill">
-                <option value=""> اختر شهر  شغر الوظيفة</option>
-                <option value="01">محرم</option>
-                <option value="02">صفر</option>
-                <option value="03">ربيع الأول</option>
-                <option value="04">	ربيع الآخر	</option>
-                <option value="05">جمادى الأولى</option>
-                <option value="06">جمادى الآخرة	</option>
-                <option value="07">رجب</option>
-                <option value="08">شعبان</option>
-                <option value="09">رمضان</option>
-                <option value="10">شوال</option>
-                <option value="11">ذو القعدة	</option>
-                <option value="12">ذو الحجة		</option>
-            </select>
-        </div>
-    </div>
+   
 
     @*        <div class="form-group row">
     <div class="col-lg-3">
