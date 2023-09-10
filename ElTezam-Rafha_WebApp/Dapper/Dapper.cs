@@ -15,7 +15,7 @@ namespace ElTezam_Coded_WebApp.DapperORM
         {
             // ConnectionString = "Data Source=SQL8004.site4now.net;Initial Catalog=db_a911ee_abnuur22;User Id=db_a911ee_abnuur22_admin;Password=Engabnuur22#";
             //ConnectionString = "Data Source=localhost;Initial Catalog=Coded;Trusted_Connection=False; MultipleActiveResultSets=true;User ID=Coded;Password=Coded@123456";
-            ConnectionString = "Data Source=INTALIO-NOHAESS\\MSSQLSERVER03;Initial Catalog=Coded;Trusted_Connection=False; MultipleActiveResultSets=true;User ID=sa;Password=123456";
+            ConnectionString = "Data Source=INTALIO-NOHAESS\\MSSQLSERVER03;Initial Catalog=Rafha;Trusted_Connection=False; MultipleActiveResultSets=true;User ID=sa;Password=123456";
             Db = new SqlConnection(ConnectionString);
         }
         public static Task<Dapper<T>> GetInstance()
