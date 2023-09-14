@@ -648,7 +648,8 @@ namespace Eltezam_Coded.Services
                     {
                         return new
                         {
-                            Id = a.JobPositionCode,
+                            Id = a.Id,
+                            JobPositionCode = a.JobPositionCode,
                             Name = a.Employee != null ? (a.Employee.FirstNameAr + " " + a.Employee.SecondNameAr + " " + a.Employee.ThirdNameAr + " " + a.Employee.LastNameAr) : string.Empty,
                             JobNumber = a.JobNumber,
                             JobClassCode = context.Codes.Where(x => x.Code1 == a.JobClassCode && x.CategoryId == 7).Select(x => x.Value),
@@ -711,7 +712,25 @@ namespace Eltezam_Coded.Services
             return data;
         }
 
-        public async Task<List<EmployeeVacation>> GetVacationInfoForSoap(List<long> Ids) => await context.EmployeeVacations.ToListAsync();
+        public async Task<List<EmployeeVacation>> GetVacationInfoForSoap(List<long> Ids)
+        {
+
+            var data = new List<EmployeeVacation>();
+
+            try
+            {
+                foreach (var Id in Ids)
+                {
+                    data.Add(await context.EmployeeVacations.Where(x => x.VacationId == Id).FirstOrDefaultAsync());
+                }
+            }
+            catch (Exception ex)
+            {
+            }
+
+            return data;
+        }
+        //public async Task<List<EmployeeVacation>> GetVacationInfoForSoap(List<long> Ids) => await context.EmployeeVacations.ToListAsync();
 
         public async Task<ResponseModel> SubmitEmployeeAppraisalInfo(EmployeeAppraisalInfoDTO employeeAppraisalInfoDTO)
         {
