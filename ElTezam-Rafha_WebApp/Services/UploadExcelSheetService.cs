@@ -71,17 +71,6 @@ namespace ElTezam_Coded_WebApp.Services
                     System.Data.DataTable dt = new System.Data.DataTable();
                     conString = string.Format(conString, filePath);
 
-                    //Microsoft.Office.Interop.Excel.Application xlApp = new Microsoft.Office.Interop.Excel.Application();
-                    //Microsoft.Office.Interop.Excel.Workbook excelBook = xlApp.Workbooks.Open(filePath);
-
-                    //String[] excelSheets = new String[excelBook.Worksheets.Count];
-                    //int i = 0;
-                    //foreach (Microsoft.Office.Interop.Excel.Worksheet wSheet in excelBook.Worksheets)
-                    //{
-                    //    excelSheets[i] = wSheet.Name;
-                    //    i++;
-                    //}
-
                     using (OleDbConnection connExcel = new OleDbConnection(conString))
                     {
                         using (OleDbCommand cmdExcel = new OleDbCommand())
@@ -513,7 +502,7 @@ namespace ElTezam_Coded_WebApp.Services
                             JobNumber = JobNumber,
                             JobClassCode = dt.Rows[i]["JobClassCode"].ToString(),
                             JobNameCode = dt.Rows[i]["JobNameCode"].ToString(),
-                            // JobPositionCode = JobPositionCode,
+                            JobPositionCode = dt.Rows[i]["JobPositionCode"].ToString(),
                             PositionOrganizationId = JobOrganizationID,
                             PositionOrganizationName = dt.Rows[i]["JobOrganizationName"].ToString(),
                             PositionStatus = dt.Rows[i]["PositionStatus"].ToString(),

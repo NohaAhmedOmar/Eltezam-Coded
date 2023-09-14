@@ -3,7 +3,7 @@
     public record EmployeeJobDTO
     {
         public int EmployeeJobId { get; set; }
-        public int? SubAgencyId { get; set; } = 2183;
+        public int? SubAgencyId { get; set; } = 2122;
         public Int64 EmployeeId { get; set; }
         public string? NationalId { get; set; }
         public string? IqamaNumber { get; set; }

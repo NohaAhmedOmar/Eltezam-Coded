@@ -5,7 +5,7 @@ namespace ElTezam_Coded_WebApp.DomainModels
 {
     public partial class Job
     {
-        public int JobPositionCode { get; set; }
+        public int Id { get; set; }
         public int? SubAgencyId { get; set; }
         public long? EmployeeId { get; set; }
         public string? NationalId { get; set; }
@@ -28,6 +28,7 @@ namespace ElTezam_Coded_WebApp.DomainModels
         public string? VacantDate { get; set; }
         public string LastUpdateDate { get; set; } = null!;
         public int? RequestIdentityId { get; set; }
+        public string JobPositionCode { get; set; } = null!;
 
         public virtual Employee? Employee { get; set; }
         public virtual RequestIdentity? RequestIdentity { get; set; }

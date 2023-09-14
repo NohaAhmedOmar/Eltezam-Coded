@@ -44,7 +44,7 @@ namespace ElTezam_Coded_WebApp.DomainModels
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Data Source=INTALIO-NOHAESS\\MSSQLSERVER03;Initial Catalog=Coded;Trusted_Connection=False; MultipleActiveResultSets=true;User ID=sa;Password=123456");
+                optionsBuilder.UseSqlServer("Data Source=INTALIO-NOHAESS\\MSSQLSERVER03;Initial Catalog=Rafha;Trusted_Connection=False; MultipleActiveResultSets=true;User ID=sa;Password=123456");
             }
         }
 
@@ -584,13 +584,13 @@ namespace ElTezam_Coded_WebApp.DomainModels
 
             modelBuilder.Entity<Job>(entity =>
             {
-                entity.HasKey(e => e.JobPositionCode);
-
                 entity.Property(e => e.EndDate).HasMaxLength(12);
 
                 entity.Property(e => e.JobCatChain).HasMaxLength(50);
 
                 entity.Property(e => e.JobNameDescription).HasMaxLength(100);
+
+                entity.Property(e => e.JobPositionCode).HasMaxLength(25);
 
                 entity.Property(e => e.LastUpdateDate).HasMaxLength(12);
 

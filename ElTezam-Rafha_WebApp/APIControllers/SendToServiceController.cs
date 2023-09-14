@@ -35,7 +35,7 @@ namespace ElTezam_Coded_WebApp.APIControllers
 <soapenv:Body>
 <tem:SubmitEmployeeInfo>
 <tem:employeeInfo>
-<SubAgencyID>2183</SubAgencyID>
+<SubAgencyID>2122</SubAgencyID>
 <EmployeeInfo>
 <ver:EmployeeID>{data.EmployeeId}</ver:EmployeeID>
 <ver:PersonalInfo>
@@ -121,7 +121,7 @@ namespace ElTezam_Coded_WebApp.APIControllers
 
             // Create the <SubAgencyID> element
             XmlElement subAgencyIDElement = xmlDoc.CreateElement("SubAgencyID");
-            subAgencyIDElement.InnerText = "2183";
+            subAgencyIDElement.InnerText = "2122";
             employeeInfo.AppendChild(subAgencyIDElement);
 
             XmlElement EmployeeInfo = xmlDoc.CreateElement("tem", "EmployeeInfo");
@@ -327,7 +327,7 @@ namespace ElTezam_Coded_WebApp.APIControllers
             submitAppraisalInfoElement.AppendChild(employeeAppraisalInfoElement);
 
             XmlElement subAgencyIDElement = xmlDoc.CreateElement("SubAgencyID");
-            subAgencyIDElement.InnerText = "2183";
+            subAgencyIDElement.InnerText = "2122";
             employeeAppraisalInfoElement.AppendChild(subAgencyIDElement);
 
             XmlElement personIdentifierElement = xmlDoc.CreateElement("PersonIdentifier");
@@ -450,7 +450,7 @@ namespace ElTezam_Coded_WebApp.APIControllers
             SubmitEmployeeHistoricalInfo.AppendChild(employeeHistoricalInfo);
 
             XmlElement subAgencyIDElement = xmlDoc.CreateElement("SubAgencyID");
-            subAgencyIDElement.InnerText = "2183";
+            subAgencyIDElement.InnerText = "2122";
             employeeHistoricalInfo.AppendChild(subAgencyIDElement);
 
             XmlElement employeeIDElement = xmlDoc.CreateElement("EmployeeID");
@@ -570,7 +570,7 @@ namespace ElTezam_Coded_WebApp.APIControllers
 </soapenv:Envelope>";
                     }
                     var result = await sendSoapRequestService.SendRequest("http://10.10.10.42/GSBExpress/Employment/MCSEltezamData/2.0/EltezamDataService.svc", body, "http://tempuri.org/IEltezamDataService/SubmitJobInfo");
-                    bool isSaved = await saveResponseNumber(4, (long)data.JobPositionCode, result.SOAPRequestNumber);
+                    bool isSaved = await saveResponseNumber(4, (long)data.Id, result.SOAPRequestNumber);
                 }
 
                 return Ok(results);
@@ -613,7 +613,7 @@ namespace ElTezam_Coded_WebApp.APIControllers
 
             // Create the <SubAgencyID> element
             XmlElement subAgencyIDElement = xmlDoc.CreateElement("SubAgencyID");
-            subAgencyIDElement.InnerText = "2183";
+            subAgencyIDElement.InnerText = "2122";
             jobInfo.AppendChild(subAgencyIDElement);
             if (data.PositionStatus == AllEnums.PositionStatusType.Occupied.ToString())
             {
@@ -778,7 +778,7 @@ namespace ElTezam_Coded_WebApp.APIControllers
             SubmitEmployeePayslipInfo.AppendChild(employeePayslipInfo);
 
             XmlElement subAgencyIDElement = xmlDoc.CreateElement("SubAgencyID");
-            subAgencyIDElement.InnerText = "2183";
+            subAgencyIDElement.InnerText = "2122";
             employeePayslipInfo.AppendChild(subAgencyIDElement);
 
             XmlElement employeeIDElement = xmlDoc.CreateElement("EmployeeID");
@@ -935,7 +935,7 @@ namespace ElTezam_Coded_WebApp.APIControllers
 
             // Create the <SubAgencyID> element
             XmlElement subAgencyIDElement = xmlDoc.CreateElement("SubAgencyID");
-            subAgencyIDElement.InnerText = "2183";
+            subAgencyIDElement.InnerText = "2122";
             employeeQualificationInfo.AppendChild(subAgencyIDElement);
 
             XmlElement employeeIDElement = xmlDoc.CreateElement("EmployeeID");
@@ -1057,7 +1057,7 @@ namespace ElTezam_Coded_WebApp.APIControllers
             SubmitEmployeeVacationInfo.AppendChild(employeeVacationInfo);
 
             XmlElement subAgencyIDElement = xmlDoc.CreateElement("SubAgencyID");
-            subAgencyIDElement.InnerText = "2183";
+            subAgencyIDElement.InnerText = "2122";
             employeeVacationInfo.AppendChild(subAgencyIDElement);
 
             XmlElement employeeIDElement = xmlDoc.CreateElement("EmployeeID");

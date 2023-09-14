@@ -602,7 +602,7 @@ namespace Eltezam_Coded.Services
             {
                 foreach (var Id in Ids)
                 {
-                    data.Add(await context.Jobs.Where(x => x.JobPositionCode == Id).SingleOrDefaultAsync());
+                    data.Add(await context.Jobs.Where(x => x.Id == Id).SingleOrDefaultAsync());
                 }
             }
             catch (Exception ex)

@@ -29,22 +29,6 @@ namespace ElTezam_Coded_WebApp.Services
         {
             try
             {
-                string xml = @$"<s:Envelope xmlns:s=""http://schemas.xmlsoap.org/soap/envelope/"">
-	<s:Body xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
-		<SubmitEmployeeInfoResponse xmlns=""http://tempuri.org/"">
-			<SubmitEmployeeInfoResult>
-				<submitEmployeeInfoResponseDetailObject xmlns="""">
-					<RequestNumber xmlns=""http://yefi.gov.sa/MCS/EltezamDataSchema/xml/schemas/version2.0"">20230815107901282</RequestNumber>
-				</submitEmployeeInfoResponseDetailObject>
-			</SubmitEmployeeInfoResult>
-		</SubmitEmployeeInfoResponse>
-	</s:Body>
-</s:Envelope>";
-
-                XElement xmlDocumentWithoutNs = RemoveAllNamespaces(XElement.Parse(xml));
-                string RequestNumber = xmlDocumentWithoutNs.Value;
-                //var xmlWithoutNs = xmlDocumentWithoutNs.ToString();
-
                 // SOAP request payload
                 string soapRequest = Body;
                 //  httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/soap+xml"));
@@ -63,24 +47,7 @@ namespace ElTezam_Coded_WebApp.Services
                     string soapResponse = await response.Content.ReadAsStringAsync();
 
                     XElement SOAPxmlDocumentWithoutNs = RemoveAllNamespaces(XElement.Parse(soapResponse));
-                    string SOAPRequestNumber = xmlDocumentWithoutNs.Value;
-                    //var xmlWithoutNs = xmlDocumentWithoutNs.ToString();
-
-                    //var doc = XDocument.Parse(soapResponse);
-                    //var respo = JsonConvert.SerializeXNode(doc);
-
-                    //var doc2 = new XmlDocument();
-                    //doc2.LoadXml(soapResponse);
-                    //var respo2 = JsonConvert.SerializeXmlNode(doc2);
-
-                    //var doc3 = XDocument.Parse(soapResponse);
-                    //var respo3 = JsonConvert.SerializeXNode(doc3, Newtonsoft.Json.Formatting.Indented);
-
-                    //var doc4 = XDocument.Parse(soapResponse);
-                    //var respo4 = JsonConvert.SerializeXNode(doc, Newtonsoft.Json.Formatting.None, omitRootObject: true);
-
-                    // Process the SOAP response as needed
-                    // ...
+                    string SOAPRequestNumber = SOAPxmlDocumentWithoutNs.Value;
 
                     return new ResponseModel { Data = response.ReasonPhrase, StatusCode = (int)response.StatusCode, IsSuccess = response.IsSuccessStatusCode, SOAPRequestNumber = SOAPRequestNumber };
                 }
