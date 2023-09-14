@@ -71,41 +71,15 @@ namespace ElTezam_Coded_WebApp.Services
                     System.Data.DataTable dt = new System.Data.DataTable();
                     conString = string.Format(conString, filePath);
 
+                    //Microsoft.Office.Interop.Excel.Application xlApp = new Microsoft.Office.Interop.Excel.Application();
+                    //Microsoft.Office.Interop.Excel.Workbook excelBook = xlApp.Workbooks.Open(filePath);
 
-                    Spreadsheet document = new Spreadsheet();
-                    //document.LoadFromFile(@"C:\Users\Intalio\Downloads\submitEmployeeInfo.xlsx");
-                    //document.LoadFromFile(@"E:\Noha\Projects\ForNuhaEltezam\MCS-Eltezam Data Dictionary v3.25.xlsx");
-                    Worksheet worksheet = document.Workbook.Worksheets.ByName("submitEmployeeInfo");
-                    List<string> workSheetNames = new List<string>();
-
-                    for (int i = 1; i < document.Workbook.Worksheets.Count; i++)
-                    {
-                        workSheetNames.Add(document.Workbook.Worksheets[i].Name);
-                    }
-
-                    //for (int i = 0; i < 2; i++)
+                    //String[] excelSheets = new String[excelBook.Worksheets.Count];
+                    //int i = 0;
+                    //foreach (Microsoft.Office.Interop.Excel.Worksheet wSheet in excelBook.Worksheets)
                     //{
-                    //    for (int j = 0; j < 3; j++)
-                    //    {
-                    //        //Console.WriteLine(worksheet.Cell(i, j));
-                    //    }
-                    //}
-                    //document.Close();
-                    //Console.ReadKey();
-                    //Microsoft.Office.Interop.Excel.Application application =
-                    //    new Microsoft.Office.Interop.Excel.Application();
-
-
-                    //Microsoft.Office.Interop.Excel.Workbook workBook = application.Workbooks.Open(filePath);
-
-                    //string workbookName = workBook.Name;
-                    //int numberOfSheets = workBook.Sheets.Count;
-
-                    //List<string> workSheetNames = new List<string>();
-                    //for (int i = 1; i <= workBook.Sheets.Count; i++)
-                    //{
-                    //    Microsoft.Office.Interop.Excel.Worksheet worksheet = (Microsoft.Office.Interop.Excel.Worksheet)workBook.Worksheets[i];
-                    //    workSheetNames.Add(worksheet.Name);
+                    //    excelSheets[i] = wSheet.Name;
+                    //    i++;
                     //}
 
                     using (OleDbConnection connExcel = new OleDbConnection(conString))
@@ -120,75 +94,44 @@ namespace ElTezam_Coded_WebApp.Services
                                 connExcel.Open();
                                 DataTable dtExcelSchema;
                                 dtExcelSchema = connExcel.GetOleDbSchemaTable(OleDbSchemaGuid.Tables, null);
-                                // string sheetName = "Sheet1";
                                 connExcel.Close();
 
-                                List<string> sheetNamesD = new List<string>
+                                string SheetName = "Sheet1";
+
+                                if (filename.Contains("submitEmployeeInfo"))
                                 {
-  //"JobClassCode",
-  //"EmployeeStatusCode",
-  //"JobNameCode",
-  //"EmploymentTypeCode",
-  //"RankCode",
-                                };
-
-                                //foreach (var sheet in workSheetNames)
-                                //{
-                                //    if (sheetNamesD.Contains(sheet))
-                                //    { 
-
-                                //    }
-                                //}
-
-                                //string SheetName = "EmployeeStatusCode";
-                                ////Read Data from First Sheet.
-                                //connExcel.Open();
-                                //cmdExcel.CommandText = $"SELECT * From [{SheetName}$]";
-                                //odaExcel.SelectCommand = cmdExcel;
-                                //odaExcel.Fill(dt);
-                                //_ = table switch
-                                //{
-                                //    Table.Employees => await BulkEmployees(dt),
-                                //    Table.EmployeePayments => BulkEmployeePayments(dt),
-                                //    Table.EmployeeAppraisalInfo => BulkEmployeeAppraisals(dt),
-                                //    Table.EmployeeQualifications => BulkEmployeeQualifications(dt),
-                                //    Table.EmployeeVacations => BulkEmployeeVacations(dt),
-                                //    Table.EmployeeJobs => BulkEmloyeeHistoricalInfo(dt),
-                                //    Table.Jobs => BulkJobs(dt),
-                                //    Table.Codes => BulkCodes(dt),
-
-                                //};
-                                //foreach (var sheet in workSheetNames)
-                                //{
-                                //    if (sheetNamesD.Contains(sheet))
-                                //    {
-                                //        string SheetName = sheet;
-                                //        //Read Data from First Sheet.
-                                //        connExcel.Open();
-                                //        cmdExcel.CommandText = $"SELECT * From [{SheetName}$]";
-                                //        odaExcel.SelectCommand = cmdExcel;
-                                //        odaExcel.Fill(dt);
-                                //        _ = table switch
-                                //        {
-                                //            Table.Employees => await BulkEmployees(dt),
-                                //            Table.EmployeePayments => BulkEmployeePayments(dt),
-                                //            Table.EmployeeAppraisalInfo => BulkEmployeeAppraisals(dt),
-                                //            Table.EmployeeQualifications => BulkEmployeeQualifications(dt),
-                                //            Table.EmployeeVacations => BulkEmployeeVacations(dt),
-                                //            Table.EmployeeJobs => BulkEmloyeeHistoricalInfo(dt),
-                                //            Table.Jobs => BulkJobs(dt),
-                                //            Table.Codes => BulkCodes(dt),
-
-                                //        };
-                                //    }
-                                //    connExcel.Close();
-
-                                //}
-
-
-                                    string SheetName = "submitEmployeeHistoricalInfo";
-                                    //Read Data from First Sheet.
-                                    connExcel.Open();
+                                    SheetName = "submitEmployeeInfo";
+                                }
+                                else if (filename.Contains("submitJobInfo"))
+                                {
+                                    SheetName = "submitJobInfo";
+                                }
+                                else if (filename.Contains("submitEmployeeQualificationInfo"))
+                                {
+                                    SheetName = "submitEmployeeQualificationInfo";
+                                }
+                                else if (filename.Contains("submitEmployeeHistoricalInfo"))
+                                {
+                                    SheetName = "submitEmployeeHistoricalInfo";
+                                }
+                                else if (filename.Contains("submitEmployeeVacationInfo"))
+                                {
+                                    SheetName = "submitEmployeeVacationInfo";
+                                }
+                                else if (filename.Contains("submitEmployeeAppraisalInfo"))
+                                {
+                                    SheetName = "submitEmployeeAppraisalInfo";
+                                }
+                                else if (filename.Contains("submitEmployePayslipInfo_7-2023"))
+                                {
+                                    SheetName = "submitEmployeePayslipInfo";
+                                }
+                                else if (filename.Contains("submitEmployePayslipInfo_8-2023"))
+                                {
+                                    SheetName = "submitEmployeePayslipInfo";
+                                }
+                                //Read Data from First Sheet.
+                                connExcel.Open();
                                     cmdExcel.CommandText = $"SELECT * From [{SheetName}$]";
                                     odaExcel.SelectCommand = cmdExcel;
                                     odaExcel.Fill(dt);
@@ -319,31 +262,34 @@ namespace ElTezam_Coded_WebApp.Services
                     Code _consolidationSetCode = _context.Codes.Where(a => a.Code1 == dt.Rows[i]["ConsolidationSetID"].ToString() && a.CategoryId == 13).FirstOrDefault();
                     Code _elementCode = _context.Codes.Where(a => a.Code1 == dt.Rows[i]["ElementCode"].ToString() && a.CategoryId == 14).FirstOrDefault();
 
-                    var employeePayment = new EmployeePayment
+                    if (emp != null)
                     {
-                        EmployeeId = emp.EmployeeId,
-                        NationalId = dt.Rows[i]["PersonIdentifier"].ToString(),
-                        EmployeeName = dt.Rows[i]["EmployeeName"].ToString(),
-                        EmploymentTypeCode = _employmentTypeCode.Code1,
-                        EmploymentTypeCodeId = _employmentTypeCode.Id,
-                        RankCode = _rankCode.Code1,
-                        RankCodeId = _rankCode.Id,
-                        StepId = StepId,
-                        HijriMonth = HijriMonth,
-                        HijriYear = HijriYear,
-                        GregorianMonth = GregorianMonth,
-                        GregorianYear = GregorianYear,
-                        PaidDate = paiddate,
-                        NetPay = NetPay,
-                        ConsolidationSetId = _consolidationSetCode.Id,
-                        ConsolidationSetCode = _consolidationSetCode.Code1,
-                        ElementCode = _elementCode.Code1,
-                        ElementCodeId = _elementCode.Id,
-                        Amount = Amount,
-                        ElementClassification = dt.Rows[i]["ElementClassification"].ToString(),
-                    };
+                        var employeePayment = new EmployeePayment
+                        {
+                            EmployeeId = emp.EmployeeId,
+                            NationalId = dt.Rows[i]["PersonIdentifier"].ToString(),
+                            EmployeeName = dt.Rows[i]["EmployeeName"].ToString(),
+                            EmploymentTypeCode = _employmentTypeCode.Code1,
+                            EmploymentTypeCodeId = _employmentTypeCode.Id,
+                            RankCode = _rankCode.Code1,
+                            RankCodeId = _rankCode.Id,
+                            StepId = StepId,
+                            HijriMonth = HijriMonth,
+                            HijriYear = HijriYear,
+                            GregorianMonth = GregorianMonth,
+                            GregorianYear = GregorianYear,
+                            PaidDate = paiddate,
+                            NetPay = NetPay,
+                            ConsolidationSetId = _consolidationSetCode.Id,
+                            ConsolidationSetCode = _consolidationSetCode.Code1,
+                            ElementCode = _elementCode.Code1,
+                            ElementCodeId = _elementCode.Id,
+                            Amount = Amount,
+                            ElementClassification = dt.Rows[i]["ElementClassification"].ToString(),
+                        };
 
-                    employeePayments.Add(employeePayment);
+                        employeePayments.Add(employeePayment);
+                    }
                 }
                 _context.EmployeePayments.AddRange(employeePayments);
                 int res = _context.SaveChanges();
@@ -417,9 +363,15 @@ namespace ElTezam_Coded_WebApp.Services
                             MajorCodeId = _majorCode.Id,
                             Grade = dt.Rows[i]["Grade"].ToString()
                         };
-                        _context.EmployeeQualifications.Add(employeeQualification);
-                        _context.SaveChanges();
-                        employeeQualifications.Add(employeeQualification);
+                        try
+                        {
+                            _context.EmployeeQualifications.Add(employeeQualification);
+                            _context.SaveChanges();
+                            employeeQualifications.Add(employeeQualification);
+                        }
+                        catch (Exception)
+                        {
+                        }
                     }
                 }
                 //_context.EmployeeQualifications.AddRange(employeeQualifications);
@@ -448,7 +400,7 @@ namespace ElTezam_Coded_WebApp.Services
 
                         Code _vacationCode = _context.Codes.Where(a => a.Code1 == dt.Rows[i]["VacationCode"].ToString() && a.CategoryId == 12).FirstOrDefault();
 
-                        var employeeVacation = new EmployeeVacation
+                        EmployeeVacation employeeVacation = new EmployeeVacation
                         {
                             EmpoyeeId = emp.EmployeeId,
                             VacationCode = _vacationCode.Code1,
@@ -461,6 +413,10 @@ namespace ElTezam_Coded_WebApp.Services
                         };
 
                         employeeVacations.Add(employeeVacation);
+                    }
+                    else
+                    {
+                        
                     }
                 }
                 _context.EmployeeVacations.AddRange(employeeVacations);
@@ -512,6 +468,10 @@ namespace ElTezam_Coded_WebApp.Services
                             LastUpdateDate = dt.Rows[i]["LastUpdateDate"].ToString(),
                         };
                         employeeHistoricalList.Add(employeeHistorical);
+                    }
+                    else
+                    {
+
                     }
                 }
                 _context.EmployeeHistoricalInfos.AddRange(employeeHistoricalList);
