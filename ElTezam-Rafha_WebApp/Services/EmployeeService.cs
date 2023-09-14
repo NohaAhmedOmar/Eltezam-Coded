@@ -930,7 +930,7 @@ namespace Eltezam_Coded.Services
                         obj = context.ServiceResponses.Where(a => a.HistoricalId == Id && a.ServiceEntity == ServiceEntity).FirstOrDefault();
                         break;
                     case 4:
-                        obj = context.ServiceResponses.Where(a => a.EmployeeJobId == Id && a.ServiceEntity == ServiceEntity).FirstOrDefault();
+                        obj = context.ServiceResponses.Where(a => a.JobId == Id && a.ServiceEntity == ServiceEntity).FirstOrDefault();
                         break;
                     case 5:
                         obj = context.ServiceResponses.Where(a => a.EmployeePayId == Id && a.ServiceEntity == ServiceEntity).FirstOrDefault();
@@ -969,7 +969,7 @@ namespace Eltezam_Coded.Services
                             obj.HistoricalId = Id;
                             break;
                         case 4:
-                            obj.EmployeeJobId = (int?)Id;
+                            obj.JobId = (int?)Id;
                             break;
                         case 5:
                             obj.EmployeePayId = (int?)Id;

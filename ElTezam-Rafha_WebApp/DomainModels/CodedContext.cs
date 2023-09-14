@@ -44,7 +44,7 @@ namespace ElTezam_Coded_WebApp.DomainModels
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Data Source=INTALIO-NOHAESS\\MSSQLSERVER03;Initial Catalog=Rafha;Trusted_Connection=False; MultipleActiveResultSets=true;User ID=sa;Password=123456");
+                optionsBuilder.UseSqlServer("Data Source=INTALIO-NOHAESS\\MSSQLSERVER03;Initial Catalog=Coded;Trusted_Connection=False; MultipleActiveResultSets=true;User ID=sa;Password=123456");
             }
         }
 
@@ -675,11 +675,6 @@ namespace ElTezam_Coded_WebApp.DomainModels
                     .HasForeignKey(d => d.EmployeeId)
                     .HasConstraintName("FK__ServiceRe__Emplo__4865BE2A");
 
-                entity.HasOne(d => d.EmployeeJob)
-                    .WithMany(p => p.ServiceResponses)
-                    .HasForeignKey(d => d.EmployeeJobId)
-                    .HasConstraintName("FK__ServiceRe__Emplo__4B422AD5");
-
                 entity.HasOne(d => d.EmployeePay)
                     .WithMany(p => p.ServiceResponses)
                     .HasForeignKey(d => d.EmployeePayId)
@@ -689,6 +684,11 @@ namespace ElTezam_Coded_WebApp.DomainModels
                     .WithMany(p => p.ServiceResponses)
                     .HasForeignKey(d => d.HistoricalId)
                     .HasConstraintName("FK__ServiceRe__Histo__4A4E069C");
+
+                entity.HasOne(d => d.Job)
+                    .WithMany(p => p.ServiceResponses)
+                    .HasForeignKey(d => d.JobId)
+                    .HasConstraintName("FK__ServiceRe__JobId__52E34C9D");
 
                 entity.HasOne(d => d.Qualification)
                     .WithMany(p => p.ServiceResponses)
