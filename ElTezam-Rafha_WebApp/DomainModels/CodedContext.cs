@@ -584,13 +584,13 @@ namespace ElTezam_Coded_WebApp.DomainModels
 
             modelBuilder.Entity<Job>(entity =>
             {
-                entity.HasKey(e => e.JobPositionCode);
-
                 entity.Property(e => e.EndDate).HasMaxLength(12);
 
                 entity.Property(e => e.JobCatChain).HasMaxLength(50);
 
                 entity.Property(e => e.JobNameDescription).HasMaxLength(100);
+
+                entity.Property(e => e.JobPositionCode).HasMaxLength(25);
 
                 entity.Property(e => e.LastUpdateDate).HasMaxLength(12);
 
@@ -675,11 +675,6 @@ namespace ElTezam_Coded_WebApp.DomainModels
                     .HasForeignKey(d => d.EmployeeId)
                     .HasConstraintName("FK__ServiceRe__Emplo__4865BE2A");
 
-                entity.HasOne(d => d.EmployeeJob)
-                    .WithMany(p => p.ServiceResponses)
-                    .HasForeignKey(d => d.EmployeeJobId)
-                    .HasConstraintName("FK__ServiceRe__Emplo__4B422AD5");
-
                 entity.HasOne(d => d.EmployeePay)
                     .WithMany(p => p.ServiceResponses)
                     .HasForeignKey(d => d.EmployeePayId)
@@ -689,6 +684,11 @@ namespace ElTezam_Coded_WebApp.DomainModels
                     .WithMany(p => p.ServiceResponses)
                     .HasForeignKey(d => d.HistoricalId)
                     .HasConstraintName("FK__ServiceRe__Histo__4A4E069C");
+
+                entity.HasOne(d => d.Job)
+                    .WithMany(p => p.ServiceResponses)
+                    .HasForeignKey(d => d.JobId)
+                    .HasConstraintName("FK__ServiceRe__JobId__52E34C9D");
 
                 entity.HasOne(d => d.Qualification)
                     .WithMany(p => p.ServiceResponses)

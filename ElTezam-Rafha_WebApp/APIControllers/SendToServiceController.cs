@@ -268,7 +268,7 @@ namespace ElTezam_Coded_WebApp.APIControllers
 <soapenv:Body>
 <tem:SubmitEmployeeAppraisalInfo>
 <tem:employeeAppraisalInfo>
-<SubAgencyID>1238</SubAgencyID>
+<SubAgencyID>2183</SubAgencyID>
 <PersonIdentifier>
 <ver:NationalID>{data.NationalId}</ver:NationalID>
 </PersonIdentifier>
@@ -391,7 +391,7 @@ namespace ElTezam_Coded_WebApp.APIControllers
 <soapenv:Body>
 <tem:SubmitEmployeeHistoricalInfo>
 <tem:employeeHistoricalInfo>
-<SubAgencyID>1238</SubAgencyID>
+<SubAgencyID>2183</SubAgencyID>
 <EmployeeID>{data.EmployeeId}</EmployeeID>
 <PersonIdentifier>
 <ver:NationalID>{data.NationalId}</ver:NationalID>
@@ -522,7 +522,11 @@ namespace ElTezam_Coded_WebApp.APIControllers
 <soapenv:Body>
 <tem:SubmitJobInfo>
 <tem:jobInfo>
-<SubAgencyID>1238</SubAgencyID>
+<SubAgencyID>2183</SubAgencyID>
+<EmployeeID>{data.EmployeeId}</EmployeeID>
+<PersonIdentifier>
+<ver:NationalID>{data.NationalId}</ver:NationalID>
+</PersonIdentifier>
 <JobNumber>{data.JobNumber}</JobNumber>
 <JobClassCode>{data.JobClassCode}</JobClassCode>
 <JobNameCode>{data.JobNameCode}</JobNameCode>
@@ -547,11 +551,7 @@ namespace ElTezam_Coded_WebApp.APIControllers
 <soapenv:Body>
 <tem:SubmitJobInfo>
 <tem:jobInfo>
-<SubAgencyID>1238</SubAgencyID>
-<EmployeeID>{data.EmployeeId}</EmployeeID>
-<PersonIdentifier>
-<ver:NationalID>{data.NationalId}</ver:NationalID>
-</PersonIdentifier>
+<SubAgencyID>2183</SubAgencyID>
 <JobNumber>{data.JobNumber}</JobNumber>
 <JobClassCode>{data.JobClassCode}</JobClassCode>
 <JobNameCode>{data.JobNameCode}</JobNameCode>
@@ -570,7 +570,7 @@ namespace ElTezam_Coded_WebApp.APIControllers
 </soapenv:Envelope>";
                     }
                     var result = await sendSoapRequestService.SendRequest("http://10.10.10.42/GSBExpress/Employment/MCSEltezamData/2.0/EltezamDataService.svc", body, "http://tempuri.org/IEltezamDataService/SubmitJobInfo");
-                    bool isSaved = await saveResponseNumber(4, (long)data.JobPositionCode, result.SOAPRequestNumber);
+                    bool isSaved = await saveResponseNumber(4, (long)data.Id, result.SOAPRequestNumber);
                 }
 
                 return Ok(results);
@@ -708,7 +708,7 @@ namespace ElTezam_Coded_WebApp.APIControllers
 <soapenv:Body>
 <tem:SubmitEmployeePayslipInfo>
 <tem:employeePayslipInfo>
-<SubAgencyID>1238</SubAgencyID>
+<SubAgencyID>2183</SubAgencyID>
 <EmployeeID>{data.EmployeeId}</EmployeeID>
 <PersonIdentifier>
 <ver:NationalID>{data.NationalId}</ver:NationalID>
@@ -876,7 +876,7 @@ namespace ElTezam_Coded_WebApp.APIControllers
 <soapenv:Body>
 <tem:SubmitEmployeeQualificationInfo>
 <tem:employeeQualificationInfo>
-<SubAgencyID>1238</SubAgencyID>
+<SubAgencyID>2183</SubAgencyID>
 <EmployeeID>{data.EmployeeId}</EmployeeID>
 <PersonIdentifier>
 <ver:NationalID>{data.NationalId}</ver:NationalID>
@@ -999,7 +999,7 @@ namespace ElTezam_Coded_WebApp.APIControllers
 <soapenv:Body>
 <tem:SubmitEmployeeVacationInfo>
 <tem:employeeVacationInfo>
-<SubAgencyID>1238</SubAgencyID>
+<SubAgencyID>2183</SubAgencyID>
 <EmployeeID>{data.EmpoyeeId}</EmployeeID>
 <PersonIdentifier>
 <ver:NationalID>{data.NationalId}</ver:NationalID>

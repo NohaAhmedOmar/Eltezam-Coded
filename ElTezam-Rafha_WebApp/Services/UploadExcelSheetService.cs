@@ -553,7 +553,7 @@ namespace ElTezam_Coded_WebApp.Services
                             JobNumber = JobNumber,
                             JobClassCode = dt.Rows[i]["JobClassCode"].ToString(),
                             JobNameCode = dt.Rows[i]["JobNameCode"].ToString(),
-                            // JobPositionCode = JobPositionCode,
+                            JobPositionCode = dt.Rows[i]["JobPositionCode"].ToString(),
                             PositionOrganizationId = JobOrganizationID,
                             PositionOrganizationName = dt.Rows[i]["JobOrganizationName"].ToString(),
                             PositionStatus = dt.Rows[i]["PositionStatus"].ToString(),
